@@ -11,6 +11,48 @@
 |
 */
 
+// alles waar id in staat moet nog aangepast worden wanneer dr connectie s met dn api of als dr al data in dn database staat
+
+/* HOME */
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('home/index');
+});
+
+
+/* PARKOUR */
+
+Route::get('/parkours', function () {
+    return view('parkours/index');
+});
+
+Route::get('/parkour/{id}', function () {
+    return view('parkours/detail');
+});
+
+
+/* GROUP */
+
+Route::get('/groups', function () {
+    return view('groups/index');
+});
+
+Route::get('/group/{id}', function () {
+    return view('groups/detail');
+});
+
+
+/* USER */
+
+Route::get('/profile', function () {
+    return view('users/index');
+});
+
+//as we nog andere users hun profielen willen bekijken moet dees dr ook in komen
+Route::get('/user/{id}', function () {
+    return view('users/index');
+});
+
+Route::get('/settings', function () {
+    return view('users/settings');
 });
