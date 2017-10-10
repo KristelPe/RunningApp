@@ -19,6 +19,12 @@ Route::get('/', function () {
     return view('home/index');
 });
 
+/* LOG IN */
+
+Route::get('/login', function () {
+    return Socialite::with('strava')->redirect();
+});
+
 
 /* PARKOUR */
 
