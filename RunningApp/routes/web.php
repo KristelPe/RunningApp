@@ -16,25 +16,43 @@
 /* HOME */
 
 Route::get('/', function () {
-    return view('home/index');
+    
+
+	$user = Socialite::with('strava')->user();
+
+	if(User::where('email', '=', $user->email)){
+        echo "Auth attempt matched";
+        $checkUser = User::where('email', '=', $user->email);
+        Auth::login($checkUser);
+    }else{
+        echo "auth no attempt matched";
+        $row = new User;
+        $row->email = $user->email;
+        $row->avatar = $user->profile;
+        $row->firstname = $user->firstname;
+        $row->save();
+    }
+    echo Auth::user()->name;
+	
+	return view('home/index');
+
 });
 
 /* LOG IN */
 
 Route::get('/login', function () {
     return Socialite::with('strava')->redirect();
+
+
+
 });
 
 
 /* PARKOUR */
 
-Route::get('/parkours', function () {
-    return view('parkours/index');
-});
+route::get('parkours', 'ParkoursController@index');
 
-Route::get('/parkour/{id}', function () {
-    return view('parkours/detail');
-});
+Route::get('/parkour/{id}', 'ParkoursController@detail');
 
 
 /* GROUP */

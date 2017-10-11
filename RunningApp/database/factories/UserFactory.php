@@ -21,12 +21,15 @@ $factory->define(App\User::class, function (Faker $faker) {
     $role = $faker->randomElement(['student','teacher', 'admin']);
 
     return [
-        'name' => $faker->name($gender),
+        'FirstName' => $faker->firstName($gender),
+        'lastName' => $faker->lastName($gender),
         'avatar' => $faker->imageUrl($width = 250, $height = 250),
         'avatar_original' => $faker->imageUrl(),
         'role' => $role,
         'gender' => $gender,
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('secret'),
+        'token' => str_random(10),
+        'remember_token' => str_random(10),
     ];
 });
