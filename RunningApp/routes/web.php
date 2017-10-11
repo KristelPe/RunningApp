@@ -28,13 +28,9 @@ Route::get('/login', function () {
 
 /* PARKOUR */
 
-Route::get('/parkours', function () {
-    return view('parkours/index');
-});
+route::get('parkours', 'ParkoursController@index');
 
-Route::get('/parkour/{id}', function () {
-    return view('parkours/detail');
-});
+Route::get('/parkour/{id}', 'ParkoursController@detail');
 
 
 /* GROUP */
