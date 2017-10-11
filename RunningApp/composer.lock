@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c49666f474b962586ea52422e617f56",
+    "content-hash": "9e0b53b66038c070b3782d56a55e6b54",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2809,16 +2809,16 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v6.2.2",
+            "version": "v6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "f40f5f723880b5d7f64833c85da77cf0a25adf0c"
+                "reference": "588bff42937c1392838af58b122a568508b55567"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/f40f5f723880b5d7f64833c85da77cf0a25adf0c",
-                "reference": "f40f5f723880b5d7f64833c85da77cf0a25adf0c",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/588bff42937c1392838af58b122a568508b55567",
+                "reference": "588bff42937c1392838af58b122a568508b55567",
                 "shasum": ""
             },
             "require": {
@@ -2855,7 +2855,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2017-09-14T14:44:24+00:00"
+            "time": "2017-10-09T17:43:46+00:00"
         },
         {
             "name": "mockery/mockery",

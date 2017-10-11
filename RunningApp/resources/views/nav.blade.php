@@ -4,6 +4,11 @@
         <li><a href="/profile">Profile</a></li>
         <li><a href="/parkours">Parkour</a></li>
         <li><a href="/groups">Groups</a></li>
-		<li><a href="/login">Log in</a></li>
+        <li>
+            <a href="/login" class="login">
+                <div class="login">Log in</div>
+            </a>
+        </li>
     </ul>
 </nav>
+
