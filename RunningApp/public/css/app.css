@@ -18,7 +18,8 @@ nav {
   nav .login {
     background-color: #6B7FCC;
     color: white; }
-  nav .login:hover {
-    background-color: #5569B2; }
+  nav a:hover {
+    background-color: #5569B2;
+    color: white; }
 
 /*# sourceMappingURL=app.css.map */

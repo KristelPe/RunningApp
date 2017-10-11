@@ -6,7 +6,7 @@
         <li><a href="/groups">Groups</a></li>
         <li>
             <a href="/login" class="login">
-                <div class="login">Log in</div>
+                Log in
             </a>
         </li>
     </ul>
