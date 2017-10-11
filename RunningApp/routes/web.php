@@ -57,13 +57,9 @@ Route::get('/parkour/{id}', 'ParkoursController@detail');
 
 /* GROUP */
 
-Route::get('/groups', function () {
-    return view('groups/index');
-});
+route::get('groups', 'GroupsController@index');
 
-Route::get('/group/{id}', function () {
-    return view('groups/detail');
-});
+Route::get('/group/{id}', 'GroupsController@detail');
 
 
 /* USER */
