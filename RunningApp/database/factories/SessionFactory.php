@@ -11,7 +11,7 @@ $factory->define(App\Session::class, function (Faker $faker) {
         'startPositionLatitude' => $faker->latitude,
         'endPositionLongitude' => $faker->longitude,
         'endPositionLatitude' => $faker->latitude,
-        'groupName' => $faker->randomAscii,
+        'groupName' => str_random(10),
         'eventCountdown' => $faker->unique()->dateTime(),
     ];
 });
