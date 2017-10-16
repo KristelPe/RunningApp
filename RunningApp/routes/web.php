@@ -39,6 +39,7 @@ Route::get('/login/callback', function () {
 	    if (auth()->guest()) {
             $exists = User::where('id', $athleteData['id'])->first();
             if ($exists =! null) {
+                Session::put('token', $x);
                 Session::put('userId', $athleteData['id']);
                 Session::put('userAvatarOriginal', $athleteData['profile']);
                 Session::put('userAvatarMedium', $athleteData['profile_medium']);
@@ -59,6 +60,7 @@ Route::get('/login/callback', function () {
 
 
 				$newUser->save();
+                Session::put('token', $x);
                 Session::put('userId', $athleteData['id']);
                 Session::put('userAvatarOriginal', $athleteData['profile']);
                 Session::put('userAvatarMedium', $athleteData['profile_medium']);
@@ -88,10 +90,29 @@ Route::get('/group/{id}', 'GroupsController@detail');
 
 Route::get('/profile', function () {
     $id = Session::get('userId');
+    $token = Session::get('token');
     $firstName = Session::get('userFirstName');
     $avatarO = Session::get('userAvatarOriginal');
     $avatarM = Session::get('userAvatarMedium');
-    return View::make('users/index', ['userId' => $id, 'userFirstName' => $firstName, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
+
+    $client = new GuzzleHttp\Client();
+
+    $res = $client->request('GET', 'https://www.strava.com/api/v3/athlete/activities', [
+        'headers' =>[
+        'Authorization' => 'Bearer ' . $token
+        ]
+    ]);
+
+
+
+    $acts = json_decode($res->getBody()->getContents());
+    //dd($acts);
+
+
+    $x = 1;
+
+
+    return View::make('users/index', ['userId' => $id, 'userFirstName' => $firstName, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM, 'allActivity' => $acts]);
 });
 
 //as we nog andere users hun profielen willen bekijken moet dees dr ook in komen
