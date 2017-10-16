@@ -3,23 +3,56 @@ body {
   font-family: "Raleway", sans-serif; }
 
 nav {
-  background-color: #FFFBA3; }
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  background-color: #cecece;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+nav li {
+  padding: 20px 0px 20px 0px;
+  border-bottom: 5px solid #cecece;
+}
+
+nav li:hover{
+  background-color: #ec6364;
+  border-bottom: 5px solid #993333;
+}
+nav a {
+  padding: 6px 12px;
+  text-decoration: none;
+  color: white;
+}
+
+.user_img{
+  background-color: #aaaaaa;
+  height: 150px;
+  width: 150px;
+  margin: auto;
+  display: none;
+}
+
+
+@media only screen and (min-width: 700px) {
   nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none; }
-  nav li {
-    display: inline-block; }
-  nav a {
+    justify-content: flex-start;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .user_img{
     display: block;
-    padding: 6px 12px;
-    text-decoration: none;
-    color: #6B7FCC; }
-  nav .login {
-    background-color: #6B7FCC;
-    color: white; }
-  nav a:hover {
-    background-color: #5569B2;
-    color: white; }
+    position: absolute;
+    right: 10%;
+    top: 10px;
+  }
+}
 
 /*# sourceMappingURL=app.css.map */

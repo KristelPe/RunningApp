@@ -10,5 +10,11 @@
             </a>
         </li>
     </ul>
+    <a href="/profile">
+    <div class="user_img">
+        USER IMG
+    </div>
+    </a>
 </nav>
+
 
