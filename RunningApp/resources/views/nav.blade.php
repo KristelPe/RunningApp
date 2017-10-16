@@ -1,9 +1,9 @@
 <nav>
     <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/profile">Profile</a></li>
-        <li><a href="/parkours">Parkour</a></li>
-        <li><a href="/groups">Groups</a></li>
+        <li class="{{ (Request::is('/') ? 'active' : '') }}"><a href="/">Home</a></li>
+        <li class="{{ (Request::is('profile*') ? 'active' : '') }}"><a href="/profile">Profile</a></li>
+        <li class="{{ (Request::is('parkours*') ? 'active' : '') }}"><a href="/parkours">Parkour</a></li>
+        <li class="{{ (Request::is('groups*') ? 'active' : '') }}"><a href="/groups">Groups</a></li>
         <li>
             <a href="/login" class="login">
                 Log in

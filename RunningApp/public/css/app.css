@@ -20,12 +20,18 @@ nav ul {
 nav li {
   padding: 20px 0px 20px 0px;
   border-bottom: 5px solid #cecece;
+  transition: 0.09s linear;
 }
 
 nav li:hover{
   background-color: #ec6364;
   border-bottom: 5px solid #993333;
 }
+
+.active{
+  border-bottom: 5px solid #ec6364;
+}
+
 nav a {
   padding: 6px 12px;
   text-decoration: none;
