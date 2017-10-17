@@ -1,26 +1,75 @@
 @extends('layout')
 
 @section('title', 'Groups')
+
+@section('css')
+group.css
+@endsection
+
 @section('content')
     @parent
 
-    <h1>Groups - Overzicht</h1>
+    <h1>Groups</h1>
 
-    <ul>
-        <li><a href="/group/1">Group 1</a></li>
-    </ul>
+    <hr>
 
-    <div class="create-group form">
+    <div class="groups_content">
 
-        <form action="" method="post">
+        <div class="group_search_create">
+            <form action="" method="post">
 
-            <label for="groupname"></label>
-            <input type="text" id="groupname" name="groupname">
+                <label for="searchgroup"></label>
+                <input type="text" id="searchgroup" name="searchgroup" placeholder="search groups">
 
-            <button type="submit">
-                Create new group
-            </button>
+                <button type="submit">
+                    search
+                </button>
 
-        </form>
+            </form>
+
+            <ul>
+                <li class="btn_group_layout"><a href="/group/1" class="btn-group">Group 1</a></li>
+                <li class="btn_group_layout"><a href="/group/1" class="btn-group">Group 1</a></li>
+                <li class="btn_group_layout"><a href="/group/1" class="btn-group">Group 1</a></li>
+            </ul>
+
+            <hr>
+
+            <div class="create-group form">
+
+                <form action="" method="post">
+
+                    <label for="groupname"></label>
+                    <input type="text" id="groupname" name="groupname">
+
+                    <button type="submit">
+                        Create new group
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="group_inspect">
+
+            <h1>IMnerDs</h1>
+
+            <hr>
+
+            <div class="create-group form">
+
+                <form action="" method="post">
+
+                    <label for="runname"></label>
+                    <input type="text" id="runname" name="runname">
+
+                    <button type="submit">
+                        Create run
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
     </div>
 @endsection
