@@ -1,0 +1,55 @@
+body {
+  color: #AB4B4D;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.0em; }
+
+h2 {
+  font-size: 1.1em;
+  margin: 20px 0; }
+
+.bar {
+  padding-bottom: 4px;
+  background-color: #AB4B4D; }
+
+.split {
+  margin-top: 170px; }
+
+.profile_container .profile_header .pic_container img {
+  height: 110px;
+  width: 110px;
+  float: left;
+  margin-right: 8px; }
+.profile_container .profile_header .main_details {
+  padding-top: 10px;
+  height: 110px; }
+  .profile_container .profile_header .main_details h1 {
+    color: #AB4B4D;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.2em; }
+  .profile_container .profile_header .main_details .level {
+    margin-top: 10px; }
+  .profile_container .profile_header .main_details .progress {
+    margin-top: 5px; }
+.profile_container .stats {
+  margin-bottom: 30px; }
+  .profile_container .stats ul {
+    width: 100%; }
+  .profile_container .stats li {
+    float: left;
+    display: inline;
+    width: 30%;
+    margin-left: 1%;
+    margin-bottom: 20px; }
+  .profile_container .stats .stat {
+    font-size: 0.8em; }
+  .profile_container .stats p {
+    float: right;
+    margin-right: 10px;
+    margin-top: 8px; }
+.profile_container .recent_activity {
+  font-size: 0.8em; }
+  .profile_container .recent_activity h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px; }
+
+/*# sourceMappingURL=profile.css.map */

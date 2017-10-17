@@ -22,9 +22,9 @@
 
                 <li class="parkour_name">
                     <a href="/parkour/1">   <h2>Vrijbroekpark Mechelen</h2> <p>5,5 km</p>    </a>
-                </li>
 
-                <li>
+
+
 
                     <div class="parkour_counts">
 
@@ -35,12 +35,11 @@
                         <div class="parkour_image">
 
                         </div>
+
                     </div>
 
-                </li>
-
             {{--Recommend this to other runners--}}
-                <li>
+
 
                     <div class="btns">
 
@@ -58,10 +57,6 @@
                     </button>
 
                     </div>
-
-                </li>
-
-                <li>
 
                     <img src="../images/star" alt="star" class="star">
 

@@ -1,0 +1,158 @@
+$font-stack: Helvetica, sans-serif;
+
+$primary-color:  #AB4B4D;
+
+$secondary-color: #F26A69;
+
+$dis: 30px;
+
+
+body {
+
+  color: $primary-color;
+
+  font-family: $font-stack;
+
+  font-size: 1.0em;
+
+}
+
+  h2 {
+
+    font-size:1.1em;
+
+    margin: 20px 0;
+
+  }
+
+
+.bar{
+
+  padding-bottom: 4px;
+
+  background-color: $primary-color;
+
+}
+
+.split{
+
+  margin-top:170px;
+
+}
+
+.profile_container {
+
+  .profile_header {
+
+    .pic_container img {
+
+      height: 110px;
+
+      width: 110px;
+
+      float: left;
+
+      margin-right: 8px;
+
+    }
+
+    .main_details {
+
+      padding-top: 10px;
+
+      height: 110px;
+
+      h1 {
+
+        color: $primary-color;
+
+        font-family: $font-stack;
+
+        font-size: 1.2em;
+
+      }
+
+      .level {
+
+        margin-top: 10px;
+
+      }
+
+      .progress {
+
+        margin-top: 5px;
+
+      }
+
+    }
+
+  }
+
+    .stats {
+
+      margin-bottom: 30px ;
+
+      ul {
+
+        width: 100%;
+
+      }
+
+      li {
+
+        float: left;
+
+        display: inline;
+
+        width: 30%;
+
+        margin-left: 1%;
+
+        margin-bottom:20px;
+
+      }
+
+      .stat {
+
+        font-size: 0.8em;
+
+      }
+
+      p {
+
+        float: right;
+
+        margin-right:10px;
+
+        margin-top: 8px;
+
+      }
+
+  }
+
+  .recent_activity {
+
+    font-size:0.8em;
+
+
+
+    h3 {
+
+      font-size:1.5em;
+
+      margin-bottom: 10px;
+
+    }
+
+    p {
+
+
+
+    }
+
+
+  }
+
+
+
+}
