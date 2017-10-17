@@ -144,6 +144,7 @@ Route::get('/profile', function () {
 
     //uncomment volgende lijn om de json in uw browser te zien
     //dd($acts);
+
     $totalDistance = 0;
     $maxSpeed = 0;
     $longestDistance = 0;

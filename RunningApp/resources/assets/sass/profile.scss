@@ -84,13 +84,21 @@ body {
 
       }
 
+      .statbar {
+
+        width:150px;
+
+        float:left;
+
+      }
+
     }
 
   }
 
     .stats {
 
-      margin-bottom: 30px ;
+      margin-bottom: 10px ;
 
       ul {
 
@@ -104,17 +112,32 @@ body {
 
         display: inline;
 
-        width: 30%;
+        width: 28%;
 
-        margin-left: 1%;
+        max-width:150px;
 
-        margin-bottom:20px;
+        margin-left: 5%;
+
+        margin-top: 10px;
+
+        padding:10px;
+
+        border: $primary-color solid 1px;
+
+        box-shadow: $primary-color 3px 3px 3px ;
+
+      }
+
+      li:hover {
+
+        box-shadow: $primary-color 1px 1px 3px ;
+
 
       }
 
       .stat {
 
-        font-size: 0.8em;
+        font-size: 0.7em;
 
       }
 
@@ -124,7 +147,10 @@ body {
 
         margin-right:10px;
 
-        margin-top: 8px;
+        margin-top: 12px;
+
+        font-size: 1em;
+
 
       }
 
@@ -134,7 +160,15 @@ body {
 
     font-size:0.8em;
 
+    border: $primary-color solid 1px;
 
+    box-shadow: $primary-color 3px 3px 3px ;
+
+    padding-left:15px;
+
+    padding-bottom:20px;
+
+    padding-right: 15px;
 
     h3 {
 
@@ -146,13 +180,138 @@ body {
 
     p {
 
+      line-height: 1.7em;
 
+      color: $secondary-color;
 
     }
+
+    .image {
+
+      display: none;
+
+    }
+
+  }
+
+  .recent_activity:hover {
+
+    border: $primary-color solid 1px;
+
+    box-shadow: $primary-color 1px 1px 3px ;
 
 
   }
 
+}
 
+@media screen and (min-width: 600px){
+
+  .profile_container{
+
+    margin:auto;
+
+    width:90%;
+
+    .profile_header {
+
+      .pic_container img {
+
+        width: 180px;
+
+        height: 180px;
+
+      }
+
+      .main_details {
+
+        font-size: 1.1em;
+
+        height: 200px;
+
+        .statbar {
+
+          width: 200px;
+
+          float: left;
+
+        }
+
+      }
+
+    }
+
+    .stats {
+
+      h2 {
+
+        font-size:1.5em;
+
+      }
+
+
+      ul li p {
+
+          font-size: 1.2em;
+
+      }
+
+      .stat {
+
+        font-size:1.1em;
+
+      }
+
+    }
+
+    h2 {
+
+      font-size: 1.5em;
+
+    }
+
+    .recent_activity {
+
+      margin-bottom:30px;
+
+      h3 {
+
+        margin-top: 30px;
+
+        font-size: 1.6em;
+
+      }
+
+      p {
+
+        font-size:1.1em;
+
+      }
+
+      float: left;
+
+      margin-left:50px;
+
+    }
+
+  }
+
+}
+
+@media screen and (min-width: 600px){
+
+  .profile_container {
+
+    width:80%;
+
+  }
+
+  .spacer {
+
+    margin-top:200px;
+
+    height:200px;
+
+  }
 
 }
