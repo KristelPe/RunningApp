@@ -20,12 +20,12 @@ use App\User;
 Route::get('/', function () {
 
     if(Session::get('loggedIn')){
-        $loggedIn = true;
+        $avatarO = Session::get('userAvatarOriginal');
+        $avatarM = Session::get('userAvatarMedium');
+        return view('home/index', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
     }else{
-        $loggedIn = false;
+        return view('home/index', ['loggedIn' => false]);
     };
-
-	return view('home/index', ['loggedIn' => $loggedIn]);
 
 });
 
@@ -36,6 +36,7 @@ Route::get('/login', function () {
     return Socialite::with('strava')->redirect();
 
 });
+
 
 Route::get('/login/callback', function () {
     $x = 4;
@@ -79,6 +80,26 @@ Route::get('/login/callback', function () {
         };
 });
 
+/* LOG OUT */
+
+Route::get('/logout', function () {
+
+    $token = Session::get('token');
+
+    $client = new GuzzleHttp\Client();
+
+    $res = $client->request('DELETE', 'https://www.strava.com/oauth/deauthorize', [
+        'headers' =>[
+            'Authorization' => 'Bearer ' . $token
+        ]
+    ]);
+
+    Session::flush();
+
+    return redirect('/');
+
+});
+
 
 /* PARKOUR */
 
@@ -106,7 +127,7 @@ Route::get('/profile', function () {
     if(Session::get('loggedIn')){
         $loggedIn = true;
     }else{
-        $loggedIn = false;
+        return redirect('/login');
     };
 
     $client = new GuzzleHttp\Client();
