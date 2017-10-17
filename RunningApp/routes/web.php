@@ -19,14 +19,20 @@ use App\User;
 
 Route::get('/', function () {
 
-	return view('home/index');
+    if(Session::get('loggedIn')){
+        $loggedIn = true;
+    }else{
+        $loggedIn = false;
+    };
+
+	return view('home/index', ['loggedIn' => $loggedIn]);
 
 });
 
 /* LOG IN */
 
 Route::get('/login', function () {
-    $x = 4;
+
     return Socialite::with('strava')->redirect();
 
 });
@@ -39,6 +45,7 @@ Route::get('/login/callback', function () {
 	    if (auth()->guest()) {
             $exists = User::where('id', $athleteData['id'])->first();
             if ($exists =! null) {
+                Session::put('loggedIn', true);
                 Session::put('token', $x);
                 Session::put('userId', $athleteData['id']);
                 Session::put('userAvatarOriginal', $athleteData['profile']);
@@ -60,6 +67,7 @@ Route::get('/login/callback', function () {
 
 
 				$newUser->save();
+                Session::put('loggedIn', true);
                 Session::put('token', $x);
                 Session::put('userId', $athleteData['id']);
                 Session::put('userAvatarOriginal', $athleteData['profile']);
@@ -95,6 +103,12 @@ Route::get('/profile', function () {
     $avatarO = Session::get('userAvatarOriginal');
     $avatarM = Session::get('userAvatarMedium');
 
+    if(Session::get('loggedIn')){
+        $loggedIn = true;
+    }else{
+        $loggedIn = false;
+    };
+
     $client = new GuzzleHttp\Client();
 
     $res = $client->request('GET', 'https://www.strava.com/api/v3/athlete/activities', [
@@ -106,13 +120,15 @@ Route::get('/profile', function () {
 
 
     $acts = json_decode($res->getBody()->getContents());
+
+    //uncomment volgende lijn om de json in uw browser te zien
     //dd($acts);
 
 
     $x = 1;
 
 
-    return View::make('users/index', ['userId' => $id, 'userFirstName' => $firstName, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM, 'allActivity' => $acts]);
+    return View::make('users/index', ['loggedIn' => $loggedIn ,'userId' => $id, 'userFirstName' => $firstName, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM, 'allActivity' => $acts]);
 });
 
 //as we nog andere users hun profielen willen bekijken moet dees dr ook in komen
