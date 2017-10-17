@@ -28,9 +28,9 @@ group.css
             </form>
 
             <ul>
-                <li class="btn_group_layout"><a href="/group/1" class="btn-group">Group 1</a></li>
-                <li class="btn_group_layout"><a href="/group/1" class="btn-group">Group 1</a></li>
-                <li class="btn_group_layout"><a href="/group/1" class="btn-group">Group 1</a></li>
+                @foreach($groups as $group)
+                <li class="btn_group_layout"><a href="/group/1" class="btn-group">{{$group->teamName}}</a></li>
+                @endforeach
             </ul>
 
             <hr>
