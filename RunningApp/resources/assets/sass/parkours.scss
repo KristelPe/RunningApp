@@ -31,9 +31,9 @@ h1{
 }
 
 
-.parkours{
+.parkours {
 
-  li{
+  li {
 
     color: $primary-color;
 
@@ -41,13 +41,13 @@ h1{
 
     display: inline;
 
-    a{
+    a {
 
       text-decoration: none;
 
       color: $primary-color;
 
-      h2{
+      h2 {
 
         width: 80%;
 
@@ -59,19 +59,19 @@ h1{
 
     }
 
-    a:hover{
+    a:hover {
 
       color: $secondary-color;
 
     }
 
-    .parkour_name{
+    .parkour_name {
 
       margin-top: $dis;
 
     }
 
-    .parkour_counts{
+    .parkour_counts {
 
       margin-top: 12px;
 
@@ -79,19 +79,21 @@ h1{
 
       margin-bottom: 27px;
 
-      .parkour_text{
+      .parkour_text {
 
         margin-top: 14px;
 
-        font-size:0.7em;
+        font-size: 0.7em;
 
         float: left;
 
+        width: 30%;
 
+        max-width: 100px;
 
       }
 
-      .parkour_image{
+      .parkour_image {
 
         width: 40%;
 
@@ -99,7 +101,9 @@ h1{
 
         height: 50px;
 
-        background-color: #CECECE ;
+        max-height: 50px;
+
+        background-color: #CECECE;
 
         margin-left: 100%;
 
@@ -111,7 +115,7 @@ h1{
 
       padding: 5px 15px;
 
-      font-size:0.7em;
+      font-size: 0.7em;
 
       color: $primary-color;
 
@@ -122,13 +126,13 @@ h1{
 
     .recommend {
 
-        background: $secondary-color;
+      background: $secondary-color;
 
-        color: white;
+      color: white;
 
-      }
+    }
 
-    .btn:hover{
+    .btn:hover {
 
       background-color: $primary-color;
 
@@ -138,26 +142,121 @@ h1{
 
     }
 
-    .star{
+    .star {
 
-      float:right;
-
-    }
-
-    @media screen and (min-width: 430px) {
-
-
+      float: right;
 
     }
 
+  }
+
+}
 
 
+@media screen and (min-width: 750px) {
+
+  .parkour_container{
+
+    width: 90%;
+
+    margin: auto;
+  }
+  .parkours{
+
+    li {
+
+      a{
+
+        margin-left: 50%;
+
+        width: 50%;
+
+        max-width: 50%;
+
+        font-size: 1.2em;
+
+        float: right;
 
 
+      }
 
+      .parkour_counts {
+
+        .parkour_image {
+
+          margin:0;
+
+          position: absolute;
+
+          width: 30%;
+
+          max-width: 300px;
+
+          height: 200px;
+
+          max-height: 200px;
+
+        }
+
+        .parkour_text{
+
+          margin-left: 350px;
+
+          margin-top: 40px;
+
+          width: 60%;
+
+          max-width: 60%;
+
+          float: left;
+
+          font-size: 1em;
+
+        }
+
+      }
+
+      .btns{
+
+        margin-left: 350px;
+
+        display: inline;
+
+        .btn{
+          margin-top: 30px;
+
+          width: 130px;
+
+          height: 30px;
+
+          font-size: 0.9em;
+        }
+      }
+
+      .star {
+
+        display: none;
+
+      }
+
+    }
+
+  }
+
+  .split {
+
+    margin-left:30%;
+
+    width: 70%;
 
   }
 
 
+
 }
+
+
+
+
+
 
