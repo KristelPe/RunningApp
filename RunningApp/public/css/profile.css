@@ -89,25 +89,25 @@ h2 {
         width: 200px;
         float: left; }
     .profile_container .stats h2 {
-      font-size: 1.5em; }
+      font-size: 1.3em; }
     .profile_container .stats ul li p {
       font-size: 1.2em; }
     .profile_container .stats .stat {
-      font-size: 1.1em; }
+      font-size: 0.8em; }
     .profile_container h2 {
-      font-size: 1.5em; }
+      font-size: 1.3em; }
     .profile_container .recent_activity {
       margin-bottom: 30px;
       float: left;
       margin-left: 50px; }
       .profile_container .recent_activity h3 {
         margin-top: 30px;
-        font-size: 1.6em; }
+        font-size: 1.2em; }
       .profile_container .recent_activity p {
-        font-size: 1.1em; } }
+        font-size: 1.0em; } }
 @media screen and (min-width: 600px) {
   .profile_container {
-    width: 80%; }
+    width: 70%; }
 
   .spacer {
     margin-top: 200px;
