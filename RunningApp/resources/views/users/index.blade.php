@@ -8,6 +8,10 @@
     <img src={{ $userAvatarO }}>
     <a href="/settings">Settings</a>
 
+    <p>Overall distance: {{ $totalDistance }} KM </p>
+    <p>Fastest sprint: {{ $maxSpeed }} KM/H</p>
+    <p>Longest session: {{ $longestDistance }} KM</p>
+
     <h2> Activities </h2>
 
     <ul>
