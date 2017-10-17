@@ -19,9 +19,9 @@ group.css
             <form action="" method="post">
 
                 <label for="searchgroup"></label>
-                <input type="text" id="searchgroup" name="searchgroup" placeholder="search groups">
+                <input type="text" id="searchgroup" name="searchgroup" placeholder="search groups" class="input_style">
 
-                <button type="submit">
+                <button type="submit" class="btn">
                     search
                 </button>
 
@@ -40,9 +40,9 @@ group.css
                 <form action="" method="post">
 
                     <label for="groupname"></label>
-                    <input type="text" id="groupname" name="groupname">
+                    <input type="text" id="groupname" name="groupname" class="input_style">
 
-                    <button type="submit">
+                    <button type="submit" class="btn bottom_btn">
                         Create new group
                     </button>
 
@@ -61,9 +61,9 @@ group.css
                 <form action="" method="post">
 
                     <label for="runname"></label>
-                    <input type="text" id="runname" name="runname">
+                    <input type="text" id="runname" name="runname" class="input_style">
 
-                    <button type="submit">
+                    <button type="submit" class="btn">
                         Create run
                     </button>
 

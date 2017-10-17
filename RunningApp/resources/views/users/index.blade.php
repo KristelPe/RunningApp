@@ -6,6 +6,7 @@
 @section('content')
     @parent
 
+<<<<<<< HEAD
     <div class="profile_container">
 
         <div class="profile_header">
@@ -93,6 +94,31 @@
 
                     </li>
 
+=======
+    <h1>{{ $userFirstName }}'s Profile</h1>
+    <img src={{ $userAvatarO }}>
+    <a href="/settings">Settings</a>
+
+    <p>Overall distance: {{ $totalDistance }} KM </p>
+    <p>Fastest sprint: {{ $maxSpeed }} KM/H</p>
+    <p>Longest session: {{ $longestDistance }} KM</p>
+
+    <h2> Activities </h2>
+
+    <ul>
+    @foreach($allActivity as $activity)
+        <li>
+            <h3>{{ $activity->name }}</h3>
+            <p>Type: {{ $activity->type }}</p>
+            <p>Distance: {{ $activity->distance }}m</p>
+            <p>Duration: {{ $activity->moving_time }}</p>
+            <p>Likes: {{ $activity->kudos_count }}</p>
+            <p>Average speed: {{ $activity->average_speed }}</p>
+            <p>Max speed: {{ $activity->max_speed }}</p>
+        </li>
+    @endforeach
+    </ul>
+>>>>>>> 84843c1e27c7fb9f0b09b990dcd3f6aad2926d72
 
         @endforeach
         </ul>

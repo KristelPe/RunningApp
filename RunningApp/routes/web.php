@@ -144,12 +144,21 @@ Route::get('/profile', function () {
 
     //uncomment volgende lijn om de json in uw browser te zien
     //dd($acts);
+    $totalDistance = 0;
+    $maxSpeed = 0;
+    $longestDistance = 0;
+    foreach ($acts as $actClass){
+        $act = (array)$actClass;
+        $totalDistance = $totalDistance + $act['distance'];
+        $maxSpeed = max($act['max_speed'], $maxSpeed);
+        $longestDistance = max($act['distance'], $longestDistance);
+    }
+
+    $totalDistance = round($totalDistance/1000, 2);
+    $longestDistance = round($longestDistance/1000, 2);
 
 
-    $x = 1;
-
-
-    return View::make('users/index', ['loggedIn' => $loggedIn ,'userId' => $id, 'userFirstName' => $firstName, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM, 'allActivity' => $acts]);
+    return View::make('users/index', ['totalDistance' => $totalDistance, 'maxSpeed' => $maxSpeed, 'longestDistance' => $longestDistance,'loggedIn' => $loggedIn ,'userId' => $id, 'userFirstName' => $firstName, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM, 'allActivity' => $acts]);
 });
 
 //as we nog andere users hun profielen willen bekijken moet dees dr ook in komen
