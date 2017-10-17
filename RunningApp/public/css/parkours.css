@@ -1,0 +1,58 @@
+h1 {
+  margin-top: 30px;
+  color: #AB4B4D;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.1em; }
+
+.bar {
+  margin-top: 28px;
+  margin-bottom: 28px;
+  padding-bottom: 4px;
+  background-color: #AB4B4D; }
+
+.parkours li {
+  color: #AB4B4D;
+  font-family: Helvetica, sans-serif;
+  display: inline; }
+  .parkours li a {
+    text-decoration: none;
+    color: #AB4B4D; }
+    .parkours li a h2 {
+      width: 80%;
+      display: inline;
+      float: left; }
+  .parkours li a:hover {
+    color: #F26A69; }
+  .parkours li .parkour_name {
+    margin-top: 30px; }
+  .parkours li .parkour_counts {
+    margin-top: 12px;
+    width: 70%;
+    margin-bottom: 27px; }
+    .parkours li .parkour_counts .parkour_text {
+      margin-top: 14px;
+      font-size: 0.7em;
+      float: left; }
+    .parkours li .parkour_counts .parkour_image {
+      width: 40%;
+      max-width: 120px;
+      height: 50px;
+      background-color: #CECECE;
+      margin-left: 100%; }
+  .parkours li .btn {
+    padding: 5px 15px;
+    font-size: 0.7em;
+    color: #AB4B4D;
+    background-color: white;
+    border: #F26A69 1px solid; }
+  .parkours li .recommend {
+    background: #F26A69;
+    color: white; }
+  .parkours li .btn:hover {
+    background-color: #AB4B4D;
+    border: #AB4B4D 1px solid;
+    color: white; }
+  .parkours li .star {
+    float: right; }
+
+/*# sourceMappingURL=parkours.css.map */
