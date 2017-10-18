@@ -64,13 +64,13 @@
 
                                 <h3>{{ $activity->name }}</h3>
 
-                                <p>Distance: {{ $activity->distance }}m</p>
+                                <p>Distance: <span class="data">{{ $activity->distance }} m </span></p>
 
-                                <p>Duration: {{ $activity->moving_time }} seconds</p>
+                                <p>Duration: <span class="data"> {{ $activity->moving_time }} seconds </span></p>
 
-                                <p>Average speed: {{ $activity->average_speed }} km/h</p>
+                                <p>Average speed: <span class="data">{{ $activity->average_speed }} km/h </span></p>
 
-                                <p>Max speed: {{ $activity->max_speed }} km/h</p>
+                                <p>Max speed: <span class="data">{{ $activity->max_speed }} km/h </span></p>
 
                                 <div class="image"><img src="" alt=""></div>
 
