@@ -1,6 +1,9 @@
 .none {
   display: none; }
 
+p .data {
+  color: #F26A69; }
+
 body {
   color: #DF5C5C;
   font-family: Helvetica, sans-serif;
