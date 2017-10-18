@@ -108,13 +108,6 @@ route::get('parkours', 'ParkoursController@index');
 Route::get('/parkour/{id}', 'ParkoursController@detail');
 
 
-/* GROUP */
-
-route::get('groups', 'GroupsController@index');
-
-Route::get('/group/{id}', 'GroupsController@detail');
-
-
 /* USER */
 
 Route::get('/profile', function () {
