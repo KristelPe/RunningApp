@@ -13,6 +13,7 @@ home.css
 
     <hr>
 
+
     <div class="home_content">
         {{--<h2>Nothing to do, Such a lazy nerd...</h2>--}}
     </div>

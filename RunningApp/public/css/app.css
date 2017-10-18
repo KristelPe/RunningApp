@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+h1 {
+  margin-top: 30px;
+  color: #AB4B4D;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.1em; }
+
+.bar {
+  margin-top: 28px;
+  margin-bottom: 28px;
+  padding-bottom: 5px;
+  background-color: #AB4B4D; }
+
+.parkours li {
+  color: #AB4B4D;
+  font-family: Helvetica, sans-serif;
+  display: inline; }
+  .parkours li a {
+    text-decoration: none;
+    color: #AB4B4D; }
+    .parkours li a h2 {
+      width: 80%;
+      display: inline;
+      float: left; }
+  .parkours li a:hover {
+    color: #F26A69; }
+  .parkours li .parkour_name {
+    margin-top: 30px; }
+  .parkours li .parkour_counts {
+    margin-top: 12px;
+    width: 70%;
+    margin-bottom: 27px; }
+    .parkours li .parkour_counts .parkour_text {
+      margin-top: 14px;
+      font-size: 0.7em;
+      float: left;
+      width: 30%;
+      max-width: 100px; }
+    .parkours li .parkour_counts .parkour_image {
+      width: 40%;
+      max-width: 120px;
+      height: 50px;
+      max-height: 50px;
+      background-color: #CECECE;
+      margin-left: 100%; }
+  .parkours li .btn {
+    padding: 5px 15px;
+    font-size: 0.7em;
+    color: #AB4B4D;
+    background-color: white;
+    border: #F26A69 1px solid; }
+  .parkours li .recommend {
+    background: #F26A69;
+    color: white; }
+  .parkours li .btn:hover {
+    background-color: #AB4B4D;
+    border: #AB4B4D 1px solid;
+    color: white; }
+  .parkours li .star {
+    float: right; }
+
+@media screen and (min-width: 750px) {
+  .parkour_container {
+    width: 90%;
+    margin: auto; }
+
+  .parkours li a {
+    margin-left: 50%;
+    width: 50%;
+    max-width: 50%;
+    font-size: 1.2em;
+    float: right; }
+  .parkours li .parkour_counts .parkour_image {
+    margin: 0;
+    position: absolute;
+    width: 30%;
+    max-width: 300px;
+    height: 200px;
+    max-height: 200px; }
+  .parkours li .parkour_counts .parkour_text {
+    margin-left: 350px;
+    margin-top: 40px;
+    width: 60%;
+    max-width: 60%;
+    float: left;
+    font-size: 1em; }
+  .parkours li .btns {
+    margin-left: 350px;
+    float: left;
+    margin-bottom: 20px; }
+    .parkours li .btns .btn {
+      margin-top: 50px;
+      width: 150px;
+      height: 30px;
+      font-size: 0.9em; }
+  .parkours li .star {
+    display: none; }
+
+  .split {
+    margin-left: 40%;
+    width: 60%; } }
+@media screen and (min-width: 750px) and (min-width: 1200px) {
+  .parkour_container {
+    width: 70%;
+    margin: auto; }
+
+  .split {
+    width: 75%;
+    margin-left: 25%; } }
+.none {
+  display: none; }
+
+p .data {
+  color: #F26A69; }
+
+body {
+  color: #DF5C5C;
+  font-family: Helvetica, sans-serif;
+  font-size: 1.0em; }
+
+h2 {
+  font-size: 1.1em;
+  margin: 20px 0; }
+
+.bar {
+  padding-bottom: 4px;
+  background-color: #DF5C5C; }
+
+.split {
+  margin-top: 170px; }
+
+.profile_container .profile_header .main_details {
+  padding-top: 10px;
+  height: 110px; }
+  .profile_container .profile_header .main_details h1 {
+    color: #DF5C5C;
+    font-family: Helvetica, sans-serif;
+    font-size: 1.2em; }
+  .profile_container .profile_header .main_details .level {
+    margin-top: 10px; }
+  .profile_container .profile_header .main_details .progress {
+    margin-top: 5px; }
+  .profile_container .profile_header .main_details .statbar {
+    width: 150px;
+    float: left; }
+.profile_container .stats {
+  margin-bottom: 10px; }
+  .profile_container .stats ul {
+    width: 100%;
+    height: 200px; }
+  .profile_container .stats li {
+    float: left;
+    display: inline;
+    width: 20%;
+    max-width: 150px;
+    margin-left: 5%;
+    margin-top: 40px;
+    padding: 10px; }
+  .profile_container .stats .stat {
+    font-size: 0.7em;
+    float: none; }
+  .profile_container .stats p {
+    float: right;
+    margin-right: 10px;
+    margin-top: 12px;
+    font-size: 1em;
+    font-family: 'Raleway'; }
+  .profile_container .stats img {
+    float: left;
+    height: 50px;
+    width: 50px; }
+.profile_container .recent_activity {
+  font-size: 0.8em;
+  padding-left: 15px;
+  padding-bottom: 20px;
+  padding-right: 15px;
+  background-color: #CECECE;
+  margin-top: 40px;
+  padding-top: 20px; }
+  .profile_container .recent_activity h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px; }
+  .profile_container .recent_activity p {
+    line-height: 1.7em;
+    color: #DF5C5C; }
+  .profile_container .recent_activity .image {
+    display: none; }
+
+@media screen and (min-width: 600px) {
+  .profile_container {
+    margin: auto;
+    width: 90%; }
+    .profile_container .profile_header .pic_container img {
+      width: 180px;
+      height: 180px; }
+    .profile_container .profile_header .main_details {
+      font-size: 1.1em;
+      height: 200px; }
+      .profile_container .profile_header .main_details .statbar {
+        width: 200px;
+        float: left; }
+    .profile_container .stats h2 {
+      font-size: 1.3em; }
+    .profile_container .stats ul li p {
+      font-size: 1.2em; }
+    .profile_container .stats .stat {
+      font-size: 0.8em; }
+    .profile_container h2 {
+      font-size: 1.3em; }
+    .profile_container .recent_activity {
+      float: left;
+      margin-left: 50px; }
+      .profile_container .recent_activity h3 {
+        font-size: 1.2em; }
+      .profile_container .recent_activity p {
+        font-size: 1.0em; } }
+@media screen and (min-width: 1100px) {
+  .none {
+    display: block; }
+
+  .profile_container {
+    width: 85%; }
+    .profile_container .stats {
+      width: 48%;
+      float: left;
+      margin-right: 2%; }
+    .profile_container .activity_container {
+      margin-left: 2%;
+      width: 48%;
+      float: left; }
+    .profile_container h3 {
+      font-size: 1.6em; }
+
+  .spacer {
+    margin-top: 200px;
+    height: 200px; } }
+body {
+  font-family: "Helvetica", sans-serif; }
+
+nav {
+  margin-top: 10px; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  background-color: #cecece;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 5%; }
+
+nav li {
+  padding: 20px 0px 20px 0px;
+  border-bottom: 5px solid #cecece;
+  transition: 0.09s linear; }
+
+nav li:hover {
+  background-color: #ec6364;
+  border-bottom: 5px solid #993333; }
+
+.active {
+  border-bottom: 5px solid #ec6364; }
+
+nav a {
+  padding: 6px 12px;
+  text-decoration: none;
+  color: white; }
+
+.user_img {
+  background-color: #aaaaaa;
+  height: 150px;
+  width: 150px;
+  margin: auto;
+  display: none; }
+
+@media only screen and (min-width: 700px) {
+  nav ul {
+    justify-content: flex-start;
+    margin-top: 50px;
+    margin-bottom: 50px; }
+
+  .user_img {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 10px; } }
+.container {
+  width: 90%;
+  margin: auto; }
+
+body {
+  font-family: "Raleway", sans-serif; }
+
+/*# sourceMappingURL=app.css.map */

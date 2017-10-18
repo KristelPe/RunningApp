@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('title', 'User')
-@section('css', 'profile.css')
 
 @section('content')
     @parent
@@ -35,7 +34,7 @@
 
             <ul>
 
-                <li><div class="stat dist">Overall Distance</div><p>{{ $totalDistance }} km</p></li>
+                <li><img src="../icons/longestdistance.svg" alt="totaldistance"><p>{{ $totalDistance }} km</p></li>
 
                 <li><div class="stat fast">Fastest Sprint</div><p>{{ $maxSpeed }} km/h</p></li>
 
@@ -64,7 +63,7 @@
 
                                 <h3>{{ $activity->name }}</h3>
 
-                                <p>Distance: <span class="data">{{ $activity->distance }} m </span></p>
+                                <span class="data">{{ $activity->distance }} m </span></p>
 
                                 <p>Duration: <span class="data"> {{ $activity->moving_time }} seconds </span></p>
 
