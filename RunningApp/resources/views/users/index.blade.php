@@ -11,12 +11,6 @@
 
         <div class="profile_header">
 
-            <div class="pic_container">
-
-                <img class="profile_picture" src={{ $userAvatarO }} >
-
-            </div>
-
             <div class="main_details">
 
                 <h1 class="username">{{ $userFirstName }}</h1>
@@ -31,13 +25,13 @@
 
         </div>
 
-        <hr class="bar">
+
 
         <div class="stats">
 
-            <h2> Personal statistics</h2>
+            <hr class="bar">
 
-
+            <h3>My Stats</h3>
 
             <ul>
 
@@ -49,45 +43,49 @@
 
             </ul>
 
+        </div>
+
+
+
+        <div class="activity_container">
+
+            <hr class="bar">
+
+            <h3 class="recentac">Recent Activity</h3>
+
+            <ul>
+
+                @foreach($allActivity as $activity)
+
+
+                        <li>
+
+                            <div class="recent_activity">
+
+                                <h3>{{ $activity->name }}</h3>
+
+                                <p>Distance: {{ $activity->distance }}m</p>
+
+                                <p>Duration: {{ $activity->moving_time }} seconds</p>
+
+                                <p>Average speed: {{ $activity->average_speed }} km/h</p>
+
+                                <p>Max speed: {{ $activity->max_speed }} km/h</p>
+
+                                <div class="image"><img src="" alt=""></div>
+
+                            </div>
+
+                        </li>
+
+            @endforeach
+            </ul>
+
+
 
         </div>
 
-        <hr class="bar split">
+        <hr class="bar none>
 
-        <h2>Recent Activities</h2>
-
-        <ul>
-
-            @foreach($allActivity as $activity)
-
-
-                    <li>
-
-                        <div class="recent_activity">
-
-                            <h3>{{ $activity->name }}</h3>
-
-                            <p>Type: {{ $activity->type }}</p>
-
-                            <p>Distance: {{ $activity->distance }}m</p>
-
-                            <p>Duration: {{ $activity->moving_time }} seconds</p>
-
-                            <p>Likes: {{ $activity->kudos_count }}</p>
-
-                            <p>Average speed: {{ $activity->average_speed }} km/h</p>
-
-                            <p>Max speed: {{ $activity->max_speed }} km/h</p>
-
-                            <div class="image"><img src="" alt=""></div>
-
-                        </div>
-
-                    </li>
-
-        @endforeach
-        </ul>
     </div>
-
-    <div class="spacer"></div>
 @endsection

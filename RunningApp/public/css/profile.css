@@ -1,5 +1,8 @@
+.none {
+  display: none; }
+
 body {
-  color: #AB4B4D;
+  color: #DF5C5C;
   font-family: Helvetica, sans-serif;
   font-size: 1.0em; }
 
@@ -9,21 +12,16 @@ h2 {
 
 .bar {
   padding-bottom: 4px;
-  background-color: #AB4B4D; }
+  background-color: #DF5C5C; }
 
 .split {
   margin-top: 170px; }
 
-.profile_container .profile_header .pic_container img {
-  height: 110px;
-  width: 110px;
-  float: left;
-  margin-right: 8px; }
 .profile_container .profile_header .main_details {
   padding-top: 10px;
   height: 110px; }
   .profile_container .profile_header .main_details h1 {
-    color: #AB4B4D;
+    color: #DF5C5C;
     font-family: Helvetica, sans-serif;
     font-size: 1.2em; }
   .profile_container .profile_header .main_details .level {
@@ -36,44 +34,41 @@ h2 {
 .profile_container .stats {
   margin-bottom: 10px; }
   .profile_container .stats ul {
-    width: 100%; }
+    width: 100%;
+    height: 200px; }
   .profile_container .stats li {
     float: left;
     display: inline;
-    width: 28%;
+    width: 20%;
     max-width: 150px;
     margin-left: 5%;
-    margin-top: 10px;
-    padding: 10px;
-    border: #AB4B4D solid 1px;
-    box-shadow: #AB4B4D 3px 3px 3px; }
-  .profile_container .stats li:hover {
-    box-shadow: #AB4B4D 1px 1px 3px; }
+    margin-top: 40px;
+    padding: 10px; }
   .profile_container .stats .stat {
-    font-size: 0.7em; }
+    font-size: 0.7em;
+    float: none; }
   .profile_container .stats p {
     float: right;
     margin-right: 10px;
     margin-top: 12px;
-    font-size: 1em; }
+    font-size: 1em;
+    font-family: 'Raleway'; }
 .profile_container .recent_activity {
   font-size: 0.8em;
-  border: #AB4B4D solid 1px;
-  box-shadow: #AB4B4D 3px 3px 3px;
   padding-left: 15px;
   padding-bottom: 20px;
-  padding-right: 15px; }
+  padding-right: 15px;
+  background-color: #CECECE;
+  margin-top: 40px;
+  padding-top: 20px; }
   .profile_container .recent_activity h3 {
     font-size: 1.5em;
     margin-bottom: 10px; }
   .profile_container .recent_activity p {
     line-height: 1.7em;
-    color: #F26A69; }
+    color: #DF5C5C; }
   .profile_container .recent_activity .image {
     display: none; }
-.profile_container .recent_activity:hover {
-  border: #AB4B4D solid 1px;
-  box-shadow: #AB4B4D 1px 1px 3px; }
 
 @media screen and (min-width: 600px) {
   .profile_container {
@@ -97,17 +92,26 @@ h2 {
     .profile_container h2 {
       font-size: 1.3em; }
     .profile_container .recent_activity {
-      margin-bottom: 30px;
       float: left;
       margin-left: 50px; }
       .profile_container .recent_activity h3 {
-        margin-top: 30px;
         font-size: 1.2em; }
       .profile_container .recent_activity p {
         font-size: 1.0em; } }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1100px) {
+  .none {
+    display: block; }
+
   .profile_container {
-    width: 70%; }
+    width: 85%; }
+    .profile_container .stats {
+      width: 48%;
+      float: left;
+      margin-right: 2%; }
+    .profile_container .activity_container {
+      margin-left: 2%;
+      width: 48%;
+      float: left; }
 
   .spacer {
     margin-top: 200px;
