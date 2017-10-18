@@ -4,7 +4,6 @@
         @if( $loggedIn)
         <li class="{{ (Request::is('profile*') ? 'active' : '') }}"><a href="/profile">Profile</a></li>
         <li class="{{ (Request::is('parkours*') ? 'active' : '') }}"><a href="/parkours">Parkour</a></li>
-        <li class="{{ (Request::is('groups*') ? 'active' : '') }}"><a href="/groups">Groups</a></li>
         @endif
         @if( $loggedIn)
             <li>
