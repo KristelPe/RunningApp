@@ -1,11 +1,21 @@
 $font-stack: Helvetica, sans-serif;
 
-$primary-color:  #AB4B4D;
+$primary-color:  #DF5C5C;
 
 $secondary-color: #F26A69;
 
 $dis: 30px;
 
+.none {
+
+  display:none;
+}
+
+p .data {
+
+  color: $secondary-color;
+
+}
 
 body {
 
@@ -43,18 +53,6 @@ body {
 .profile_container {
 
   .profile_header {
-
-    .pic_container img {
-
-      height: 110px;
-
-      width: 110px;
-
-      float: left;
-
-      margin-right: 8px;
-
-    }
 
     .main_details {
 
@@ -104,6 +102,8 @@ body {
 
         width: 100%;
 
+        height: 200px;
+
       }
 
       li {
@@ -112,32 +112,24 @@ body {
 
         display: inline;
 
-        width: 28%;
+        width: 20%;
 
         max-width:150px;
 
         margin-left: 5%;
 
-        margin-top: 10px;
+        margin-top: 40px;
 
         padding:10px;
-
-        border: $primary-color solid 1px;
-
-        box-shadow: $primary-color 3px 3px 3px ;
-
-      }
-
-      li:hover {
-
-        box-shadow: $primary-color 1px 1px 3px ;
-
 
       }
 
       .stat {
 
         font-size: 0.7em;
+
+        float: none;
+
 
       }
 
@@ -151,6 +143,18 @@ body {
 
         font-size: 1em;
 
+        font-family: 'Raleway';
+
+
+      }
+
+      img {
+
+        float: left;
+
+        height: 50px;
+
+        width: 50px;
 
       }
 
@@ -160,15 +164,17 @@ body {
 
     font-size:0.8em;
 
-    border: $primary-color solid 1px;
-
-    box-shadow: $primary-color 3px 3px 3px ;
-
     padding-left:15px;
 
     padding-bottom:20px;
 
     padding-right: 15px;
+
+    background-color: #CECECE;
+
+    margin-top:40px;
+
+    padding-top: 20px;
 
     h3 {
 
@@ -182,7 +188,7 @@ body {
 
       line-height: 1.7em;
 
-      color: $secondary-color;
+      color: $primary-color;
 
     }
 
@@ -191,15 +197,6 @@ body {
       display: none;
 
     }
-
-  }
-
-  .recent_activity:hover {
-
-    border: $primary-color solid 1px;
-
-    box-shadow: $primary-color 1px 1px 3px ;
-
 
   }
 
@@ -272,11 +269,7 @@ body {
 
     .recent_activity {
 
-      margin-bottom:30px;
-
       h3 {
-
-        margin-top: 30px;
 
         font-size: 1.2em;
 
@@ -298,11 +291,46 @@ body {
 
 }
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: 1100px){
+
+  .none {
+
+    display: block;
+
+  }
 
   .profile_container {
 
-    width:70%;
+    width:85%;
+
+    .stats {
+
+      width:48%;
+
+      float:left;
+
+      margin-right:2%;
+
+    }
+
+
+    .activity_container {
+
+      margin-left:2%;
+
+      width:48%;
+
+      float:left;
+
+    }
+
+
+    h3 {
+
+      font-size: 1.6em;
+
+    }
+
 
   }
 
@@ -313,5 +341,8 @@ body {
     height:200px;
 
   }
+
+
+
 
 }
