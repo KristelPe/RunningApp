@@ -59,7 +59,7 @@
         <ul>
 
             @foreach($allActivity as $activity)
-
+            @if($activity->max_speed <= 2683200 && $activity->type != 'Ride')
 
                     <li>
 
@@ -84,8 +84,8 @@
                         </div>
 
                     </li>
-
-        @endforeach
+            @endif
+            @endforeach
         </ul>
     </div>
 
