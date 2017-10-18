@@ -112,6 +112,8 @@ h2 {
       margin-left: 2%;
       width: 48%;
       float: left; }
+    .profile_container h3 {
+      font-size: 1.6em; }
 
   .spacer {
     margin-top: 200px;
