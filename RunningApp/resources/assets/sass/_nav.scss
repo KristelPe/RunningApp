@@ -38,12 +38,12 @@ nav ul li a{
 .hamburger_icon{
   height: 50px;
   width: 50px;
-  background-color: whitesmoke;
+  background-color: white;
   left: 5%;
   top: 1vh;
   position: absolute;
 }
 
 .current_page{
-  border-bottom: 5px solid #E63257;
+  border-bottom: 5px solid $red-1-color;
 }
