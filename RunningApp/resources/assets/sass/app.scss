@@ -29,6 +29,7 @@ body{
  height: 100vh;
  background-image: url("../img/pattern.svg");
  background-size: cover;
+ color: $red-1-color;
 }
 
 h1, h2{
@@ -54,6 +55,7 @@ a{
  width: 90%;
  margin: auto;
  height: 80vh;
+ overflow: hidden;
 }
 
 .page_title{
@@ -72,6 +74,28 @@ a{
  margin-top: 10px;
  width: 50%;
  border-bottom: 5px solid $red-1-color;
+}
+
+.switch_button{
+ margin-top: 25px;
+ margin-bottom: 25px;
+}
+
+.switch_button ul{
+ display: flex;
+ flex-direction: row;
+ line-height: 28px;
+}
+
+.switch_button ul li{
+ text-align: center;
+ width: 50%;
+ border: 5px solid $red-1-color;
+}
+
+.switch_button_1{
+ background-color: $red-1-color;
+ color: white;
 }
 
 

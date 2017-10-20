@@ -1,0 +1,19 @@
+.personal_parcour, .public_parcour{
+  overflow: scroll;
+  height: 70vh;
+}
+
+.parcour_segment{
+  display: flex;
+  flex-direction: row;
+}
+
+.parcour_img{
+  width: 25%;
+  margin-right: 5%;
+}
+
+.parcour_details{
+  width: 70%;
+  margin-top: 20px;
+}
