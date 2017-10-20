@@ -9,6 +9,8 @@
 
 @import 'profile';
 
+@import 'home';
+
 @import 'nav';
 
 // Variables
@@ -16,7 +18,31 @@
 
 body{
  font-family: $font-family-sans-serif;
+ height: 100vh;
+ background-image: url("../img/pattern.svg");
+ background-size: cover;
 }
+
+a{
+ text-decoration: none;
+}
+
+.container{
+ width: 90%;
+ margin: auto;
+ background-color: pink;
+}
+
+.page_title{
+ text-transform: uppercase;
+}
+
+.bar{
+ border: none;
+ height: 10px;
+ background-color: $primary-color;
+}
+
 
 
 

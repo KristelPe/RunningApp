@@ -4,7 +4,5 @@
 @section('content')
     @parent
 
-    <h1>Parkour - Detail</h1>
-
 
 @endsection

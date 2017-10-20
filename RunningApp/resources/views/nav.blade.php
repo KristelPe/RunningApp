@@ -1,9 +1,13 @@
 <nav>
-    <ul>
-        <li class="{{ (Request::is('/') ? 'active' : '') }}"><a href="/">Home</a></li>
+
+    <div class="hamburger_icon">
+
+    </div>
+    <ul class="nav_menu_js">
+        <li class="{{ (Request::is('/') ? 'current_page' : '') }}"><a href="/">Home</a></li>
         @if( $loggedIn)
-        <li class="{{ (Request::is('profile*') ? 'active' : '') }}"><a href="/profile">Profile</a></li>
-        <li class="{{ (Request::is('parkours*') ? 'active' : '') }}"><a href="/parkours">Parkour</a></li>
+        <li class="{{ (Request::is('profile*') ? 'current_page' : '') }}"><a href="/profile">Profile</a></li>
+        <li class="{{ (Request::is('parkours*') ? 'current_page' : '') }}"><a href="/parkours">Parkour</a></li>
         @endif
         @if( $loggedIn)
             <li>
@@ -19,14 +23,12 @@
             </li>
         @endif
     </ul>
-    @if( $loggedIn )
-    <a href="/profile">
-    <img src="{{ $userAvatarM }}" class="user_img">
-        USER IMG
-    </img>
-
-    </a>
-    @endif
 </nav>
 
+<div class="title_center">
 
+    <h1 class="page_title">@yield('title')</h1>
+
+    <hr class="bar">
+
+</div>

@@ -10,8 +10,6 @@
 
 
     <div class="parkour_container">
-        <h1>PARKOURS</h1>
-        <hr class="bar">
 
         <ul class="parkours">
 
