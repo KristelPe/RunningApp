@@ -14,7 +14,7 @@ class ParkoursController extends Controller
         if(Session::get('loggedIn')){
             $avatarO = Session::get('userAvatarOriginal');
             $avatarM = Session::get('userAvatarMedium');
-            return view('parkours.index', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
+            return view('parcours.index', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
 
         }else{
             return redirect('/login');
@@ -27,7 +27,7 @@ class ParkoursController extends Controller
         if(Session::get('loggedIn')){
             $avatarO = Session::get('userAvatarOriginal');
             $avatarM = Session::get('userAvatarMedium');
-            return view('parkours.detail', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
+            return view('parcours.detail', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
 
         }else{
             return redirect('/login');

@@ -27,7 +27,7 @@ Route::get('/login/callback', 'StravaController@callback');
 Route::get('/logout', 'StravaController@logout');
 
 /* PARKOUR */
-route::get('parkours', 'ParkoursController@index');
+route::get('parcours', 'ParkoursController@index');
 
 Route::get('/parkour/{id}', 'ParkoursController@detail');
 

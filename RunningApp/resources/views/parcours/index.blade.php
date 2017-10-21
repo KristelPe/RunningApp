@@ -1,7 +1,7 @@
 @extends('layout')
 
-@section('title', 'Parkours')
-@section('css', 'parkours.css')
+@section('title', 'Parcours')
+@section('css', 'parcours')
 
 @section('content')
     @parent

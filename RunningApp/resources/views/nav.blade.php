@@ -7,7 +7,7 @@
         <li class="{{ (Request::is('/') ? 'current_page' : '') }}"><a href="/">Home</a></li>
         @if( $loggedIn)
         <li class="{{ (Request::is('profile*') ? 'current_page' : '') }}"><a href="/profile">Profile</a></li>
-        <li class="{{ (Request::is('parkours*') ? 'current_page' : '') }}"><a href="/parkours">Parkour</a></li>
+        <li class="{{ (Request::is('parcours') ? 'current_page' : '') }}"><a href="/parcours">Parcours</a></li>
         @endif
         @if( $loggedIn)
             <li>
