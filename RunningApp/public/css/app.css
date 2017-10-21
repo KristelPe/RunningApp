@@ -54,6 +54,11 @@
   text-align: left;
   vertical-align: top; }
 
+.login_call {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center; }
+
 nav {
   height: 10vh;
   width: 100%;

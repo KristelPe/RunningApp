@@ -17,6 +17,7 @@
 
         <div class="personal_parcour switched_item_1">
 
+
             <div class="parcour_segment">
                 <img src="" alt="img missing" class="parcour_img">
                 <div class="parcour_details">
@@ -27,6 +28,7 @@
             </div>
 
             <hr class="bar">
+
 
         </div>
 

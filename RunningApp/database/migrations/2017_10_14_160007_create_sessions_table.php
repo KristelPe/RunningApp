@@ -16,13 +16,13 @@ class CreateSessionsTable extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('userId');
+            $table->string('parcourName');
             $table->string('startPosition');
             $table->string('endPosition');
             $table->integer('startPositionLatitude');
             $table->integer('startPositionLongitude');
             $table->integer('endPositionLatitude');
             $table->integer('endPositionLongitude');
-            $table->string('groupName')->nullable();
             $table->date('eventCountdown')->nullable();
             $table->timestamps();
         });
