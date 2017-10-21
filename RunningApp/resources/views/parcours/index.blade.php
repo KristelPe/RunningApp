@@ -21,7 +21,7 @@
             <div class="parcour_segment">
                 <img src="" alt="img missing" class="parcour_img">
                 <div class="parcour_details">
-                    <h2>Parcour name</h2>
+                    <h2>parcour name</h2>
                     <p>Parcour owner:</p>
                     <p>Distance:</p>
                 </div>
@@ -34,16 +34,20 @@
 
         <div class="public_parcour switched_item_2">
 
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
+            @foreach($parcours as $parcour)
 
-            <hr class="bar">
+                <div class="parcour_segment">
+                    <img src="" alt="img missing" class="parcour_img">
+                    <div class="parcour_details">
+                        <h2>{{$parcour->parcourName}}</h2>
+                        <p>{{$parcour->userId}}</p>
+                        <p>{{$parcour->parcourDistance}} KM</p>
+                    </div>
+                </div>
+
+                <hr class="bar">
+
+            @endforeach
 
         </div>
 

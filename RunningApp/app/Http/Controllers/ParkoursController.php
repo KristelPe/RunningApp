@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use App\Parcour;
 
 class ParkoursController extends Controller
 {
@@ -12,9 +13,10 @@ class ParkoursController extends Controller
 
 
         if(Session::get('loggedIn')){
-            $avatarO = Session::get('userAvatarOriginal');
-            $avatarM = Session::get('userAvatarMedium');
-            return view('parcours.index', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
+
+            $parcours = Parcour::all();
+
+            return view('parcours.index', ['loggedIn' => true] , compact('parcours'));
 
         }else{
             return redirect('/login');

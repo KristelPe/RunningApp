@@ -11,6 +11,6 @@ class ParcoursTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Session::class, 20)->create();
+        factory(\App\Parcour::class, 20)->create();
     }
 }
