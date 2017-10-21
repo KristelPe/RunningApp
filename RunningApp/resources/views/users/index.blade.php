@@ -28,11 +28,9 @@
             </ul>
         </div>
 
-        <div class="stats">
+        <div class="stats switched_item_1">
 
             <h2> Personal statistics</h2>
-
-            <h2>Recent Activities</h2>
 
             <ul>
 
@@ -47,7 +45,9 @@
 
         </div>
 
-        <div class="activities">
+        <div class="activities switched_item_2">
+
+            <h2>Recent Activities</h2>
             <ul>
 
                 @foreach($allActivity as $activity)
