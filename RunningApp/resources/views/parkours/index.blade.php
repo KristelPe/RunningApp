@@ -28,109 +28,20 @@
 
             <hr class="bar">
 
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
-
-            <hr class="bar">
-
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
-
-            <hr class="bar">
-
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
-
-            <hr class="bar">
-
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
-
-            <hr class="bar">
-
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
-
-            <hr class="bar">
-
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
-
-            <hr class="bar">
-
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
-
-            <hr class="bar">
-
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
-
-            <hr class="bar">
-
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>Parcour name</h2>
-                    <p>Parcour owner:</p>
-                    <p>Distance:</p>
-                </div>
-            </div>
-
-            <hr class="bar">
-
         </div>
 
         <div class="public_parcour switched_item_2">
 
+            <div class="parcour_segment">
+                <img src="" alt="img missing" class="parcour_img">
+                <div class="parcour_details">
+                    <h2>Parcour name</h2>
+                    <p>Parcour owner:</p>
+                    <p>Distance:</p>
+                </div>
+            </div>
+
+            <hr class="bar">
 
         </div>
 
