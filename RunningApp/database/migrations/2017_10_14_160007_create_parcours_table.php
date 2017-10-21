@@ -17,6 +17,7 @@ class CreateParcoursTable extends Migration
             $table->increments('id');
             $table->integer('userId');
             $table->string('parcourName');
+            $table->integer('parcourDistance');
             $table->string('startPosition');
             $table->string('endPosition');
             $table->integer('startPositionLatitude');
