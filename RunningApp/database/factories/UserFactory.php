@@ -18,7 +18,7 @@ $factory->define(App\User::class, function (Faker $faker) {
 
     $gender = $faker->randomElement(['m','f']);
 
-    $role = $faker->randomElement(['student','teacher', 'admin']);
+    $straveToken = $faker->randomElement(['ef47221d83d15ea9cdddbabb3b97489983a74fc6','0965c349fe1925745b24d527abb2e36fc099a9f4','fa48718b5710d3a67574927ccfbeaa8225b28c49','e30928b9920b6fccc9eb1bbdc48c086cead12f49']);
 
     return [
         'id' => $faker->unique()->randomNumber(),
@@ -26,10 +26,9 @@ $factory->define(App\User::class, function (Faker $faker) {
         'lastName' => $faker->lastName($gender),
         'avatar' => $faker->imageUrl($width = 250, $height = 250),
         'avatar_original' => $faker->imageUrl(),
-        'role' => $role,
         'gender' => $gender,
         'email' => $faker->unique()->safeEmail,
-        'token' => str_random(10),
+        'token' => $straveToken,
         'remember_token' => str_random(10),
     ];
 });
