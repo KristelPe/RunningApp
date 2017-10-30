@@ -16,7 +16,7 @@ use App\User;
 // alles waar id in staat moet nog aangepast worden wanneer dr connectie s met dn api of als dr al data in dn database staat
 
 /* HOME */
-Route::get('/', 'controller@index');
+Route::get('/', 'Controller@index');
 
 /* LOG IN */
 Route::get('/login', 'StravaController@login');
