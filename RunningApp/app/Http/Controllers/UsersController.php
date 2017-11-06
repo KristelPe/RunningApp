@@ -31,6 +31,7 @@ class UsersController extends Controller
         //uncomment volgende lijn om de json in uw browser te zien
         //dd($acts);
 
+
         $totalDistance = 0;
         $maxSpeed = 0;
         $longestDistance = 0;
@@ -42,25 +43,26 @@ class UsersController extends Controller
 
 
             if (Activity::where('id', '=', $act['id'])->exists()) {
-            }else{
+            }else {
+                if ($act != null) {
+                    $athlete = (array)$act['athlete'];
 
-                $athlete = (array)$act['athlete'];
 
+                    $newActivity = Activity::create([
+                        'id' => $act['id'],
+                        'athlete_id' => $athlete['id'],
+                        'name' => $act['name'],
+                        'distance' => $act['distance'],
+                        'max_speed' => $act['max_speed'],
+                        'average_speed' => $act['average_speed'],
+                        'type' => $act['type'],
+                        'moving_time' => $act['moving_time'],
+                        'elapsed_time' => $act['elapsed_time'],
+                        'kudos_count' => $act['kudos_count'],
+                    ]);
 
-                $newActivity = Activity::create([
-                    'id' => $act['id'],
-                    'athlete_id' => $athlete['id'],
-                    'name' => $act['name'],
-                    'distance' => $act['distance'],
-                    'max_speed' => $act['max_speed'],
-                    'average_speed' => $act['average_speed'],
-                    'type' => $act['type'],
-                    'moving_time' => $act['moving_time'],
-                    'elapsed_time' => $act['elapsed_time'],
-                    'kudos_count' => $act['kudos_count'],
-                ]);
-
-                $newActivity->save();
+                    $newActivity->save();
+                }
             }
         }
 
