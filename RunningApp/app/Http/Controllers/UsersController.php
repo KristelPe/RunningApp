@@ -40,24 +40,28 @@ class UsersController extends Controller
             $maxSpeed = max($act['max_speed'], $maxSpeed);
             $longestDistance = max($act['distance'], $longestDistance);
 
-            $athlete = (array)$act['athlete'];
+
+            if (Activity::where('id', '=', $act['id'])->exists()) {
+            }else{
+
+                $athlete = (array)$act['athlete'];
 
 
-            $newActivity = Activity::create([
-                'id' => $act['id'],
-                'athlete_id' => $athlete['id'],
-                'name' => $act['name'],
-                'distance' => $act['distance'],
-                'max_speed' => $act['max_speed'],
-                'average_speed' => $act['average_speed'],
-                'type' => $act['type'],
-                'moving_time' => $act['moving_time'],
-                'elapsed_time' => $act['elapsed_time'],
-                'kudos_count' => $act['kudos_count'],
-            ]);
+                $newActivity = Activity::create([
+                    'id' => $act['id'],
+                    'athlete_id' => $athlete['id'],
+                    'name' => $act['name'],
+                    'distance' => $act['distance'],
+                    'max_speed' => $act['max_speed'],
+                    'average_speed' => $act['average_speed'],
+                    'type' => $act['type'],
+                    'moving_time' => $act['moving_time'],
+                    'elapsed_time' => $act['elapsed_time'],
+                    'kudos_count' => $act['kudos_count'],
+                ]);
 
-            $newActivity->save();
-
+                $newActivity->save();
+            }
         }
 
         $totalDistance = round($totalDistance/1000, 2);
