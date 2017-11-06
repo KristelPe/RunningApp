@@ -10,6 +10,6 @@ class Activity extends Model
     use Notifiable;
 
     protected $fillable = [
-        'id', 'athlete', 'name','distance','max_speed','average_speed', 'type',
+        'id', 'athlete_id', 'name','distance','max_speed','average_speed', 'type', 'moving_time', 'elapsed_time', 'kudos_count'
     ];
 }

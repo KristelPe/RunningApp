@@ -15,9 +15,12 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->integer('id');
-            $table->integer('athlete');
+            $table->integer('athlete_id');
             $table->string('name');
             $table->integer('distance');
+            $table->integer('moving_time');
+            $table->integer('elapsed_time');
+            $table->integer('kudos_count');
             $table->integer('max_speed');
             $table->integer('average_speed');
             $table->string('type');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp;
 use Session;
 use App\User;
+use App\Activity;
 use View;
 use App\Http\Controllers\StravaController;
 
@@ -38,11 +39,31 @@ class UsersController extends Controller
             $totalDistance = $totalDistance + $act['distance'];
             $maxSpeed = max($act['max_speed'], $maxSpeed);
             $longestDistance = max($act['distance'], $longestDistance);
+
+            $athlete = (array)$act['athlete'];
+
+
+            $newActivity = Activity::create([
+                'id' => $act['id'],
+                'athlete_id' => $athlete['id'],
+                'name' => $act['name'],
+                'distance' => $act['distance'],
+                'max_speed' => $act['max_speed'],
+                'average_speed' => $act['average_speed'],
+                'type' => $act['type'],
+                'moving_time' => $act['moving_time'],
+                'elapsed_time' => $act['elapsed_time'],
+                'kudos_count' => $act['kudos_count'],
+            ]);
+
+            $newActivity->save();
+
         }
 
         $totalDistance = round($totalDistance/1000, 2);
         $longestDistance = round($longestDistance/1000, 2);
 
+        //dd($acts);
 
         return View::make('users/index', ['totalDistance' => $totalDistance, 'maxSpeed' => $maxSpeed, 'longestDistance' => $longestDistance,'loggedIn' => $loggedIn ,'userId' => $id, 'userFirstName' => $firstName, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM, 'allActivity' => $acts]);
 
