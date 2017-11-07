@@ -16,7 +16,8 @@ class Controller extends BaseController
         if(Session::get('loggedIn')){
             $avatarO = Session::get('userAvatarOriginal');
             $avatarM = Session::get('userAvatarMedium');
-            return view('home/index', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
+            $recomendedDistance = 15;
+            return view('home/index', ['loggedIn' => true,'recomendedDistance' => $recomendedDistance, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
         }else{
             return view('home/index', ['loggedIn' => false]);
         };
