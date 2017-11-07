@@ -10,6 +10,10 @@ class Activity extends Model
     use Notifiable;
 
     protected $fillable = [
-        'id', 'athlete_id', 'name','distance','max_speed','average_speed', 'type', 'moving_time', 'elapsed_time', 'kudos_count'
+        'id','start_date_local', 'athlete_id', 'name','distance','max_speed','average_speed', 'type', 'moving_time', 'elapsed_time', 'kudos_count'
     ];
+
+    public function user(){
+        $this->hasOne('App\User');
+    }
 }

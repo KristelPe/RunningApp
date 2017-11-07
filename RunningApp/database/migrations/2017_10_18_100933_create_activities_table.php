@@ -18,6 +18,7 @@ class CreateActivitiesTable extends Migration
             $table->integer('athlete_id');
             $table->string('name');
             $table->integer('distance');
+            $table->integer('start_date_local');
             $table->integer('moving_time');
             $table->integer('elapsed_time');
             $table->integer('kudos_count');

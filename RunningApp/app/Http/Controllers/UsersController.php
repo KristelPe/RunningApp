@@ -47,12 +47,16 @@ class UsersController extends Controller
                 if ($act != null) {
                     $athlete = (array)$act['athlete'];
 
+                    $act['start_date_local'] = preg_replace('/[^0-9.]+/', '', $act['start_date_local']);
+                    $act['start_date_local'] = substr($act['start_date_local'], 0, 8);
+
 
                     $newActivity = Activity::create([
                         'id' => $act['id'],
                         'athlete_id' => $athlete['id'],
                         'name' => $act['name'],
                         'distance' => $act['distance'],
+                        'start_date_local' => $act['start_date_local'],
                         'max_speed' => $act['max_speed'],
                         'average_speed' => $act['average_speed'],
                         'type' => $act['type'],
