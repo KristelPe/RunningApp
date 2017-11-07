@@ -12,4 +12,8 @@ class Activity extends Model
     protected $fillable = [
         'id', 'athlete_id', 'name','distance','max_speed','average_speed', 'type', 'moving_time', 'elapsed_time', 'kudos_count'
     ];
+
+    public function user(){
+        $this->hasOne('App\User');
+    }
 }

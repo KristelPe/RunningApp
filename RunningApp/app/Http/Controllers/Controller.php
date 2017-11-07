@@ -6,6 +6,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class Controller extends BaseController
@@ -16,6 +17,7 @@ class Controller extends BaseController
         if(Session::get('loggedIn')){
             $avatarO = Session::get('userAvatarOriginal');
             $avatarM = Session::get('userAvatarMedium');
+
             return view('home/index', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
         }else{
             return view('home/index', ['loggedIn' => false]);
