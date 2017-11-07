@@ -74,7 +74,7 @@ class StravaController extends Controller
                 $userEmail = $this->getUserData($loggedInUser, 'email');
                 $userGender = $this->getUserData($loggedInUser, 'sex');
 
-                $newUser = Activity::create([
+                $newUser = User::create([
                     'token' => $token,
                     'id' => $userId,
                     'firstName' => $userFirstName,
