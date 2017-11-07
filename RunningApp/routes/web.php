@@ -31,10 +31,5 @@ route::get('parcours', 'ParkoursController@index');
 
 Route::get('/parcours/{id}', 'ParkoursController@detail');
 
-/* GROUP */
-route::get('groups', 'GroupsController@index');
-
-Route::get('/group/{id}', 'GroupsController@detail');
-
 /* USER */
 Route::get('/profile', 'UsersController@index');
