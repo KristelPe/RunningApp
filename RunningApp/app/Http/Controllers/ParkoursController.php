@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Activity;
 use Illuminate\Http\Request;
 use Session;
-use App\Parcour;
 
 class ParkoursController extends Controller
 {
@@ -14,7 +14,7 @@ class ParkoursController extends Controller
 
         if(Session::get('loggedIn')){
 
-            $parcours = Parcour::all();
+            $parcours = Activity::all();
 
             return view('parcours.index', ['loggedIn' => true] , compact('parcours'));
 

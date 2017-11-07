@@ -29,7 +29,7 @@ Route::get('/logout', 'StravaController@logout');
 /* PARKOUR */
 route::get('parcours', 'ParkoursController@index');
 
-Route::get('/parkour/{id}', 'ParkoursController@detail');
+Route::get('/parcours/{id}', 'ParkoursController@detail');
 
 /* GROUP */
 route::get('groups', 'GroupsController@index');

@@ -39,9 +39,8 @@
                 <div class="parcour_segment">
                     <img src="" alt="img missing" class="parcour_img">
                     <div class="parcour_details">
-                        <h2>{{$parcour->parcourName}}</h2>
-                        <p>{{$parcour->userId}}</p>
-                        <p>{{$parcour->parcourDistance}} KM</p>
+                        <h2>{{$parcour->name}}</h2>
+                        <p>{{$parcour->distance / 1000}} KM</p>
                     </div>
                 </div>
 
