@@ -31,7 +31,7 @@ class Controller extends BaseController
             $x = 1;
             foreach ($allActivities as $a) {
                 $runDistance = $runDistance + $a->distance;
-                $recomendedDistance = $recomendedDistance + ($a->distance)* 1.1;
+                //$recomendedDistance = $recomendedDistance + ($a->distance)* 1.1;
 
 
 
