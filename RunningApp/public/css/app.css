@@ -51,6 +51,23 @@
   margin-top: -150px;
   margin-left: -150px; }
 
+.profile_stat_layout {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-flow: row wrap; }
+
+.profile_stat_layout li {
+  text-align: center;
+  margin: 0.5%;
+  width: 31%; }
+
+.profile_stat_layout li p {
+  font-size: 1.5em; }
+
+.profile_stat_layout_h2 {
+  margin-bottom: 10px; }
+
 .home_content {
   display: table;
   height: 90%;
