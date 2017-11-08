@@ -13,7 +13,7 @@ class Activity extends Model
         'id','start_date_local', 'athlete_id', 'name','distance','max_speed','average_speed', 'type', 'moving_time', 'elapsed_time', 'kudos_count'
     ];
 
-    public function user(){
-        $this->hasOne('App\User');
+    public function getUser(){
+        return $this->belongsTo('App\User', 'athlete_id', 'id');
     }
 }

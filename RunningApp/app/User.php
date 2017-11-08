@@ -26,8 +26,4 @@ class User extends Authenticatable
     protected $hidden = [
         'remember_token',
     ];
-
-    public function getOverAllData() {
-        return $this->hasMany('App\Activity');
-    }
 }

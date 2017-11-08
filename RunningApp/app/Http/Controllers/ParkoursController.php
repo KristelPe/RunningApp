@@ -16,6 +16,7 @@ class ParkoursController extends Controller
 
             $parcours = Activity::all();
 
+
             return view('parcours.index', ['loggedIn' => true] , compact('parcours'));
 
         }else{
