@@ -11,7 +11,11 @@
 
         <div class="profile_header">
 
-            <img class="profile_picture" alt="img not found" src={{ $userAvatarO }} >
+            <div class="profile_picture_layout">
+
+                <img class="profile_picture" alt="img not found" src={{ $userAvatarO }} >
+
+            </div>
 
             <div class="profile_details">
                 <h1 class="username">{{ $userFirstName }}</h1>

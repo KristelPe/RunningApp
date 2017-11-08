@@ -18,3 +18,23 @@
   margin-left: 10%;
   width: 50%;
 }
+
+.profile_picture_layout{
+  max-width: 150px;
+  max-height: 150px;
+  min-width: 150px;
+  min-height: 150px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+
+.profile_picture{
+  width: 200px!important;
+  position: absolute;
+  top: 90%;
+  left: 75%;
+  margin-top: -150px;
+  margin-left: -150px;
+}
