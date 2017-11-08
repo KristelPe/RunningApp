@@ -24,7 +24,7 @@
         <div class="switch_button">
             <ul>
                 <li class="switch_button_1" onclick="switchEffect(1)">Stats</li>
-                <li class="switch_button_2" onclick="switchEffect(2)">Medals</li>
+                <li class="switch_button_2" onclick="switchEffect(2)">Recent Activities</li>
             </ul>
         </div>
 
