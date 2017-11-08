@@ -21,12 +21,12 @@ $factory->define(App\User::class, function (Faker $faker) {
     $straveToken = $faker->randomElement(['ef47221d83d15ea9cdddbabb3b97489983a74fc6','0965c349fe1925745b24d527abb2e36fc099a9f4','fa48718b5710d3a67574927ccfbeaa8225b28c49','e30928b9920b6fccc9eb1bbdc48c086cead12f49']);
 
     return [
-        'id' => $faker->unique()->randomNumber(),
-        'FirstName' => $faker->firstName($gender),
-        'lastName' => $faker->lastName($gender),
+        'id' => 42,
+        'FirstName' => 'Robby',
+        'lastName' => 'Tester',
         'avatar' => $faker->imageUrl($width = 250, $height = 250),
         'avatar_original' => $faker->imageUrl(),
-        'gender' => $gender,
+        'gender' => 'M',
         'email' => $faker->unique()->safeEmail,
         'token' => $straveToken,
         'remember_token' => str_random(10),

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ParcoursTableSeeder extends Seeder
+class ActivitiesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class ParcoursTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Parcour::class, 20)->create();
+        factory(\App\Activity::class, 20)->create();
     }
 }
