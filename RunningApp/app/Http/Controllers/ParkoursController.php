@@ -28,10 +28,11 @@ class ParkoursController extends Controller
     public function detail(){
 
         if(Session::get('loggedIn')){
-            $avatarO = Session::get('userAvatarOriginal');
+            /*$avatarO = Session::get('userAvatarOriginal');
             $avatarM = Session::get('userAvatarMedium');
             return view('parcours.detail', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
-
+            */
+            return view('parcours.detail', ['loggedIn' => true] );
         }else{
             return redirect('/login');
         };
