@@ -27,7 +27,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
     public function activities() {
         return $this->hasMany('App\Activity');
     }
+
 }

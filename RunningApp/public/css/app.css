@@ -5,7 +5,8 @@
 
 .parcour_segment {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  height: 110px; }
 
 .parcour_img {
   width: 25%;
@@ -50,6 +51,23 @@
   margin-top: -150px;
   margin-left: -150px; }
 
+.profile_stat_layout {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-flow: row wrap; }
+
+.profile_stat_layout li {
+  text-align: center;
+  margin: 0.5%;
+  width: 31%; }
+
+.profile_stat_layout li p {
+  font-size: 1.5em; }
+
+.profile_stat_layout_h2 {
+  margin-bottom: 10px; }
+
 .home_content {
   display: table;
   height: 90%;
@@ -83,7 +101,9 @@ nav {
   background-color: #333333;
   position: relative;
   font-size: 1.7em;
-  z-index: 99; }
+  z-index: 99;
+  display: flex;
+  align-items: center; }
 
 nav ul {
   position: absolute;
@@ -111,12 +131,18 @@ nav ul li a {
   margin-top: 10px; }
 
 .hamburger_icon {
-  height: 50px;
-  width: 50px;
-  background-color: white;
+  min-height: 7vh;
+  min-width: 7vh;
+  max-height: 7vh;
+  max-width: 7vh;
   left: 5%;
-  top: 1vh;
   position: absolute; }
+
+.bar1, .bar2, .bar3 {
+  width: 100%;
+  height: 7px;
+  background-color: white;
+  margin: 6px 0; }
 
 .current_page {
   border-bottom: 5px solid #E63257; }

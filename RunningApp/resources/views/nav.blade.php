@@ -1,7 +1,9 @@
 <nav>
 
     <div class="hamburger_icon">
-
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
     </div>
     <ul class="nav_menu_js">
         <li class="{{ (Request::is('/') ? 'current_page' : '') }}"><a href="/">Home</a></li>

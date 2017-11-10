@@ -34,9 +34,9 @@
 
         <div class="stats switched_item_1">
 
-            <h2> Personal statistics</h2>
+            <h2 class="profile_stat_layout_h2"> Personal statistics</h2>
 
-            <ul>
+            <ul class="profile_stat_layout">
 
                 <li><div class="stat dist">Overall Distance</div><p>{{ $totalDistance }} km</p></li>
 
@@ -51,7 +51,7 @@
 
         <div class="activities switched_item_2">
 
-            <h2>Recent Activities</h2>
+            <h2 class="profile_stat_layout_h2">Recent Activities</h2>
             <ul>
 
                 @foreach($allActivity as $activity)
