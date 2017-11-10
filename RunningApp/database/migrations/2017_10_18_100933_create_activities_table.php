@@ -15,7 +15,7 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->integer('id');
-            $table->integer('athlete_id');
+            $table->integer('athlete_id')->references('id')->on('users');
             $table->string('name');
             $table->integer('distance');
             $table->integer('start_date_local');

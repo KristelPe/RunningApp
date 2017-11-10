@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','firstName','lastName','gender', 'avatar', 'avatar_original', 'token', 'id',
+        'name', 'email', 'password','firstName','lastName','gender', 'followingSchedule', 'avatar', 'avatar_original', 'token', 'id',
     ];
 
     /**
@@ -27,7 +27,7 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function getOverAllData() {
+    public function activities() {
         return $this->hasMany('App\Activity');
     }
 }
