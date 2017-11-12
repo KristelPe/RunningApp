@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Schedule;
+use Faker\Provider\DateTime;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -15,12 +17,10 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function index(){
-        if(Session::get('loggedIn')){
-            $avatarO = Session::get('userAvatarOriginal');
-            $avatarM = Session::get('userAvatarMedium');
-            $userName = Session::get('userFirstName');
-            $userId = Session::get('userId');
-            $token = Session::get('token');
+        if(Auth::check()){
+
+            $userId = Auth::user()->id;
+            $token = Auth::user()->token;
 
 
             //ZEER VUIL!!!
@@ -47,7 +47,8 @@ class Controller extends BaseController
                         $athlete = (array)$act['athlete'];
 
                         $act['start_date_local'] = preg_replace('/[^0-9.]+/', '', $act['start_date_local']);
-                        $act['start_date_local'] = substr($act['start_date_local'], 0, 8);
+                        $act['start_date_local'] = substr($act['start_date_local'], 0, 4) . "-" . substr($act['start_date_local'], 4, 2) . "-" . substr($act['start_date_local'], 6, 2);
+
 
 
                         $newActivity = Activity::create([
@@ -73,29 +74,42 @@ class Controller extends BaseController
 
 
             $runDistance = 0;
-            $recomendedTotalDistance = 4;
+
+            $today = new \DateTime(date("Y-m-d"));
+
+            $endDate = Schedule::where('id', 1)->first()->get();
+            foreach ($endDate as $e) {
+                $endDateV = new \DateTime($e->endDate);
+                $endGoal = $e->endGoal;
+
+            }
+
+
+            $numberOfWeeks = $today->diff($endDateV);
+            //dd($numberOfWeeks);
+            $numberOfDays = $numberOfWeeks->days;
+
             $recomendedDistance = 2000;
 
         if(Activity::where('athlete_id', $userId) != Null) {
-            $allActivities = Activity::where('athlete_id', $userId)->where('start_date_local', '>' ,20171106)->get();
+            $allActivities = Activity::where('athlete_id', $userId)->where('start_date_local', '=' ,date("Y-m-d"))->get();
             $x = 1;
             foreach ($allActivities as $a) {
                 $runDistance = $runDistance + $a->distance;
-                //$recomendedDistance = $recomendedDistance + ($a->distance)* 1.1;
-
-
 
             }
 
             $runDistance = round($runDistance/1000, 2);
             $recomendedDistance = round($recomendedDistance/1000, 2);
-            $recomendedTotalDistance = $recomendedDistance*2;
+
         }
 
-            return view('home/index', ['loggedIn' => true,'runDistance'=>$runDistance, 'userName' => $userName,'recomendedDistance' => $recomendedDistance,'recomendedTotalDistance' => $recomendedTotalDistance, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
+            $recomendedTotalDistance = max($endGoal/$numberOfDays, $endGoal/10);
+
+            return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistance' => $recomendedDistance,'recomendedTotalDistance' => $recomendedTotalDistance]);
 
         }else{
-            return view('home/index', ['loggedIn' => false]);
+            return view('home/index');
         };
     }
 

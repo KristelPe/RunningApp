@@ -14,14 +14,12 @@ class UsersController extends Controller
 {
     //
     public function index(){
-        $id = Session::get('userId');
-        $token = Session::get('token');
-        $firstName = Session::get('userFirstName');
-        $avatarO = Session::get('userAvatarOriginal');
-        $avatarM = Session::get('userAvatarMedium');
 
-        if(Session::get('loggedIn')){
-            $loggedIn = true;
+        $token = Auth::user()->token;
+
+
+        if(Auth::check()){
+
         }else{
             return redirect('/login');
         };
@@ -75,7 +73,7 @@ class UsersController extends Controller
 
         //dd($acts);
 
-        return View::make('users/index', ['totalDistance' => $totalDistance, 'maxSpeed' => $maxSpeed, 'longestDistance' => $longestDistance,'loggedIn' => $loggedIn ,'userId' => $id, 'userFirstName' => $firstName, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM, 'allActivity' => $acts]);
+        return View::make('users/index', ['totalDistance' => $totalDistance, 'maxSpeed' => $maxSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts]);
 
     }
     public function detail(){

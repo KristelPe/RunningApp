@@ -13,12 +13,12 @@
 
             <div class="profile_picture_layout">
 
-                <img class="profile_picture" alt="img not found" src={{ $userAvatarO }} >
+                <img class="profile_picture" alt="img not found" src={{ Auth::user()->avatar_original }} >
 
             </div>
 
             <div class="profile_details">
-                <h1 class="username">{{ $userFirstName }}</h1>
+                <h1 class="username">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</h1>
                 <p class="level">Rookie Runner</p>
                 <p class="progress">lvl 3</p>
             </div>

@@ -12,12 +12,12 @@ class ParkoursController extends Controller
     public function index(){
 
 
-        if(Session::get('loggedIn')){
+        if(Auth::check()){
 
             $parcours = Activity::all();
 
 
-            return view('parcours.index', ['loggedIn' => true] , compact('parcours'));
+            return view('parcours.index',  compact('parcours'));
 
         }else{
             return redirect('/login');
@@ -27,12 +27,12 @@ class ParkoursController extends Controller
 
     public function detail(){
 
-        if(Session::get('loggedIn')){
+        if(Auth::check()){
             /*$avatarO = Session::get('userAvatarOriginal');
             $avatarM = Session::get('userAvatarMedium');
             return view('parcours.detail', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
             */
-            return view('parcours.detail', ['loggedIn' => true] );
+            return view('parcours.detail' );
         }else{
             return redirect('/login');
         };

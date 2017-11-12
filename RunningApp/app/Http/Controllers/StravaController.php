@@ -8,6 +8,7 @@ use App\User;
 use Session;
 use App\Activity;
 use GuzzleHttp;
+use Illuminate\Support\Facades\Auth;
 
 
 class StravaController extends Controller
@@ -59,43 +60,36 @@ class StravaController extends Controller
         $userAvatarMedium = $this->getUserData($loggedInUser, 'profile_medium');
         $userFirstName = $this->getUserData($loggedInUser, 'firstname');
         $userLastName = $this->getUserData($loggedInUser, 'lastname');
+        $userEmail = $this->getUserData($loggedInUser, 'email');
+        $userGender = $this->getUserData($loggedInUser, 'sex');
 
-        if (auth()->guest()) {
-            $exists = User::where('id', $userId)->first();
-            if ($exists != Null) {
-                Session::put('loggedIn', true);
-                Session::put('token', $token);
-                Session::put('userId', $userId);
-                Session::put('userAvatarOriginal', $userAvatarOriginal);
-                Session::put('userAvatarMedium', $userAvatarMedium);
-                Session::put('userFirstName', $userFirstName);
-                return redirect('/');
-            }else{
-                $userEmail = $this->getUserData($loggedInUser, 'email');
-                $userGender = $this->getUserData($loggedInUser, 'sex');
+        //----------------------------------------
 
-                $newUser = User::create([
-                    'token' => $token,
-                    'id' => $userId,
-                    'firstName' => $userFirstName,
-                    'lastName' => $userLastName,
-                    'email' => $userEmail,
-                    'gender' => $userGender,
-                    'avatar_original' => $userAvatarOriginal,
-                    'avatar' => $userAvatarMedium,
-                ]);
+        $loginUser = User::firstOrNew(['id' => $userId]);
 
-                $newUser->save();
-                Session::put('loggedIn', true);
-                Session::put('token', $token);
-                Session::put('userId', $userId);
-                Session::put('userAvatarOriginal', $userAvatarOriginal);
-                Session::put('userAvatarMedium', $userAvatarMedium);
-                Session::put('userFirstName', $userFirstName);
-                return redirect('/');
+        $loginUser->token = $token;
+        $loginUser->id = $userId;
+        $loginUser->firstName = $userFirstName;
+        $loginUser->lastName = $userLastName;
+        $loginUser->email = $userEmail;
+        $loginUser->gender = $userGender;
+        $loginUser->avatar_original = $userAvatarOriginal;
+        $loginUser->avatar = $userAvatarMedium;
+        $loginUser->save();
 
-            }
-        };
+        Auth::login(User::where('id', $userId)->first());
+        Session::put('loggedIn', true);
+        Session::put('token', $token);
+        Session::put('userId', $userId);
+        Session::put('userAvatarOriginal', $userAvatarOriginal);
+        Session::put('userAvatarMedium', $userAvatarMedium);
+        Session::put('userFirstName', $userFirstName);
+        return redirect('/');
+
+
+        //----------------------------------------
+
+
     }
 
     public static function getAllUserActivity($token){
@@ -111,7 +105,7 @@ class StravaController extends Controller
     }
 
     public function logout(){
-        $token = Session::get('token');
+        $token = Auth::user()->token;
 
         $client = new GuzzleHttp\Client();
 
@@ -120,6 +114,8 @@ class StravaController extends Controller
                 'Authorization' => 'Bearer ' . $token
             ]
         ]);
+
+        Auth::logout();
 
         Session::flush();
 

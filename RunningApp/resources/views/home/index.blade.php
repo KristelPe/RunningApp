@@ -5,8 +5,9 @@
 @section('content')
     @parent
 
-    @if( $loggedIn)
-        <h2 class="home_distance_walked">Weekly Total Goal: {{$runDistance}} / {{$recomendedTotalDistance}} km</h2>
+    @if( Auth::check())
+        <h2 class="home_distance_walked">{{ $daysLeft }} days left!</h2>
+        <h2 class="home_distance_walked">Goal today: {{$runDistance}} / {{$recomendedTotalDistance}} km</h2>
         <div class="home_content">
             <div class="home_content_stat">
                 <img src="img/start_icon.svg" alt=" start icon">
@@ -15,7 +16,7 @@
                 <h1 class="red_bar_width">{{ $recomendedDistance }} KM Continuously By Sunday!</h1>
 
 
-                    <p>{{$userName}}</p>
+                    <p>{{Auth::user()->firstName}}</p>
 
 
                 <h2>Get running!</h2>

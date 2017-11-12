@@ -11,7 +11,7 @@ class Schedule extends Model
 
 
     protected $fillable = [
-        'id','name', 'ownerId', 'endGoal','endGoalIn','endDate'
+        'id', 'endGoal', 'endDate'
     ];
 
 }
