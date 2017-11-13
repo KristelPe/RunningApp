@@ -1,5 +1,5 @@
 
-    @foreach($badges as $b)
+    @foreach(Auth::user()->badges as $b)
 
             <div class="badge_container">
                 <img src="{{$b->image}}" alt="BadgeImage" class="badge_img">

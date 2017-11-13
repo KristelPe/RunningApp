@@ -33,6 +33,6 @@ class User extends Authenticatable
     }
 
     public function badges(){
-        return $this->belongsToMany(Badge::class, 'hasBadge', 'badge_id', 'user_id');
+        return $this->belongsToMany(Badge::class, 'hasBadge', 'user_id', 'badge_id  ');
     }
 }

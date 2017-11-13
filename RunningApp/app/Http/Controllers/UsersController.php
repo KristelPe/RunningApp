@@ -79,7 +79,7 @@ class UsersController extends Controller
         //badges
         $badges = Badge::all();
 
-        return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badges'))->withuser($token);
+        return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts, 'token' => $token, 'badges' => $badges])->withuser($token);
 
     }
     public function detail(){

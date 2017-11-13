@@ -15,6 +15,6 @@ class Badge extends Model
     protected $fillable = ['title', 'user_id', 'body'];
 
     public function user(){
-        return $this->belongsTo(User::class, 'id', 'user_id');
+        return $this->belongsToMany(User::class, 'hasBadge', 'badge_id', 'user_id');
     }
 }

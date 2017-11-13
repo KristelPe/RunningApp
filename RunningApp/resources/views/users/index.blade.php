@@ -33,7 +33,7 @@
         </div>
 
         <div class="stats switched_item_1">
-
+{{--
             <h2 class="profile_stat_layout_h2"> Personal statistics</h2>
 
             <ul class="profile_stat_layout">
@@ -44,7 +44,7 @@
 
                 <li><div class="stat long">Longest Session</div><p>{{ $longestDistance }} km</p></li>
 
-            </ul>
+            </ul>--}}
             <br>
             <h2 class="profile_stat_layout_h2"> Badges</h2>
             @include('users.badges')
