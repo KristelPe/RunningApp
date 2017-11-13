@@ -10,7 +10,7 @@ $factory->define(App\Schedule::class, function (Faker $faker) {
 
 
 
-        $endGoal = $faker->randomElement(array( 10));
+        $endGoal = $faker->randomElement(array( 15));
 
 
     return [
