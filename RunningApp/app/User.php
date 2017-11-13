@@ -32,4 +32,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Activity');
     }
 
+    public function badges(){
+        return $this->belongsToMany(Badge::class, 'hasBadge', 'badge_id', 'user_id');
+    }
 }

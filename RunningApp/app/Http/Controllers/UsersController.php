@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Badge;
 use Illuminate\Http\Request;
 use GuzzleHttp;
+use Illuminate\Support\Facades\Auth;
 use Session;
 use App\User;
 use App\Activity;
@@ -31,12 +33,12 @@ class UsersController extends Controller
 
 
         $totalDistance = 0;
-        $maxSpeed = 0;
+        $avgSpeed = 0;
         $longestDistance = 0;
         foreach ($acts as $actClass){
             $act = (array)$actClass;
             $totalDistance = $totalDistance + $act['distance'];
-            $maxSpeed = max($act['max_speed'], $maxSpeed);
+            $avgSpeed = ($act['average_speed'] + $avgSpeed)/count($actClass);
             $longestDistance = max($act['distance'], $longestDistance);
 
 
@@ -73,7 +75,11 @@ class UsersController extends Controller
 
         //dd($acts);
 
-        return View::make('users/index', ['totalDistance' => $totalDistance, 'maxSpeed' => $maxSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts]);
+
+        //badges
+        $badges = Badge::all();
+
+        return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badges'))->withuser($token);
 
     }
     public function detail(){

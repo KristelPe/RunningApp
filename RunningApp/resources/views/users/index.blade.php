@@ -40,11 +40,14 @@
 
                 <li><div class="stat dist">Overall Distance</div><p>{{ $totalDistance }} km</p></li>
 
-                <li><div class="stat fast">Fastest Sprint</div><p>{{ $maxSpeed }} km/h</p></li>
+                <li><div class="stat fast">Average Speed</div><p>{{ $avgSpeed }} km/h</p></li>
 
                 <li><div class="stat long">Longest Session</div><p>{{ $longestDistance }} km</p></li>
 
             </ul>
+            <br>
+            <h2 class="profile_stat_layout_h2"> Badges</h2>
+            @include('users.badges')
 
 
         </div>

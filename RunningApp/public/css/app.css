@@ -207,4 +207,30 @@ a {
   background-color: #E63257;
   color: white; }
 
+.badge_container{
+  position:relative;
+  text-align: center;
+  color: white;
+  float: left;
+  margin-left:3%;
+}
+.badge_img{
+  height:100px;
+  width:100px;
+
+}
+.badge_title{
+  position: absolute;
+  top:5px;
+  left:7px;
+  color: white;
+  text-shadow: black 2px 2px 2px;
+
+}
+
+
+
+
+
+
 /*# sourceMappingURL=app.css.map */
