@@ -18,16 +18,25 @@
         <div class="personal_parcour switched_item_1">
 
 
-            <div class="parcour_segment">
-                <img src="" alt="img missing" class="parcour_img">
-                <div class="parcour_details">
-                    <h2>parcour name</h2>
-                    <p>Distance:</p>
-                    <p>Advice: Perfect for you!</p>
-                </div>
-            </div>
+            @foreach($parcours as $parcour)
 
-            <hr class="bar">
+
+                @if(Auth::user()->id == $parcour->athlete_id)
+
+                    <div class="parcour_segment">
+                        <img src="" alt="img missing" class="parcour_img">
+                        <div class="parcour_details">
+                            <h2>{{$parcour->name}}</h2>
+                            <p>Distance: {{$parcour->distance / 1000}} KM</p>
+                            <p>Runner: {{$parcour->getUser->firstName}} {{$parcour->getUser->lastName}} </p>
+                        </div>
+                    </div>
+
+                    <hr class="bar">
+
+                @endif
+
+            @endforeach
 
 
         </div>
@@ -36,17 +45,22 @@
 
             @foreach($parcours as $parcour)
 
-                <div class="parcour_segment">
-                    <img src="" alt="img missing" class="parcour_img">
-                    <div class="parcour_details">
-                        <h2>{{$parcour->name}}</h2>
-                        <p>Distance: {{$parcour->distance / 1000}} KM</p>
-                        <p>Runner: {{$parcour->getUser->firstName}} {{$parcour->getUser->lastName}} </p>
-                        <p>Advice: Perfect for you!</p>
-                    </div>
-                </div>
 
-                <hr class="bar">
+                @if(Auth::user()->id != $parcour->athlete_id)
+
+                    <div class="parcour_segment">
+                        <img src="" alt="img missing" class="parcour_img">
+                        <div class="parcour_details">
+                            <h2>{{$parcour->name}}</h2>
+                            <p>Distance: {{$parcour->distance / 1000}} KM</p>
+                            <p>Runner: {{$parcour->getUser->firstName}} {{$parcour->getUser->lastName}} </p>
+                            <p>Advice: Perfect for you!</p>
+                        </div>
+                    </div>
+
+                    <hr class="bar">
+
+                @endif
 
             @endforeach
 
