@@ -19,9 +19,7 @@ class UsersController extends Controller
 
         $token = Auth::user()->token;
 
-
         if(Auth::check()){
-
         }else{
             return redirect('/login');
         };
@@ -30,8 +28,6 @@ class UsersController extends Controller
 
         //uncomment volgende lijn om de json in uw browser te zien
         //dd($acts);
-
-
         $totalDistance = 0;
         $avgSpeed = 0;
         $longestDistance = 0;
@@ -75,9 +71,6 @@ class UsersController extends Controller
 
         //dd($acts);
 
-
-        //badges
-        $badge = Badge::all();
 
         return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badge'));
 

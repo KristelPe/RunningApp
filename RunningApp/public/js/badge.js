@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $(".badge_container").click(function() {
+    $(".badge_container").click(functionus() {
         $(".badge_description").hide();
         $(this).next().show();
         setTimeout(function(){

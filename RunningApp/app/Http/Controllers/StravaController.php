@@ -78,10 +78,6 @@ class StravaController extends Controller
         $loginUser->avatar = $userAvatarMedium;
         $loginUser->save();
 
-        $badges = Badge::all();
-        $loginUser->badges()->attach($badges, ['user_id' => $userId, 'level' => 0]);
-
-
         Auth::login(User::where('id', $userId)->first());
         Session::put('loggedIn', true);
         Session::put('token', $token);
@@ -90,12 +86,10 @@ class StravaController extends Controller
         Session::put('userAvatarMedium', $userAvatarMedium);
         Session::put('userFirstName', $userFirstName);
 
+        $userId = Auth::user()->id;
+        $badges = BadgesController::getBadges($userId);
 
         return redirect('/');
-
-
-        //----------------------------------------
-
 
     }
 
