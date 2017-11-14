@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use GuzzleHttp;
+use Illuminate\Support\Facades\Auth;
 use Session;
 use App\User;
 use App\Activity;
