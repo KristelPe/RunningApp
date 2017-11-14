@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','firstName','lastName','gender', 'followingSchedule', 'avatar', 'avatar_original', 'token', 'id',
+        'name', 'email', 'password','firstName','lastName','gender', 'followingSchedule', 'avatar', 'avatar_original', 'token', 'id', 'badge', 'user_id'
     ];
 
     /**
@@ -33,6 +33,6 @@ class User extends Authenticatable
     }
 
     public function badges(){
-        return $this->belongsToMany(Badge::class, 'hasBadge', 'user_id', 'badge_id  ');
+        return $this->belongsToMany(Badge::class, 'hasBadge', 'user_id', 'badge_id');
     }
 }
