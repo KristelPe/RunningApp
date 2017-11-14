@@ -114,7 +114,7 @@
 
     @else
         <div class="home_content">
-            <h2 class="login_call">Log in to start running!</h2>
+            <a href="/login"><img src="/img/strava.jpg" alt=""><p>Log in to start running!</p></a>
         </div>
     @endif
 

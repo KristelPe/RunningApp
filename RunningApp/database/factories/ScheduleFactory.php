@@ -5,7 +5,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Schedule::class, function (Faker $faker) {
 
 
-    $endDate = "2018-02-07";
+    $endDate = "2018-04-22";
 
 
 
