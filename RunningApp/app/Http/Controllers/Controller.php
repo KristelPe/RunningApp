@@ -106,7 +106,7 @@ class Controller extends BaseController
 
             $recomendedTotalDistance = max($endGoal/$numberOfDays, $endGoal/10);
 
-            $goal = 0;
+            $goal = $recomendedDistance - $runDistance;
             $days = 100-$numberOfDays;
             if($goal == 0){
                 $toRun = 0;
