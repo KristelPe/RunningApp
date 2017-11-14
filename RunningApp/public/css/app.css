@@ -225,6 +225,20 @@ a {
   left:7px;
   color: white;
   text-shadow: black 2px 2px 2px;
+}
+.badge_description{
+  position:absolute;
+  background-color: grey;
+  color: white;
+  padding: 10px 5px 10px 5px;
+  z-index: 20;
+  right:0;
+  left:0;
+  width:50%;
+  margin-left:25%;
+  margin-right:25%;
+  text-align: center;
+  border-radius: 5px;
 
 }
 

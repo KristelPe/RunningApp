@@ -79,7 +79,7 @@ class StravaController extends Controller
         $loginUser->save();
 
         $badges = Badge::all();
-        $loginUser->badges()->attach($badges, ['user_id' => $userId, 'level' => 1]);
+        $loginUser->badges()->attach($badges, ['user_id' => $userId, 'level' => 0]);
 
 
         Auth::login(User::where('id', $userId)->first());
