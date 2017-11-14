@@ -1,7 +1,7 @@
 
     @foreach(Auth::user()->badges as $b)
 
-            <div class="badge_container" data-contentId="{{$b->id}}">
+            <div class="badge_container">
                 <img src="{{$b->image}}" alt="BadgeImage" class="badge_img">
                 <div class="badge_title"><p>{{$b->title}}</p></div>
             </div>
