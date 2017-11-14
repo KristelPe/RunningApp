@@ -106,9 +106,14 @@ class Controller extends BaseController
 
             $recomendedTotalDistance = max($endGoal/$numberOfDays, $endGoal/10);
 
-            $goal = $recomendedDistance - $runDistance;
+            $goal = 0;
             $days = 100-$numberOfDays;
-            $toRun = 100-($runDistance/$goal);
+            if($goal == 0){
+                $toRun = 0;
+            }else{
+                $toRun = 100-($runDistance/$goal);
+            }
+
 
             return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistance' => $recomendedDistance,'recomendedTotalDistance' => $recomendedTotalDistance, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
 
