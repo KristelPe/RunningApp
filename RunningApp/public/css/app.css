@@ -166,7 +166,8 @@ h2 {
   line-height: 30px; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #E63257; }
 
 .container {
   width: 90%;
@@ -207,6 +208,7 @@ a {
   background-color: #E63257;
   color: white; }
 
+<<<<<<< HEAD
 .badge_container{
   position:relative;
   text-align: center;
@@ -247,4 +249,6 @@ a {
 
 
 
+=======
+>>>>>>> 1a6ddf55527e92fc7b3bba0a6a40c8ab13de5cd0
 /*# sourceMappingURL=app.css.map */
