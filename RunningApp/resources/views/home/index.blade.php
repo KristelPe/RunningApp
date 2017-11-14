@@ -97,13 +97,23 @@
             <h2>Today's goal</h2>
             <br>
             <div class="inner">
-                <h4>{{$recomendedDistance}}</h4>
-                <h3>km</h3>
+                @if($goal == 0)
+                <h3>Done</h3>
+
+                    @else
+                    <h4>{{$recomendedDistance}}</h4>
+                    <h3>km</h3>
+                @endif
             </div>
         </div>
         <div id="extra">
-            <p>Run {{$goal}} more km to finish goal!!!</p>
-            <br>
+            @if($goal == 0)
+                <p>Nothing else to do today!</p>
+
+            @else
+                <p>Run {{$goal}} more km to finish goal!!!</p>
+                @endif
+                <br>
             <div id="bar">
                 <div id="fill"></div>
                 <p class="days"><b>{{ $daysLeft }}</b> days left!</p>
