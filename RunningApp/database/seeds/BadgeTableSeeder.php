@@ -37,7 +37,7 @@ class BadgeTableSeeder extends Seeder
             [
                 'id' => 4,
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
-                'title' => 'Love your neighbourhood',
+                'title' => 'Neighbourhood lover',
                 'description' => 'Run the same parkour 20 times over',
                 'unit' => 'runs',
             ]

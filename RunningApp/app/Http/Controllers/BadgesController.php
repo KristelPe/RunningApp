@@ -77,24 +77,34 @@ public static function getBadges($userId){
         }
         if ($totalDistance<500) {
             $lvl=1;
+            $unlock = 1000;
         }else if($totalDistance<=1000){
             $lvl=2;
+            $unlock = 1500;
         }else if($totalDistance<=1500){
             $lvl=3;
+            $unlock =2000 ;
         }else if($totalDistance<=2000){
             $lvl=4;
+            $unlock = 2500;
         }else if($totalDistance<=2500){
             $lvl=5;
+            $unlock = 3000;
         }else if($totalDistance<=3000){
             $lvl=6;
+            $unlock = 3500;
         }else if($totalDistance<=3500){
             $lvl=7;
+            $unlock =4000 ;
         }else if($totalDistance<=4000){
             $lvl=8;
+            $unlock = 4500;
         }else if($totalDistance<=4500){
             $lvl=9;
+            $unlock = 5000;
         }
-        return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 1)->update(['level' => $lvl, 'relevant_data' => $totalDistance]);}
+
+        return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 1)->update(['level' => $lvl, 'unlock' =>$unlock, 'relevant_data' => $totalDistance]);}
 
         public static function countRuns($userId){
             $runs = DB::table('activities')->where('athlete_id', $userId)->count();

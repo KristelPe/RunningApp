@@ -2,7 +2,7 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
-// Variables
+// Variabless
 @import "variables";
 
 $font-stack: Helvetica, sans-serif;
@@ -26,7 +26,7 @@ $dis: 30px;
 
 body{
  font-family: $font-family-sans-serif;
- min-height: 100vh;
+ height: 100vh;
  background-image: url("/img/pattern.svg");
  background-size: cover;
  color: $red-1-color;
