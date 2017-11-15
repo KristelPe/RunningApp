@@ -208,4 +208,47 @@ a {
   background-color: #E63257;
   color: white; }
 
+<<<<<<< HEAD
+.badge_container{
+  position:relative;
+  text-align: center;
+  color: white;
+  float: left;
+  margin-left:3%;
+}
+.badge_img{
+  height:100px;
+  width:100px;
+
+}
+.badge_title{
+  color: grey;
+  text-shadow: white 2px 2px 2px;
+  text-align: center;
+  max-width: 100px;
+
+}
+.badge_description{
+  position:absolute;
+  background-color: grey;
+  color: white;
+  padding: 10px 5px 10px 5px;
+  z-index: 20;
+  right:0;
+  left:0;
+  width:50%;
+  margin-left:25%;
+  margin-right:25%;
+  text-align: center;
+  border-radius: 5px;
+
+}
+
+
+
+
+
+
+=======
+>>>>>>> 1a6ddf55527e92fc7b3bba0a6a40c8ab13de5cd0
 /*# sourceMappingURL=app.css.map */

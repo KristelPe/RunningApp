@@ -48,8 +48,6 @@
             <br>
             <h2 class="profile_stat_layout_h2"> Badges</h2>
             @include('users.badges')
-
-
         </div>
 
         <div class="activities switched_item_2">
