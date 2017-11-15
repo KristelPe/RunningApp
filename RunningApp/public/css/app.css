@@ -420,6 +420,7 @@ a {
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 0 200px #E63257;
+  opacity:0.85;
 }
 .badge_list{
   width:96%;
@@ -428,6 +429,7 @@ a {
 }
 .level{
   color: #E63257;
-margin: 2px;}
+  margin: 2px;
+}
 
 
