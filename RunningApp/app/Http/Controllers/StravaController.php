@@ -87,7 +87,7 @@ class StravaController extends Controller
         Session::put('userFirstName', $userFirstName);
 
         $userId = Auth::user()->id;
-        $badges = BadgesController::getBadges($userId);
+        BadgesController::getBadges($userId);
 
         return redirect('/');
 

@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 .personal_parcour, .public_parcour {
   overflow: scroll;
-  height: 70vh; }
+  height: 70vh;
+}
 
 .parcour_segment {
   display: flex;
@@ -208,25 +209,30 @@ a {
   background-color: #E63257;
   color: white; }
 
-<<<<<<< HEAD
 .badge_container{
   position:relative;
   text-align: center;
   color: white;
   float: left;
   margin-left:3%;
+  margin-right:3%;
+  padding:5px;
+  width:80px;
+  margin-bottom:10px;
 }
 .badge_img{
-  height:100px;
-  width:100px;
-
+  height:60px;
+  width:60px;
+  float: left;
+  margin-left:10px;
+  margin-right:10px;
 }
 .badge_title{
   color: grey;
   text-shadow: white 2px 2px 2px;
   text-align: center;
   max-width: 100px;
-
+  font-size: 0.7em;
 }
 .badge_description{
   position:absolute;
@@ -241,14 +247,18 @@ a {
   margin-right:25%;
   text-align: center;
   border-radius: 5px;
-
 }
+.badge_list{
+  width:96%;
+  margin-left: 2%;
+  margin-right:2%;
+}
+.level{
+  color: #E63257;
+
+margin: 2px;}
 
 
 
 
 
-
-=======
->>>>>>> 1a6ddf55527e92fc7b3bba0a6a40c8ab13de5cd0
-/*# sourceMappingURL=app.css.map */

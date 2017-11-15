@@ -10,6 +10,7 @@ class ActivityController extends Controller
     public function getAllActivityFromUser($userId)
     {
         $allActivities = Activity::where('id', '=', $userId)->get();
+        return $allActivities;
 
     }
 
