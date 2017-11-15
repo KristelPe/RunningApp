@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Activity;
 use App\Http\Controllers\StravaController;
 use App\User;
 use Illuminate\Console\Scheduling\Schedule;
@@ -26,14 +27,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        foreach (User::all() as $user){
-            $acts = StravaController::getAllUserActivity($user->token);
-
-        }
-
-
-        // $schedule->command('inspire')
-        //          ->hourly();
+         $schedule->command('dbUpdate')
+             ->everyThirtyMinutes();
     }
 
     /**
