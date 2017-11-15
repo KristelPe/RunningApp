@@ -9,7 +9,7 @@
 
             <div class="badge_description" style="display: none">
                 <p>{{$b->description}}</p>
-                <p>{{$b->pivot->relevant_data}}</p>
+                <p>Unlock next level at {{$b->pivot->unlock}} {{$b->unit}}</p>
             </div>
 </li>
     @endforeach

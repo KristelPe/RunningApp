@@ -272,7 +272,6 @@ a {
   background-color: #E63257;
   color: white; }
 
-<<<<<<< HEAD
 .badge_container{
   position:relative;
   text-align: center;
@@ -300,7 +299,7 @@ a {
 }
 .badge_description{
   position:absolute;
-  background-color: grey;
+  background-color: #E63257;
   color: white;
   padding: 10px 5px 10px 5px;
   z-index: 20;
@@ -311,6 +310,7 @@ a {
   margin-right:25%;
   text-align: center;
   border-radius: 5px;
+  box-shadow: 0 0 200px #E63257;
 }
 .badge_list{
   width:96%;
@@ -325,7 +325,3 @@ margin: 2px;}
 
 
 
-
-=======
-/*# sourceMappingURL=app.css.map */
->>>>>>> b468cfeddc90c1e521d224911456663687362089

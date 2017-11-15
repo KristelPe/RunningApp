@@ -26,32 +26,46 @@ public static function getBadges($userId){
     }
     }
 
+    public static function getLatestBadge($userId){
+        return DB::table('hasBadge')->where('user_id','=', $userId)->OrderBy('level','desc')->first();
+    }
+
     public static function setMaxSpeed($userId){
         $array = DB::table('activities')->where('athlete_id', $userId)->OrderBy('max_speed', 'desc')->first();
         $decode = json_decode(json_encode($array), true);
         $max_speed = $decode['max_speed'];
         if($max_speed>=15){
             $lvl=9;
-        }else if($max_speed>14){
+            $unlock=16;
+        }else if($max_speed>=14){
             $lvl=8;
-        }else if($max_speed>13){
+            $unlock=15;
+        }else if($max_speed>=13){
             $lvl=7;
-        }else if($max_speed>12){
+            $unlock=14;
+        }else if($max_speed>=12){
             $lvl=6;
-        }else if($max_speed>11){
+            $unlock=13;
+        }else if($max_speed>=11){
             $lvl=5;
-        }else if($max_speed>10){
+            $unlock=12;
+        }else if($max_speed>=10){
             $lvl=4;
-        }else if($max_speed>9){
+           $unlock=11;
+        }else if($max_speed>=9){
             $lvl=3;
-        }else if($max_speed>8){
+           $unlock=10;
+        }else if($max_speed>=8){
             $lvl=2;
-        }else if($max_speed>7){
+            $unlock=9;
+        }else if($max_speed>=7){
             $lvl=1;
+            $unlock=8;
         }else{
             $lvl=0;
+            $unlock=7;
         }
-        return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 2)->update(['level' => $lvl, 'relevant_data'=>$max_speed]);
+        return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 2)->update(['level' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$max_speed]);
 
     }
     public static function totalDistance($userId){
@@ -86,26 +100,36 @@ public static function getBadges($userId){
             $runs = DB::table('activities')->where('athlete_id', $userId)->count();
             if ($runs==1) {
                 $lvl=1;
+                $unlock = 10;
             }else if($runs<=10){
                 $lvl=2;
+                $unlock=10;
             }else if($runs<=20){
                 $lvl=3;
+                $unlock=20;
             }else if($runs<=50){
                 $lvl=4;
+                $unlock=50;
             }else if($runs<=75){
                 $lvl=5;
+                $unlock=75;
             }else if($runs<=100){
                 $lvl=6;
+                $unlock=100;
             }else if($runs<=125){
                 $lvl=7;
+                $unlock=125;
             }else if($runs<=150){
                 $lvl=8;
+                $unlock=150;
             }else if($runs<=175){
                 $lvl=9;
+                $unlock=175;
             }else if($runs<=200){
                 $lvl=10;
+                $unlock=200;
             }
-            return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 3)->update(['level' => $lvl, 'relevant_data' => $runs]);}
+            return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 3)->update(['level' => $lvl,'unlock'=>$unlock, 'relevant_data' => $runs]);}
 
 }
 
