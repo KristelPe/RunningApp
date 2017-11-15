@@ -70,6 +70,9 @@ class UsersController extends Controller
         $longestDistance = round($longestDistance/1000, 2);
 
         //dd($acts);
+        //getBadges on refresh
+        $userId = Auth::user()->id;
+        BadgesController::getBadges($userId);
 
 
         return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badge'));

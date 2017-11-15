@@ -17,7 +17,9 @@ class CreateHasBadgeTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('badge_id');
-            $table->boolean('level');
+            $table->integer('level');
+            $table->integer('relevant_data');
+            $table->string('unlock');
             //level 0 = badge not earned
             $table->timestamps();
         });
