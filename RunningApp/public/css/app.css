@@ -414,9 +414,9 @@ a {
   z-index: 20;
   right:0;
   left:0;
-  width:50%;
-  margin-left:25%;
-  margin-right:25%;
+  width:80%;
+  margin-left:10%;
+  margin-right:10%;
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 0 200px #E63257;

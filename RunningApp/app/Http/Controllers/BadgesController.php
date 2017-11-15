@@ -19,13 +19,15 @@ public static function getBadges($userId){
 
     if(!$exists){
     return $user->badges()->attach($badges, ['user_id' => $userId, 'level' => 0,'relevant_data' => 0, 'unlock'=>0]);
-        }else {
+            }else{
+
         BadgesController::setMaxSpeed($userId);
         BadgesController::totalDistance($userId);
         BadgesController::countRuns($userId);
-    }
+
     }
 
+    }
     public static function getLatestBadge($userId){
         return DB::table('hasBadge')->where('user_id','=', $userId)->OrderBy('level','desc')->first();
     }
@@ -65,6 +67,7 @@ public static function getBadges($userId){
             $lvl=0;
             $unlock=7;
         }
+
         return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 2)->update(['level' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$max_speed]);
 
     }

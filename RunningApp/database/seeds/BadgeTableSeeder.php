@@ -18,7 +18,7 @@ class BadgeTableSeeder extends Seeder
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
                 'title' => 'Total Distance',
                 'description' => 'The total amount of distance you ran.',
-                'unit' => 'km',
+                'unit' => 'm',
             ],
             [
                 'id' => 2,
@@ -31,7 +31,7 @@ class BadgeTableSeeder extends Seeder
                 'id' => 3,
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
                 'title' => 'Total time',
-                'description' => 'The amount of times you ran.',
+                'description' => 'The amount of runs.',
                 'unit' => 'runs',
             ],
             [

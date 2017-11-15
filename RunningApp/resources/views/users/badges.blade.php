@@ -9,6 +9,7 @@
 
             <div class="badge_description" style="display: none">
                 <p>{{$b->description}}</p>
+                <hr>
                 <p>Unlock next level: {{$b->pivot->relevant_data}}/{{$b->pivot->unlock}} {{$b->unit}}</p>
             </div>
 </li>
