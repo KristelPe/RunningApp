@@ -12,15 +12,15 @@
                     width: {{$days}}%;
                 }
 
-                .inner:before {
+                .home_main_inner:before {
                     top: {{$toRun}}%;
                 }
             </style>
         </head>
-        <div id="main">
+        <div class="home_main">
             <h2>Today's goal</h2>
             <br>
-            <div class="inner">
+            <div class="home_main_inner">
                 @if($goal == 0)
                 <h3>Done</h3>
 
@@ -30,7 +30,7 @@
                 @endif
             </div>
         </div>
-        <div id="extra">
+        <div class="home_extra">
             @if($goal == 0)
                 <p>Nothing else to do today!</p>
 
@@ -40,7 +40,7 @@
                 <br>
             <div id="bar">
                 <div id="fill"></div>
-                <p class="days"><b>{{ $daysLeft }}</b> days left!</p>
+                <p id="days"><b>{{ $daysLeft }}</b> days left!</p>
             </div>
         </div>
 
@@ -48,7 +48,12 @@
 
     @else
         <div class="home_content">
-            <a href="/login"><img src="/img/strava.jpg" alt=""><p>Log in to start running!</p></a>
+            <a href="/login">
+                <div class="home_main_inner strava_login">
+                    <h1><b>Login</b> met <b>Strava</b></h1>
+                    <img src="https://assets.ifttt.com/images/channels/1055884022/icons/monochrome_large.png" alt="strava logo">
+                </div>
+            </a>
         </div>
     @endif
 
