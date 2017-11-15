@@ -79,12 +79,6 @@ class StravaController extends Controller
         $loginUser->save();
 
         Auth::login(User::where('id', $userId)->first());
-        Session::put('loggedIn', true);
-        Session::put('token', $token);
-        Session::put('userId', $userId);
-        Session::put('userAvatarOriginal', $userAvatarOriginal);
-        Session::put('userAvatarMedium', $userAvatarMedium);
-        Session::put('userFirstName', $userFirstName);
 
         $userId = Auth::user()->id;
         BadgesController::getBadges($userId);
