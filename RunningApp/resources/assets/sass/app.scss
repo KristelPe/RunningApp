@@ -73,11 +73,11 @@ a{
  margin: auto;
  line-height: 50px;
  margin-top: 10px;
- width: 50%;
  border-bottom: 5px solid $red-1-color;
 }
 
 .switch_button{
+ margin: auto;
  margin-top: 25px;
  margin-bottom: 25px;
 }
@@ -99,8 +99,8 @@ a{
  color: white;
 }
 
-
-
-
-
-
+@media only screen and (min-width: 1000px) {
+ .switch_button{
+  width: 35%;
+ }
+}
