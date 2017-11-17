@@ -80,4 +80,7 @@
 
     </div>
 
+    <script src="/js/switch_effect.js" type="text/javascript" charset="utf-8"></script>
+
+
 @endsection

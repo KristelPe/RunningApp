@@ -115,7 +115,6 @@ class Controller extends BaseController
 
 
             return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistance' => $recomendedDistance,'recomendedTotalDistance' => $recomendedTotalDistance, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
-
         }else{
             return view('home/index');
         };
