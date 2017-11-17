@@ -1,8 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 .personal_parcour, .public_parcour {
-  overflow: scroll;
-  overflow-x: hidden;
-  height: 65vh;
   flex-direction: column; }
 
 .parcour_segment {
@@ -224,10 +221,12 @@ nav ul li a {
 
 body {
   font-family: "Raleway", sans-serif;
-  height: 100vh;
   background-image: url("/img/pattern.svg");
+  background-repeat: no-repeat;
   background-size: cover;
-  color: #E63257; }
+  background-attachment: fixed;
+  color: #E63257;
+  min-height: 100vh; }
 
 h1, h2 {
   color: #E63257;
@@ -246,9 +245,7 @@ a {
 
 .container {
   width: 90%;
-  margin: auto;
-  height: 80vh;
-  overflow: hidden; }
+  margin: auto; }
 
 .page_title {
   text-transform: uppercase; }
