@@ -219,6 +219,19 @@ nav ul li a {
 .current_page {
   border-bottom: 5px solid #E63257; }
 
+@media only screen and (min-width: 740px) {
+  .hamburger_icon {
+    display: none; }
+
+  .nav_menu_js {
+    flex-direction: row;
+    width: 100%;
+    background-color: transparent;
+    position: static;
+    height: 50px !important; }
+
+  nav ul li {
+    margin-top: 0; } }
 body {
   font-family: "Raleway", sans-serif;
   background-image: url("/img/pattern.svg");

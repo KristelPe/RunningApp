@@ -11,7 +11,7 @@ nav{
 
 nav ul{
   position: absolute;
-  top: 10vh;;
+  top: 10vh;
   display: flex;
   flex-direction: column;
   line-height: 40px;
@@ -56,4 +56,22 @@ nav ul li a{
 
 .current_page{
   border-bottom: 5px solid $red-1-color;
+}
+
+@media only screen and (min-width: 740px) {
+  .hamburger_icon{
+    display: none;
+  }
+
+  .nav_menu_js{
+    flex-direction: row;
+    width: 100%;
+    background-color: transparent;
+    position: static;
+    height: 50px!important;
+  }
+
+  nav ul li{
+    margin-top: 0;
+  }
 }
