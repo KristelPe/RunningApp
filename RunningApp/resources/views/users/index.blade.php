@@ -60,7 +60,7 @@
 
             </ul>--}}
             <br>
-            <h2 class="profile_stat_layout_h2"> Badges</h2>
+          {{--Badges--}}
             @include('users.badges')
         </div>
 
