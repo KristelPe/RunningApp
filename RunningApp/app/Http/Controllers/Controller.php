@@ -22,7 +22,8 @@ class Controller extends BaseController
             $userId = Auth::user()->id;
             $token = Auth::user()->token;
 
-
+            $createdAt = Auth::user()->created_at->toDateString();
+            $created = new \DateTime($createdAt);
             //ZEER VUIL!!!
 
             $acts = StravaController::getAllUserActivity($token);
@@ -63,6 +64,7 @@ class Controller extends BaseController
                             'moving_time' => $act['moving_time'],
                             'elapsed_time' => $act['elapsed_time'],
                             'kudos_count' => $act['kudos_count'],
+                            'kudos_count' => $act['map']['polyline'],
                         ]);
 
                         $newActivity->save();
@@ -81,14 +83,12 @@ class Controller extends BaseController
             foreach ($endDate as $e) {
                 $endDateV = new \DateTime($e->endDate);
                 $endGoal = $e->endGoal;
-
             }
 
 
             $numberOfWeeks = $today->diff($endDateV);
             //dd($numberOfWeeks);
             $numberOfDays = $numberOfWeeks->days;
-
             $recomendedDistance = 2000;
 
         if(Activity::where('athlete_id', $userId) != Null) {
@@ -105,18 +105,17 @@ class Controller extends BaseController
         }
 
             $recomendedTotalDistance = max($endGoal/$numberOfDays, $endGoal/10);
-
+            $days = (($created->diff($endDateV))->days)-$numberOfDays;
             $goal = $recomendedDistance - $runDistance;
-            $days = 100-$numberOfDays;
             if($goal == 0){
                 $toRun = 0;
             }else{
                 $toRun = 100-($runDistance/$goal);
             }
+            //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
 
 
             return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistance' => $recomendedDistance,'recomendedTotalDistance' => $recomendedTotalDistance, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
-
         }else{
             return view('home/index');
         };

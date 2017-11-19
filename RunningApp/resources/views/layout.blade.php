@@ -19,9 +19,8 @@
     </div>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="js/nav.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/switch_effect.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/badge.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/nav.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/js/badge.js" type="text/javascript" charset="utf-8"></script>
 
 </body>
 </html>

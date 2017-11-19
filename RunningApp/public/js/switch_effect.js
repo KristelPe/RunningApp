@@ -1,4 +1,4 @@
-document.querySelector(".switched_item_1").style.display = "block";
+document.querySelector(".switched_item_1").style.display = "flex";
 document.querySelector(".switched_item_2").style.display = "none";
 
 function switchEffect(switchNumber) {
@@ -10,7 +10,7 @@ function switchEffect(switchNumber) {
             document.querySelector(".switch_button_1").style.color = "white";
             document.querySelector(".switch_button_2").style.color = "#E63257";
 
-            document.querySelector(".switched_item_1").style.display = "block";
+            document.querySelector(".switched_item_1").style.display = "flex";
             document.querySelector(".switched_item_2").style.display = "none";
 
             console.log("personal");
@@ -23,7 +23,7 @@ function switchEffect(switchNumber) {
             document.querySelector(".switch_button_2").style.color = "white";
 
             document.querySelector(".switched_item_1").style.display = "none";
-            document.querySelector(".switched_item_2").style.display = "block";
+            document.querySelector(".switched_item_2").style.display = "flex";
 
             console.log("public");
             break;

@@ -1,12 +1,10 @@
 .personal_parcour, .public_parcour{
-  overflow: scroll;
-  height: 70vh;
+  flex-direction: column;
 }
 
 .parcour_segment{
   display: flex;
   flex-direction: row;
-  height: 110px;
 }
 
 .parcour_img{
@@ -17,4 +15,21 @@
 .parcour_details{
   width: 70%;
   margin-top: 20px;
+}
+
+@media only screen and (min-width: 1000px) {
+
+  .personal_parcour, .public_parcour{
+    flex-direction: row;
+    -webkit-flex-flow: row wrap;
+  }
+
+  .parcour_segment_layout{
+    width: 20%;
+    margin: 2.5%;
+  }
+
+  .parcour_segment{
+    flex-direction: column;
+  }
 }
