@@ -19,7 +19,7 @@
 
             <div class="profile_details">
                 <h1 class="username">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</h1>
-                <p class="level">{{Auth::user()->rank}}</p>
+                <p class="level">Rookie Runner</p>
                 <p class="progress">lvl 3</p>
             </div>
             <div class="recent_badges">
@@ -59,6 +59,7 @@
                 <li><div class="stat long">Longest Session</div><p>{{ $longestDistance }} km</p></li>
 
             </ul>--}}
+            <br>
             <h2 class="profile_stat_layout_h2"> Badges</h2>
             @include('users.badges')
         </div>

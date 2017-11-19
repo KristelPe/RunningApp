@@ -35,8 +35,4 @@ class User extends Authenticatable
     public function badges(){
         return $this->belongsToMany(Badge::class, 'hasBadge', 'user_id', 'badge_id')->withPivot('level', 'unlock', 'relevant_data')->withTimestamps();
     }
-
-    public function rank(){
-        return $this->belongsToMany(Rank::class, 'hasRank', 'user_id', 'rank_id')->withPivot('pointsRankUp')->withTimestamps();
-    }
 }

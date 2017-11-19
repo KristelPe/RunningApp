@@ -73,7 +73,6 @@ class UsersController extends Controller
         //getBadges on refresh
         $userId = Auth::user()->id;
         BadgesController::getBadges($userId);
-        RankController::getRank($userId);
 
 
         return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badge'));
