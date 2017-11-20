@@ -1,5 +1,6 @@
 <ul class="badge_list">
     @foreach(Auth::user()->badges as $b)
+        @if($b->pivot->level > 0)
 <li class="badge_list_item">
             <div class="badge_container">
                 <img src="{{$b->image}}" alt="BadgeImage" class="badge_img">
@@ -12,6 +13,6 @@
                 <hr>
                 <p>Unlock next level: {{$b->pivot->relevant_data}}/{{$b->pivot->unlock}} {{$b->unit}}</p>
             </div>
-</li>
+</li>@endif
     @endforeach
 </ul>

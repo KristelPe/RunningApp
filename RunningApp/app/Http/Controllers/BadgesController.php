@@ -11,21 +11,33 @@ use Illuminate\Support\Facades\DB;
 
 class BadgesController extends Controller
 {
-public static function getBadges($userId){
+public static function getBadges($userId)
+{
     $user = User::firstOrNew(['id' => $userId]);
     $badges = Badge::all();
     $act = Activity::where('id', '=', $userId)->get();
     $exists = DB::table('hasBadge')->where('user_id', $userId)->first();
 
-    if(!$exists){
-    return $user->badges()->attach($badges, ['user_id' => $userId, 'level' => 0,'relevant_data' => 0, 'unlock'=>0]);
-            }else{
+    if (!$exists) {
+        return $user->badges()->attach($badges, ['user_id' => $userId, 'level' => 0, 'relevant_data' => 0, 'unlock' => 0]);
+    } else {
 
         BadgesController::setMaxSpeed($userId);
         BadgesController::totalDistance($userId);
         BadgesController::countRuns($userId);
-
+        BadgesController::badgeOfShame($userId);
     }
+
+}
+    public static function badgeOfShame($userId){
+        $array = DB::table('activities')->where('athlete_id', $userId)->OrderBy('max_speed', 'desc')->first();
+        $decode = json_decode(json_encode($array), true);
+        $max_speed = $decode['max_speed'];
+        $unlock =20;
+        if ($max_speed>$unlock || $lvl = 0){
+            $lvl = 1;
+        }
+        return DB::table('hasBadge')->where('user_id', "=", $userId)->where('badge_id', '=', 2)->update(['level' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$max_speed]);
 
     }
     public static function getLatestBadge($userId){

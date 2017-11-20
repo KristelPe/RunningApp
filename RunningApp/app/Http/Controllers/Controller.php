@@ -64,7 +64,7 @@ class Controller extends BaseController
                             'moving_time' => $act['moving_time'],
                             'elapsed_time' => $act['elapsed_time'],
                             'kudos_count' => $act['kudos_count'],
-                            'kudos_count' => $act['map']['polyline'],
+/*                            'kudos_count' => $act['map']['polyline'],*/
                         ]);
 
                         $newActivity->save();

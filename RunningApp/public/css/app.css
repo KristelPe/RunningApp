@@ -223,7 +223,7 @@ nav ul li a {
 .title_center {
   width: 90%;
   margin: auto;
-  padding-top: 150px; }
+  padding-top: 120xpx; }
 
 .hamburger_icon {
   min-height: 7vh;
@@ -364,8 +364,7 @@ a {
 .badge_list{
 
   float:left;
-  width:96%;
-
+  width:94%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;

@@ -40,7 +40,15 @@ class BadgeTableSeeder extends Seeder
                 'title' => 'Neighbourhood lover',
                 'description' => 'Run the same parkour 20 times over',
                 'unit' => 'runs',
+            ],
+            [
+                'id' => 5,
+                'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
+                'title' => 'Badge of Shame',
+                'description' => 'Congratulations, you are a disgusting cheater',
+                'unit' => 'km/h',
             ]
+
         ];
         foreach($badges as $data){ Badge::create($data);};
 }
