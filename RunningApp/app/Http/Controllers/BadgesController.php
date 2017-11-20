@@ -20,7 +20,7 @@ public static function getBadges($userId)
     $exists = DB::table('hasBadge')->where('user_id', $userId)->first();
 
     if (!$exists) {
-        return $user->badges()->attach($badges, ['user_id' => $userId, 'level' => 0, 'relevant_data' => 0, 'unlock' => 0]);
+        return $user->badges()->attach($badges, ['user_id' => $userId, 'rank' => "NOT EARNED", 'relevant_data' => 0, 'unlock' => 0]);
     } else {
 
         BadgesController::setMaxSpeed($userId);
@@ -28,6 +28,7 @@ public static function getBadges($userId)
         BadgesController::countRuns($userId);
         BadgesController::badgesOfShameJoker($userId);
         BadgesController::badgesOfShamePenguin($userId);
+        BadgesController::flashBadge($userId);
     }
 
 }
@@ -36,28 +37,28 @@ public static function getBadges($userId)
         $decode = json_decode(json_encode($array), true);
         $max_speed = $decode['max_speed'];
         $unlock =20;
-        $lvl = 0;
+        $lvl = "NOT EARNED";
         if ($max_speed>$unlock){
-            $lvl = 1;
+            $lvl = "Joker";
         }
-        return DB::table('hasBadge')->where('user_id', "=", $userId)->where('badge_id', '=', 5)->update(['level' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$max_speed]);
+        return DB::table('hasBadge')->where('user_id', "=", $userId)->where('badge_id', '=', 5)->update(['rank' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$max_speed]);
     }
     public static function badgesOfShamePenguin($userId){
         $time = DB::table('activities')->where('athlete_id', $userId)->OrderBy('start_date_local', 'desc')->select('start_date_local')->first();
         $decode = json_decode(json_encode($time), true);
         $startdate = strtotime($decode['start_date_local']);
+        $startDay = $startdate;
         $one_week_ago = strtotime('-1 week');
-        $lvl = 0;
         $unlock = 7;
         if( $startdate < $one_week_ago ) {
             // it's longer than one week ago
-            $lvl=1;
-            return DB::table('hasBadge')->where('user_id', "=", $userId)->where('badge_id', '=', 6)->update(['level' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$startdate]);
+            $lvl="Penguin";
+            return DB::table('hasBadge')->where('user_id', "=", $userId)->where('badge_id', '=', 6)->update(['rank' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$startDay]);
         }
     }
 
     public static function getLatestBadge($userId){
-        return DB::table('hasBadge')->where('user_id','=', $userId)->OrderBy('level','desc')->first();
+        return DB::table('hasBadge')->where('user_id','=', $userId)->OrderBy('rank','desc')->first();
     }
 
     public static function setMaxSpeed($userId){
@@ -65,38 +66,38 @@ public static function getBadges($userId)
         $decode = json_decode(json_encode($array), true);
         $max_speed = $decode['max_speed'];
         if($max_speed>=15){
-            $lvl=9;
+            $lvl="Fast as a Leopard";
             $unlock=16;
         }else if($max_speed>=14){
-            $lvl=8;
+            $lvl="Heavy Horse";
             $unlock=15;
         }else if($max_speed>=13){
-            $lvl=7;
+            $lvl="Hasty Hair";
             $unlock=14;
         }else if($max_speed>=12){
-            $lvl=6;
+            $lvl="Racing Rabbit";
             $unlock=13;
         }else if($max_speed>=11){
-            $lvl=5;
+            $lvl="Worrying Wolf";
             $unlock=12;
         }else if($max_speed>=10){
-            $lvl=4;
+            $lvl="Puny Pig";
            $unlock=11;
         }else if($max_speed>=9){
-            $lvl=3;
+            $lvl="Comfy Cow";
            $unlock=10;
         }else if($max_speed>=8){
-            $lvl=2;
+            $lvl="Thirsty Turtle";
             $unlock=9;
         }else if($max_speed>=7){
-            $lvl=1;
+            $lvl="Waggling Penguin";
             $unlock=8;
         }else{
-            $lvl=0;
+            $lvl="NOT EARNED";
             $unlock=7;
         }
 
-        return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 2)->update(['level' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$max_speed]);
+        return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 2)->update(['rank' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$max_speed]);
 
     }
     public static function totalDistance($userId){
@@ -135,7 +136,7 @@ public static function getBadges($userId)
             $unlock = 5000;
         }
 
-        return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 1)->update(['level' => $lvl, 'unlock' =>$unlock, 'relevant_data' => $totalDistance]);}
+        return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 1)->update(['rank' => $lvl, 'unlock' =>$unlock, 'relevant_data' => $totalDistance]);}
 
         public static function countRuns($userId){
             $runs = DB::table('activities')->where('athlete_id', $userId)->count();
@@ -170,7 +171,15 @@ public static function getBadges($userId)
                 $lvl=10;
                 $unlock=200;
             }
-            return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 3)->update(['level' => $lvl,'unlock'=>$unlock, 'relevant_data' => $runs]);}
+            return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 3)->update(['rank' => $lvl,'unlock'=>$unlock, 'relevant_data' => $runs]);
+    }
+    public static function flashBadge(){
+        $array = DB::table('activities')->OrderBy('max_speed', 'desc')->first();
+        $fastestRun = json_decode(json_encode($array), true);
+        $userId = $fastestRun['athlete_id'];
+        return DB::table('hasBadge')->where('badge_id','=',7)->update(['user_id' => $userId,'rank' => 'Unique Badge']);
+
+    }
 
 }
 

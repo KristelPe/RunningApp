@@ -53,8 +53,8 @@
   width: 100%; }
 
 .profile_header {
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: row; }
 
@@ -287,7 +287,8 @@ a {
 
 .container {
   width: 90%;
-  margin: auto; }
+  margin: auto;
+  }
 
 .page_title {
   text-transform: uppercase; }
@@ -323,7 +324,7 @@ a {
   color: white; }
 
 .badge_container{
-
+  margin-top: 10px;
   text-align: center;
   color: white;
   float: left;
@@ -331,6 +332,7 @@ a {
   margin-right:3%;
   padding:5px;
   width:80px;
+  
 }
 .badge_img{
   height:60px;
@@ -360,18 +362,22 @@ a {
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 0 200px #E63257;
+  
+
 }
 .badge_list{
-
   float:left;
-  width:94%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  position: absolute;
+  width:100%;
+  position: static;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .level{
-  color: #E63257;}
+  color: #E63257;
+  font-size: 0.8em;
+  max-height:50px;
+height:30px;}
 
 @media only screen and (min-width: 1000px) {
   .switch_button {

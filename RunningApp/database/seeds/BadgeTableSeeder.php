@@ -55,6 +55,13 @@ class BadgeTableSeeder extends Seeder
                 'description' => "We can't find you... Are you waddling on the Antarctic?",
                 'unit' => 'days',
             ],
+            [
+                'id' => 7,
+                'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
+                'title' => 'The Flash',
+                'description' => "You are the fastest man on earth... on this app",
+                'unit' => 'km/h',
+            ],
 
         ];
         foreach($badges as $data){ Badge::create($data);};
