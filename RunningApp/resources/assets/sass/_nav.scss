@@ -1,8 +1,8 @@
 nav{
-  height: 10vh;
+  height: 100px;
   width: 100%;
   background-color: #333333;
-  position: relative;
+  position: fixed;
   font-size: 1.7em;
   z-index: 99;
   display: flex;
@@ -10,8 +10,8 @@ nav{
 }
 
 nav ul{
-  position: absolute;
-  top: 10vh;
+  position: fixed;
+  top: 100px;
   display: flex;
   flex-direction: column;
   line-height: 40px;
@@ -35,7 +35,7 @@ nav ul li a{
 .title_center{
   width: 90%;
   margin: auto;
-  margin-top: 10px;
+  padding-top: 150px;
 }
 
 .hamburger_icon{
@@ -69,6 +69,14 @@ nav ul li a{
     background-color: transparent;
     position: static;
     height: 50px!important;
+  }
+
+  .title_center{
+    padding-top: 50px;
+  }
+
+  nav{
+    position: relative;
   }
 
   nav ul li{
