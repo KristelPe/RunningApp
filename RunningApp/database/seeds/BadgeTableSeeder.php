@@ -44,10 +44,17 @@ class BadgeTableSeeder extends Seeder
             [
                 'id' => 5,
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
-                'title' => 'Badge of Shame',
+                'title' => 'Joker',
                 'description' => 'Congratulations, you are a disgusting cheater',
                 'unit' => 'km/h',
-            ]
+            ],
+            [
+                'id' => 6,
+                'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
+                'title' => 'Penguin',
+                'description' => "We can't find you... Are you waddling on the Antarctic?",
+                'unit' => 'days',
+            ],
 
         ];
         foreach($badges as $data){ Badge::create($data);};

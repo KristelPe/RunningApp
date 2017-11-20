@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\Badge;
 use App\User;
+use Carbon\Carbon;
 use DeepCopy\f001\B;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -25,21 +26,36 @@ public static function getBadges($userId)
         BadgesController::setMaxSpeed($userId);
         BadgesController::totalDistance($userId);
         BadgesController::countRuns($userId);
-        BadgesController::badgeOfShame($userId);
+        BadgesController::badgesOfShameJoker($userId);
+        BadgesController::badgesOfShamePenguin($userId);
     }
 
 }
-    public static function badgeOfShame($userId){
+    public static function badgesOfShameJoker($userId){
         $array = DB::table('activities')->where('athlete_id', $userId)->OrderBy('max_speed', 'desc')->first();
         $decode = json_decode(json_encode($array), true);
         $max_speed = $decode['max_speed'];
         $unlock =20;
-        if ($max_speed>$unlock || $lvl = 0){
+        $lvl = 0;
+        if ($max_speed>$unlock){
             $lvl = 1;
         }
-        return DB::table('hasBadge')->where('user_id', "=", $userId)->where('badge_id', '=', 2)->update(['level' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$max_speed]);
-
+        return DB::table('hasBadge')->where('user_id', "=", $userId)->where('badge_id', '=', 5)->update(['level' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$max_speed]);
     }
+    public static function badgesOfShamePenguin($userId){
+        $time = DB::table('activities')->where('athlete_id', $userId)->OrderBy('start_date_local', 'desc')->select('start_date_local')->first();
+        $decode = json_decode(json_encode($time), true);
+        $startdate = strtotime($decode['start_date_local']);
+        $one_week_ago = strtotime('-1 week');
+        $lvl = 0;
+        $unlock = 7;
+        if( $startdate < $one_week_ago ) {
+            // it's longer than one week ago
+            $lvl=1;
+            return DB::table('hasBadge')->where('user_id', "=", $userId)->where('badge_id', '=', 6)->update(['level' => $lvl, 'unlock' => $unlock, 'relevant_data'=>$startdate]);
+        }
+    }
+
     public static function getLatestBadge($userId){
         return DB::table('hasBadge')->where('user_id','=', $userId)->OrderBy('level','desc')->first();
     }
