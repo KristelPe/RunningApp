@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Activity;
 use App\Badge;
 use App\User;
-use Carbon\Carbon;
-use DeepCopy\f001\B;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class BadgesController extends Controller
@@ -16,22 +13,22 @@ public static function getBadges($userId)
 {
     $user = User::firstOrNew(['id' => $userId]);
     $badges = Badge::all();
-    $act = Activity::where('id', '=', $userId)->get();
-    $exists = DB::table('hasBadge')->where('user_id', $userId)->first();
 
-    if (!$exists) {
-        return $user->badges()->attach($badges, ['user_id' => $userId, 'rank' => "NOT EARNED", 'relevant_data' => 0, 'unlock' => 0]);
-    } else {
+
+    return $user->badges()->attach($badges, ['user_id' => $userId, 'rank' => "NOT EARNED", 'relevant_data' => 0, 'unlock' => 0]);
+}
+public static function updateBadges($userId){
 
         BadgesController::setMaxSpeed($userId);
         BadgesController::totalDistance($userId);
         BadgesController::countRuns($userId);
         BadgesController::badgesOfShameJoker($userId);
         BadgesController::badgesOfShamePenguin($userId);
-        BadgesController::flashBadge($userId);
+        BadgesController::flashBadge();
+        BadgesController::supermanBadge();
     }
 
-}
+
     public static function badgesOfShameJoker($userId){
         $array = DB::table('activities')->where('athlete_id', $userId)->OrderBy('max_speed', 'desc')->first();
         $decode = json_decode(json_encode($array), true);
@@ -108,32 +105,32 @@ public static function getBadges($userId)
             $totalDistance = $dist['distance'] + $totalDistance;
         }
         if ($totalDistance<500) {
-            $lvl=1;
+            $lvl=500;
             $unlock = 1000;
         }else if($totalDistance<=1000){
-            $lvl=2;
-            $unlock = 1500;
-        }else if($totalDistance<=1500){
-            $lvl=3;
-            $unlock =2000 ;
-        }else if($totalDistance<=2000){
-            $lvl=4;
-            $unlock = 2500;
-        }else if($totalDistance<=2500){
-            $lvl=5;
-            $unlock = 3000;
-        }else if($totalDistance<=3000){
-            $lvl=6;
-            $unlock = 3500;
-        }else if($totalDistance<=3500){
-            $lvl=7;
-            $unlock =4000 ;
-        }else if($totalDistance<=4000){
-            $lvl=8;
-            $unlock = 4500;
-        }else if($totalDistance<=4500){
-            $lvl=9;
+            $lvl=1000;
             $unlock = 5000;
+        }else if($totalDistance<=5000){
+            $lvl=5000;
+            $unlock =10000 ;
+        }else if($totalDistance<=10000){
+            $lvl=10000;
+            $unlock = 20000;
+        }else if($totalDistance<=20000){
+            $lvl=20000;
+            $unlock = 30000;
+        }else if($totalDistance<=30000){
+            $lvl=30000;
+            $unlock = 40000;
+        }else if($totalDistance<=40000){
+            $lvl=40000;
+            $unlock =40000 ;
+        }else if($totalDistance<=50000){
+            $lvl=50000;
+            $unlock = 50000;
+        }else if($totalDistance<=60000){
+            $lvl=60000;
+            $unlock = 60000;
         }
 
         return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 1)->update(['rank' => $lvl, 'unlock' =>$unlock, 'relevant_data' => $totalDistance]);}
@@ -141,34 +138,34 @@ public static function getBadges($userId)
         public static function countRuns($userId){
             $runs = DB::table('activities')->where('athlete_id', $userId)->count();
             if ($runs==1) {
-                $lvl=1;
+                $lvl="Off to a start";
                 $unlock = 10;
             }else if($runs<=10){
-                $lvl=2;
+                $lvl="Baby Steps";
                 $unlock=10;
             }else if($runs<=20){
-                $lvl=3;
+                $lvl="Playground";
                 $unlock=20;
             }else if($runs<=50){
-                $lvl=4;
+                $lvl="Motivated Runner";
                 $unlock=50;
             }else if($runs<=75){
-                $lvl=5;
+                $lvl="Not easily Discouraged";
                 $unlock=75;
             }else if($runs<=100){
-                $lvl=6;
+                $lvl="Amazing Stamina";
                 $unlock=100;
             }else if($runs<=125){
-                $lvl=7;
+                $lvl="The Extra Mile";
                 $unlock=125;
             }else if($runs<=150){
-                $lvl=8;
+                $lvl="Expert Athlete";
                 $unlock=150;
             }else if($runs<=175){
-                $lvl=9;
+                $lvl="Professional";
                 $unlock=175;
             }else if($runs<=200){
-                $lvl=10;
+                $lvl="Olympic class";
                 $unlock=200;
             }
             return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 3)->update(['rank' => $lvl,'unlock'=>$unlock, 'relevant_data' => $runs]);
@@ -178,7 +175,12 @@ public static function getBadges($userId)
         $fastestRun = json_decode(json_encode($array), true);
         $userId = $fastestRun['athlete_id'];
         return DB::table('hasBadge')->where('badge_id','=',7)->update(['user_id' => $userId,'rank' => 'Unique Badge']);
-
+    }
+    public static function supermanBadge(){
+        $array = DB::table('activities')->OrderBy('max_speed', 'desc')->first();
+        $fastestRun = json_decode(json_encode($array), true);
+        $userId = $fastestRun['athlete_id'];
+        return DB::table('hasBadge')->where('badge_id','=',7)->update(['user_id' => $userId,'rank' => 'Unique Badge']);
     }
 
 }

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Badge;
+use App\Leaderboard;
 use Illuminate\Http\Request;
 use GuzzleHttp;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Session;
 use App\User;
 use App\Activity;
@@ -62,6 +64,7 @@ class UsersController extends Controller
                     ]);
 
                     $newActivity->save();
+
                 }
             }
         }
@@ -72,7 +75,19 @@ class UsersController extends Controller
         //dd($acts);
         //getBadges on refresh
         $userId = Auth::user()->id;
+        $hasBadges = DB::table('hasBadge')->where('user_id', $userId)->first();
+            if(!$hasBadges){
         BadgesController::getBadges($userId);
+            } else {
+        BadgesController::updateBadges($userId);
+            }
+
+        $inLeaderboard = Leaderboard::where('user_id', $userId)->first();
+            if(!$inLeaderboard){
+            LeaderboardController::insertInLeaderboard($userId);}
+            else{
+                LeaderboardController::updateInLeaderboard($userId);
+            }
 
 
         return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badge'));

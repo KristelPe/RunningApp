@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Leaderboard;
 use App\Schedule;
 use Faker\Provider\DateTime;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -27,6 +28,8 @@ class Controller extends BaseController
             //ZEER VUIL!!!
 
             $acts = StravaController::getAllUserActivity($token);
+
+
 
             //uncomment volgende lijn om de json in uw browser te zien
             //dd($acts);
@@ -74,6 +77,19 @@ class Controller extends BaseController
 
             //EINDE VUILIGHEID!!!
 
+            //Zet user in de leaderboards
+
+            $inLeaderboard = Leaderboard::where('user_id', $userId)->first();
+            $timesUpdated = $inLeaderboard['run_count'];
+            $countActs = Activity::where('athlete_id', $userId)->get();
+            $countAct = count($countActs);
+            if(!$inLeaderboard){
+                //enkel inserten wanneer je nog niet in database staat
+                LeaderboardController::insertInLeaderboard($userId);}
+            else if($countAct>$timesUpdated){
+                //enkel updaten wanneer er een nieuwe activity geupload werd
+                LeaderboardController::updateInLeaderboard($userId);
+            }
 
             $runDistance = 0;
 
