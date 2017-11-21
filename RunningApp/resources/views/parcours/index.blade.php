@@ -26,7 +26,7 @@
                     <div class="parcour_segment_layout">
 
                         <div class="parcour_segment">
-                            <img src="" alt="img missing" class="parcour_img">
+                            <img src="" alt="" class="parcour_img">
                                 <div class="parcour_details">
                                     <a href="parcours/{{$parcour->id}}">
                                         <h2>{{$parcour->name}}</h2>
@@ -57,7 +57,7 @@
                     <div class="parcour_segment_layout">
 
                         <div class="parcour_segment">
-                            <img src="" alt="img missing" class="parcour_img">
+                            <img src="" alt="" class="parcour_img">
                             <div class="parcour_details">
                                 <a href="parcours/{{$parcour->id}}">
                                     <h2>{{$parcour->name}}</h2>

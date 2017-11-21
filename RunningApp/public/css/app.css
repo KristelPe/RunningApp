@@ -7,12 +7,28 @@
   flex-direction: row; }
 
 .parcour_img {
-  width: 25%;
-  margin-right: 5%; }
+  width: 100px;
+  height: 100px;
+  border-radius: 150px;
+  margin-right: 5%;
+  background-color: white; }
 
 .parcour_details {
   width: 70%;
   margin-top: 20px; }
+
+.parcour_details a {
+  color: white;
+  line-height: 27px; }
+
+.parcour_details h2 {
+  color: white; }
+
+.parcour_segment_layout {
+  padding: 1.25%;
+  margin-bottom: 15px;
+  background-color: #333333;
+  border-radius: 5px; }
 
 @media only screen and (min-width: 1000px) {
   .personal_parcour, .public_parcour {
@@ -21,17 +37,24 @@
 
   .parcour_segment_layout {
     width: 20%;
-    margin: 2.5%; }
+    margin-bottom: 0;
+    margin: 1.25%; }
 
   .parcour_segment {
-    flex-direction: column; } }
+    flex-direction: column; }
+
+  .parcour_img {
+    margin: auto;
+    width: 100%;
+    height: 150px;
+    border-radius: 5px; } }
 .profile_content {
   display: table;
   width: 100%; }
 
 .profile_header {
-  margin-top: 20px;
-  margin-bottom: 50px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: row; }
 
@@ -168,18 +191,18 @@
     position: absolute; }
 
 nav {
-  height: 10vh;
+  height: 100px;
   width: 100%;
   background-color: #333333;
-  position: relative;
+  position: fixed;
   font-size: 1.7em;
   z-index: 99;
   display: flex;
   align-items: center; }
 
 nav ul {
-  position: absolute;
-  top: 10vh;
+  position: fixed;
+  top: 100px;
   display: flex;
   flex-direction: column;
   line-height: 40px;
@@ -200,7 +223,7 @@ nav ul li a {
 .title_center {
   width: 90%;
   margin: auto;
-  margin-top: 10px; }
+  padding-top: 120px; }
 
 .hamburger_icon {
   min-height: 7vh;
@@ -230,6 +253,12 @@ nav ul li a {
     position: static;
     height: 50px !important; }
 
+  .title_center {
+    padding-top: 50px; }
+
+  nav {
+    position: relative; }
+
   nav ul li {
     margin-top: 0; } }
 body {
@@ -258,7 +287,8 @@ a {
 
 .container {
   width: 90%;
-  margin: auto; }
+  margin: auto;
+  }
 
 .page_title {
   text-transform: uppercase; }
@@ -293,8 +323,64 @@ a {
   background-color: #E63257;
   color: white; }
 
+.badge_container{
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  float: left;
+  margin-left:3%;
+  margin-right:3%;
+  padding:5px;
+  width:80px;
+  
+}
+.badge_img{
+  height:60px;
+  width:60px;
+  float: left;
+  margin-left:10px;
+  margin-right:10px;
+}
+.badge_title{
+  color: grey;
+  text-shadow: white 2px 2px 2px;
+  text-align: center;
+  max-width: 100px;
+  font-size: 0.7em;
+}
+.badge_description{
+  position:absolute;
+  background-color: #E63257;
+  color: white;
+  padding: 10px 5px 10px 5px;
+  z-index: 20;
+  right:0;
+  left:0;
+  width:80%;
+  margin-left:10%;
+  margin-right:10%;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 200px #E63257;
+  
+
+}
+.badge_list{
+  float:left;
+  width:100%;
+  position: static;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.level{
+  color: #E63257;
+  font-size: 0.8em;
+  max-height:50px;
+height:30px;}
+
 @media only screen and (min-width: 1000px) {
   .switch_button {
-    width: 35%; } }
+    width: 35%; }
+}
 
-/*# sourceMappingURL=app.css.map */

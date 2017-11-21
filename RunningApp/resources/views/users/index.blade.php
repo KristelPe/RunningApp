@@ -22,7 +22,21 @@
                 <p class="level">Rookie Runner</p>
                 <p class="progress">lvl 3</p>
             </div>
+            <div class="recent_badges">
+                {{--@foreach(Auth::user()->getLatestBadge($userId) as $b)
+                        <div class="badge_container">
+                            <img src="{{$b->image}}" alt="BadgeImage" class="badge_img">
+                            <div class="badge_title"><p>{{$b->title}}</p></div>
+                            <p class="level">Level {{$b->pivot->level}}</p>
+                        </div>
 
+                        <div class="badge_description" style="display: none">
+                            <p>{{$b->description}}</p>
+                            <p>{{$b->pivot->relevant_data}}</p>
+                        </div>
+                @endforeach--}}
+
+            </div>
         </div>
 
         <div class="switch_button">
@@ -46,7 +60,7 @@
 
             </ul>--}}
             <br>
-            <h2 class="profile_stat_layout_h2"> Badges</h2>
+          {{--Badges--}}
             @include('users.badges')
         </div>
 

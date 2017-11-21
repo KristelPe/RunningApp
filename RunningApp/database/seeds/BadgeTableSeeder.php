@@ -17,22 +17,52 @@ class BadgeTableSeeder extends Seeder
                 'id' => 1,
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
                 'title' => 'Total Distance',
-                'description' => 'The total amount of distance you ran.'],
+                'description' => 'The total amount of distance you ran.',
+                'unit' => 'm',
+            ],
             [
                 'id' => 2,
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
                 'title' => 'Hardrunner',
-                'description' => 'Get a high speed of 15km/h'],
+                'description' => 'Boost your high speed!',
+                'unit' => 'km/h',
+            ],
             [
                 'id' => 3,
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
                 'title' => 'Total time',
-                'description' => 'The amount of times you ran.'],
+                'description' => 'The amount of runs.',
+                'unit' => 'runs',
+            ],
             [
                 'id' => 4,
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
-                'title' => 'Love your neighbourhood',
-                'description' => 'Run the same parkour 20 times over'],
+                'title' => 'Neighbourhood lover',
+                'description' => 'Run the same parkour 20 times over',
+                'unit' => 'runs',
+            ],
+            [
+                'id' => 5,
+                'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
+                'title' => 'Joker',
+                'description' => 'Congratulations, you are a disgusting cheater',
+                'unit' => 'km/h',
+            ],
+            [
+                'id' => 6,
+                'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
+                'title' => 'Penguin',
+                'description' => "We can't find you... Are you waddling on the Antarctic?",
+                'unit' => 'days',
+            ],
+            [
+                'id' => 7,
+                'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
+                'title' => 'The Flash',
+                'description' => "You are the fastest man on earth... on this app",
+                'unit' => 'km/h',
+            ],
+
         ];
         foreach($badges as $data){ Badge::create($data);};
 }
