@@ -82,14 +82,6 @@ class UsersController extends Controller
         BadgesController::updateBadges($userId);
             }
 
-        $inLeaderboard = Leaderboard::where('user_id', $userId)->first();
-            if(!$inLeaderboard){
-            LeaderboardController::insertInLeaderboard($userId);}
-            else{
-                LeaderboardController::updateInLeaderboard($userId);
-            }
-
-
         return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badge'));
 
     }

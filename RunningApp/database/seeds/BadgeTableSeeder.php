@@ -40,9 +40,9 @@ class BadgeTableSeeder extends Seeder
             [
                 'id' => 4,
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
-                'title' => 'Neighbourhood lover',
-                'description' => 'Run the same parkour 20 times over',
-                'unit' => 'runs',
+                'title' => 'Cyborg',
+                'description' => "You don't feel any pain, you have iron stamina, you're a Cyborg",
+                'unit' => 'm',
                 'unlockText' => 'Unlock next level at'
             ],
             [
@@ -60,7 +60,7 @@ class BadgeTableSeeder extends Seeder
                 'title' => 'Penguin',
                 'description' => "We can't find you... Are you wandering around on the Antarctic?",
                 'unit' => 'days',
-                'unlockText' => 'Unlocked by inactivity'
+                'unlockText' => 'Unlocked by inactivity of'
 
             ],
             [
@@ -76,7 +76,7 @@ class BadgeTableSeeder extends Seeder
                 'image' => 'https://cdn0.iconfinder.com/data/icons/gamification-flat-awards-and-badges/500/star13-512.png',
                 'title' => 'Superman',
                 'description' => "You are the Man of Steel, the strongest man on this app",
-                'unit' => 'km/h',
+                'unit' => 'runs',
                 'unlockText' => 'Unlocked by being the strongest'
             ],
 

@@ -11,7 +11,7 @@
             <div class="badge_description" style="display: none">
                 <p>{{$b->description}}</p>
                 <hr>
-                <p>Unlock next level: {{$b->pivot->unlock}} {{$b->unit}}</p>
+                <p>{{$b->unlockText}} {{$b->pivot->unlock}} {{$b->unit}}</p>
             </div>
 </li>@endif
     @endforeach

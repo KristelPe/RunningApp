@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Activity;
 use App\Badge;
+use App\Leaderboard;
 use App\User;
 use Illuminate\Support\Facades\DB;
 
@@ -13,12 +14,9 @@ public static function getBadges($userId)
 {
     $user = User::firstOrNew(['id' => $userId]);
     $badges = Badge::all();
-
-
     return $user->badges()->attach($badges, ['user_id' => $userId, 'rank' => "NOT EARNED", 'relevant_data' => 0, 'unlock' => 0]);
 }
 public static function updateBadges($userId){
-
         BadgesController::setMaxSpeed($userId);
         BadgesController::totalDistance($userId);
         BadgesController::countRuns($userId);
@@ -26,6 +24,8 @@ public static function updateBadges($userId){
         BadgesController::badgesOfShamePenguin($userId);
         BadgesController::flashBadge();
         BadgesController::supermanBadge();
+        BadgesController::cyborgBadge();
+
     }
 
 
@@ -174,15 +174,21 @@ public static function updateBadges($userId){
         $array = DB::table('activities')->OrderBy('max_speed', 'desc')->first();
         $fastestRun = json_decode(json_encode($array), true);
         $userId = $fastestRun['athlete_id'];
-        return DB::table('hasBadge')->where('badge_id','=',7)->update(['user_id' => $userId,'rank' => 'Unique Badge']);
+        $maxSpeed = $fastestRun['max_speed'];
+        return DB::table('hasBadge')->where('badge_id','=',7)->update(['user_id' => $userId,'rank' => 'Fastest Man Alive', 'unlock'=>$maxSpeed]);
     }
     public static function supermanBadge(){
-        $array = DB::table('activities')->OrderBy('max_speed', 'desc')->first();
-        $fastestRun = json_decode(json_encode($array), true);
-        $userId = $fastestRun['athlete_id'];
-        return DB::table('hasBadge')->where('badge_id','=',7)->update(['user_id' => $userId,'rank' => 'Unique Badge']);
+        $array = Leaderboard::OrderBy('run_count', 'desc')->first();
+        $userId = $array['user_id'];
+        $count = $array['run_count'];
+        return DB::table('hasBadge')->where('badge_id','=',8)->update(['user_id' => $userId,'rank' => 'Strongest Stamina', 'unlock' => $count]);
     }
-
+    public static function cyborgBadge(){
+        $array = Leaderboard::OrderBy('total_distance', 'desc')->first();
+        $userId = $array['user_id'];
+        $totalDistance = $array['total_distance'];
+        return DB::table('hasBadge')->where('badge_id','=',9)->update(['user_id' => $userId, 'rank' => "Doesn't Feel Pain", 'unlock' => $totalDistance]);
+    }
 }
 
 

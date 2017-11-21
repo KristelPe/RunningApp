@@ -28,8 +28,8 @@
 
 <div class="title_center">
 
-    <h1 class="page_title">@yield('title')</h1>
 
-    <hr class="bar">
+
+    <br class="bar">
 
 </div>

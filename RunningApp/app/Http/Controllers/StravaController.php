@@ -80,8 +80,6 @@ class StravaController extends Controller
 
         Auth::login(User::where('id', $userId)->first());
 
-        $userId = Auth::user()->id;
-        BadgesController::getBadges($userId);
 
         return redirect('/');
 
