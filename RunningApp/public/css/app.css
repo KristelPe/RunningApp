@@ -30,6 +30,14 @@
   background-color: #333333;
   border-radius: 5px; }
 
+.parcour_content_detail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.detail_info {
+  margin-right: 1em; }
+
 @media only screen and (min-width: 1000px) {
   .personal_parcour, .public_parcour {
     flex-direction: row;
@@ -53,8 +61,8 @@
   width: 100%; }
 
 .profile_header {
-  margin-top: 10px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: row; }
 
@@ -223,7 +231,7 @@ nav ul li a {
 .title_center {
   width: 90%;
   margin: auto;
-  padding-top: 120px; }
+  padding-top: 150px; }
 
 .hamburger_icon {
   min-height: 7vh;
@@ -287,8 +295,7 @@ a {
 
 .container {
   width: 90%;
-  margin: auto;
-  }
+  margin: auto; }
 
 .page_title {
   text-transform: uppercase; }
@@ -323,6 +330,7 @@ a {
   background-color: #E63257;
   color: white; }
 
+<<<<<<< HEAD
 .badge_container{
   margin-top: 10px;
   text-align: center;
@@ -410,8 +418,10 @@ display: inline;
   margin-left: 50px;
 }
 
+=======
+>>>>>>> 91911855d6c7fec366e02368c02725a8687f7968
 @media only screen and (min-width: 1000px) {
   .switch_button {
-    width: 35%; }
-}
+    width: 35%; } }
 
+/*# sourceMappingURL=app.css.map */

@@ -67,13 +67,17 @@ class Controller extends BaseController
                             'moving_time' => $act['moving_time'],
                             'elapsed_time' => $act['elapsed_time'],
                             'kudos_count' => $act['kudos_count'],
-/*                            'kudos_count' => $act['map']['polyline'],*/
+                            'map_polyline' => $act['map']->summary_polyline,
+                            'elev_high' => $act['elev_high'],
+                            'elev_low' => $act['elev_low'],
                         ]);
 
                         $newActivity->save();
+
                     }
                 }
             }
+
 
             //EINDE VUILIGHEID!!!
 
@@ -129,7 +133,6 @@ class Controller extends BaseController
                 $toRun = 100-($runDistance/$goal);
             }
             //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
-
 
             return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistance' => $recomendedDistance,'recomendedTotalDistance' => $recomendedTotalDistance, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
         }else{
