@@ -112,11 +112,10 @@ class Controller extends BaseController
             $recomendedDistance = 2000;
 
         if(Activity::where('athlete_id', $userId) != Null) {
-            $allActivities = Activity::where('athlete_id', $userId)->where('start_date_local', '=' ,date("Y-m-d"))->get();
+            $allActivities = Activity::where('athlete_id', $userId)->get();
             $x = 1;
             foreach ($allActivities as $a) {
                 $runDistance = $runDistance + $a->distance;
-
             }
 
             $runDistance = round($runDistance/1000, 2);
@@ -127,10 +126,11 @@ class Controller extends BaseController
             $recomendedTotalDistance = max($endGoal/$numberOfDays, $endGoal/10);
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
             $goal = $recomendedDistance - $runDistance;
-            if($goal == 0){
+            if($runDistance >= $recomendedDistance){
                 $toRun = 0;
+                $goal = 0;
             }else{
-                $toRun = 100-($runDistance/$goal);
+                $toRun = 100-(($runDistance/$recomendedDistance)*100);
             }
             //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
 
