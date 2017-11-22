@@ -328,8 +328,8 @@ a {
   text-align: center;
   color: white;
   float: left;
-  margin-left:3%;
-  margin-right:3%;
+  margin-left:2%;
+  margin-right:2%;
   padding:5px;
   width:80px;
   
@@ -362,8 +362,6 @@ a {
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 0 200px #E63257;
-  
-
 }
 .badge_list{
   float:left;
@@ -377,7 +375,8 @@ a {
   color: #E63257;
   font-size: 0.8em;
   max-height:50px;
-height:30px;}
+height:30px;
+}
 
 @media only screen and (min-width: 1000px) {
   .switch_button {
