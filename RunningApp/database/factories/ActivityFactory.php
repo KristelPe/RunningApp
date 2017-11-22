@@ -16,6 +16,10 @@ $factory->define(App\Activity::class, function (Faker $faker) {
         'max_speed' => $faker->numberBetween(1,10),
         'average_speed' => $faker->numberBetween(1,10),
         'type' => ("Run"),
+        'map_polyline' => "shkvHqlgZuVca@zZkn@b@{Em_@{g@_BpE_GcD_G~A{@d@NdE",
+        'elev_high' => $faker->numberBetween(1,15),
+        'elev_low' => $faker->numberBetween(1,15),
+
     ];
 });
 

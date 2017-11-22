@@ -27,6 +27,8 @@ class CreateActivitiesTable extends Migration
             $table->integer('average_speed');
             $table->string('type');
             $table->string('map_polyline')->default("");
+            $table->double('elev_high');
+            $table->double('elev_low');
 
             $table->timestamps();
         });

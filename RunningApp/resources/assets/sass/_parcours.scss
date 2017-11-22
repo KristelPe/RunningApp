@@ -36,6 +36,16 @@
   border-radius: 5px;
 }
 
+.parcour_content_detail{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.detail_info{
+  margin-right: 1em;
+}
+
 @media only screen and (min-width: 1000px) {
 
   .personal_parcour, .public_parcour{
