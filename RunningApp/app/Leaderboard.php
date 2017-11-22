@@ -15,6 +15,7 @@ class Leaderboard extends Model
     protected $fillable = ['max_speed', 'run_count', 'total_distance', 'total_time', 'avg_speed', 'avg_distance', 'distance'];
 
     public function user() {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->hasMany(User::class, 'id', 'user_id');
     }
+
 }

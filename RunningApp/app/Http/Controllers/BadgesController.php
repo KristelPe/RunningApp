@@ -128,7 +128,7 @@ public static function updateBadges($userId){
         }else if($totalDistance<=50000){
             $lvl=50000;
             $unlock = 50000;
-        }else if($totalDistance<=60000){
+        }else{
             $lvl=60000;
             $unlock = 60000;
         }
@@ -164,10 +164,11 @@ public static function updateBadges($userId){
             }else if($runs<=175){
                 $lvl="Professional";
                 $unlock=175;
-            }else if($runs<=200){
+            }else{
                 $lvl="Olympic class";
                 $unlock=200;
             }
+
             return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 3)->update(['rank' => $lvl,'unlock'=>$unlock, 'relevant_data' => $runs]);
     }
     public static function flashBadge(){

@@ -378,6 +378,38 @@ a {
 height:30px;
 }
 
+/*Leaderboards*/
+.small_avatar{
+  height:40px;
+  width:40px;
+  border-radius: 100%;
+
+}
+
+.leaderboard{
+}
+.user_leaderboard{
+display: inline;
+}
+.image{
+  float: left;
+  padding-top:4px;
+  margin-right:10px;
+}
+.username{
+  float: left;
+  width:50%;
+  line-height:3em;
+  margin-left:10px;
+}
+
+.data{
+  line-height:3em;
+}
+.overview{
+  margin-left: 50px;
+}
+
 @media only screen and (min-width: 1000px) {
   .switch_button {
     width: 35%; }

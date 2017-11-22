@@ -5,12 +5,21 @@ use App\Activity;
 use App\Badge;
 use App\User;
 use App\Leaderboard;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
 class LeaderboardController extends Controller
 {
+    public function index(){
+        if(Auth::check()){
+            $leaderboards = Leaderboard::with('user')->orderBy('total_time', 'desc')->get();
+            return view('leaderboard.index',  compact('leaderboards'));
+        }else{
+            return redirect('/login');
+        }
+    }
     public static function insertInLeaderboard($userId){
             $acts = Activity::where('athlete_id','=',$userId)->get();
             $totalDistance = 0;
