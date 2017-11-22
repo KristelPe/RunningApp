@@ -32,7 +32,7 @@ class User extends Authenticatable
         return $this->hasMany('App\Activity');
     }
     public function leaderboards() {
-        return $this->hasOne(Leaderboard::class, 'user_id');
+        return $this->belongsTo(Leaderboard::class);
     }
 
     public function badges(){
