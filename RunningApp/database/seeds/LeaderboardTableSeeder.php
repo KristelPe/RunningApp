@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ActivitiesTableSeeder extends Seeder
+class LeaderboardTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,7 @@ class ActivitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Activity::class, 10)->create();
+        factory(App\Leaderboard::class, 10)->create();
+
     }
 }

@@ -4,8 +4,8 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Activity::class, function (Faker $faker) {
     return [
-        'id' => $faker->unique()->numberBetween(1,50),
-        'athlete_id' => 42,
+        'id' => $faker->unique()->numberBetween(1,200),
+        'athlete_id' => $faker->numberBetween(1,10),
         'name' => $faker->word,
         'distance' => $faker->numberBetween(1,500),
         //'start_date_local' => $faker->numberBetween(1,500),

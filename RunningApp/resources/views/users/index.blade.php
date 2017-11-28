@@ -18,7 +18,7 @@
             </div>
 
             <div class="profile_details">
-                <h1 class="username">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</h1>
+                <h1 class="usernameIndex">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</h1>
                 <p class="level">Rookie Runner</p>
                 <p class="progress">lvl 3</p>
             </div>
