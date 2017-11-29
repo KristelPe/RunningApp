@@ -21,7 +21,7 @@
             <h2>Today's goal</h2>
             <br>
             <div class="home_main_inner">
-                @if($goal == 0)
+                @if($goal <= 0)
                 <h3>Done</h3>
 
                     @else

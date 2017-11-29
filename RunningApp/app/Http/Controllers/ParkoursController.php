@@ -26,14 +26,15 @@ class ParkoursController extends Controller
 
     }
 
-    public function detail(){
+    public function detail($id){
 
         if(Auth::check()){
-            /*$avatarO = Session::get('userAvatarOriginal');
+            $avatarO = Session::get('userAvatarOriginal');
             $avatarM = Session::get('userAvatarMedium');
-            return view('parcours.detail', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM]);
-            */
-            return view('parcours.detail' );
+
+            $activity = Activity::where('id', $id)->get();
+
+            return view('parcours.detail', ['loggedIn' => true, 'userAvatarO' => $avatarO, 'userAvatarM' => $avatarM, 'activity' => $activity]);
         }else{
             return redirect('/login');
         };

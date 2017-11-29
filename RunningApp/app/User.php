@@ -31,6 +31,9 @@ class User extends Authenticatable
     public function activities() {
         return $this->hasMany('App\Activity');
     }
+    public function leaderboards() {
+        return $this->belongsTo(Leaderboard::class);
+    }
 
     public function badges(){
         return $this->belongsToMany(Badge::class, 'hasBadge', 'user_id', 'badge_id')->withPivot('rank', 'unlock', 'relevant_data')->withTimestamps();

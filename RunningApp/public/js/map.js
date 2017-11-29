@@ -1,15 +1,29 @@
 function initialize() {
-    var myLatlng = new google.maps.LatLng(51.02, 4.48);
-    var myOptions = {
-        zoom: 14,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    }
-    var map = new google.maps.Map(document.getElementById("map"), myOptions);
+    var poly = document.getElementById("poly").value;
 
-    var decodedPath = google.maps.geometry.encoding.decodePath("shkvHqlgZuVca@zZkn@b@{Em_@{g@_BpE_GcD_G~A{@d@NdE");
+    var decodedPath = google.maps.geometry.encoding.decodePath(poly);
     var decodedLevels = decodeLevels("BBBBBBBBBB");
 
+    var bounds = new google.maps.LatLngBounds();
+    var i;
+
+// The Bermuda Triangle
+    for (i = 0; i < decodedPath.length; i++) {
+        var lat = decodedPath[i].lat();
+        var lng = decodedPath[i].lng();
+        var latlng = new google.maps.LatLng(lat, lng);
+        bounds.extend(latlng);
+    }
+
+    var center = bounds.getCenter();
+
+    var myOptions = {
+        zoom: 14,
+        center: new google.maps.LatLng(center.lat(), center.lng()),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    var map = new google.maps.Map(document.getElementById("map"), myOptions);
     var setRegion = new google.maps.Polyline({
         path: decodedPath,
         levels: decodedLevels,

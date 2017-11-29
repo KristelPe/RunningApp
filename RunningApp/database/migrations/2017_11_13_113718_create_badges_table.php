@@ -19,6 +19,7 @@ class CreateBadgesTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('unit');
+            $table->string('unlockText');
             $table->timestamps();
         });
     }

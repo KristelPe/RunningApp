@@ -31,5 +31,8 @@ route::get('parcours', 'ParkoursController@index');
 
 Route::get('/parcours/{id}', 'ParkoursController@detail');
 
+/* Leaderboard */
+Route::get('leaderboard', 'LeaderboardController@index');
+
 /* USER */
 Route::get('/profile', 'UsersController@index');

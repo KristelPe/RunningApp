@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Badge;
+use App\Leaderboard;
 use Illuminate\Http\Request;
 use GuzzleHttp;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Session;
 use App\User;
 use App\Activity;
@@ -42,9 +44,9 @@ class UsersController extends Controller
             }else {
                 if ($act != null) {
                     $athlete = (array)$act['athlete'];
-
+/*
                     $act['start_date_local'] = preg_replace('/[^0-9.]+/', '', $act['start_date_local']);
-                    $act['start_date_local'] = substr($act['start_date_local'], 0, 8);
+                    $act['start_date_local'] = substr($act['start_date_local'], 0, 8);*/
 
 
                     $newActivity = Activity::create([
@@ -62,6 +64,7 @@ class UsersController extends Controller
                     ]);
 
                     $newActivity->save();
+
                 }
             }
         }
@@ -70,10 +73,8 @@ class UsersController extends Controller
         $longestDistance = round($longestDistance/1000, 2);
 
         //dd($acts);
-        //getBadges on refresh
         $userId = Auth::user()->id;
-        BadgesController::getBadges($userId);
-
+        BadgesController::updateBadges($userId);
 
         return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badge'));
 

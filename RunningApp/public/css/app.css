@@ -30,6 +30,14 @@
   background-color: #333333;
   border-radius: 5px; }
 
+.parcour_content_detail {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.detail_info {
+  margin-right: 1em; }
+
 @media only screen and (min-width: 1000px) {
   .personal_parcour, .public_parcour {
     flex-direction: row;
@@ -53,8 +61,8 @@
   width: 100%; }
 
 .profile_header {
-  margin-top: 10px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: row; }
 
@@ -223,7 +231,7 @@ nav ul li a {
 .title_center {
   width: 90%;
   margin: auto;
-  padding-top: 120px; }
+  padding-top: 150px; }
 
 .hamburger_icon {
   min-height: 7vh;
@@ -287,8 +295,7 @@ a {
 
 .container {
   width: 90%;
-  margin: auto;
-  }
+  margin: auto; }
 
 .page_title {
   text-transform: uppercase; }
@@ -328,8 +335,8 @@ a {
   text-align: center;
   color: white;
   float: left;
-  margin-left:3%;
-  margin-right:3%;
+  margin-left:2%;
+  margin-right:2%;
   padding:5px;
   width:80px;
   
@@ -362,8 +369,6 @@ a {
   text-align: center;
   border-radius: 5px;
   box-shadow: 0 0 200px #E63257;
-  
-
 }
 .badge_list{
   float:left;
@@ -377,10 +382,43 @@ a {
   color: #E63257;
   font-size: 0.8em;
   max-height:50px;
-height:30px;}
+height:30px;
+}
+
+/*Leaderboards*/
+.small_avatar{
+  height:40px;
+  width:40px;
+  border-radius: 100%;
+
+}
+
+.leaderboard{
+}
+.user_leaderboard{
+display: inline;
+}
+.image{
+  float: left;
+  padding-top:4px;
+  margin-right:10px;
+}
+.username{
+  float: left;
+  width:50%;
+  line-height:3em;
+  margin-left:10px;
+}
+
+.data{
+  line-height:3em;
+}
+.overview{
+  margin-left: 50px;
+}
 
 @media only screen and (min-width: 1000px) {
   .switch_button {
-    width: 35%; }
-}
+    width: 35%; } }
 
+/*# sourceMappingURL=app.css.map */

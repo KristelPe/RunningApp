@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Leaderboard;
 use App\Schedule;
 use Faker\Provider\DateTime;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -27,6 +28,8 @@ class Controller extends BaseController
             //ZEER VUIL!!!
 
             $acts = StravaController::getAllUserActivity($token);
+
+
 
             //uncomment volgende lijn om de json in uw browser te zien
             //dd($acts);
@@ -64,16 +67,33 @@ class Controller extends BaseController
                             'moving_time' => $act['moving_time'],
                             'elapsed_time' => $act['elapsed_time'],
                             'kudos_count' => $act['kudos_count'],
-/*                            'kudos_count' => $act['map']['polyline'],*/
+                            'map_polyline' => $act['map']->summary_polyline,
+                            'elev_high' => $act['elev_high'],
+                            'elev_low' => $act['elev_low'],
                         ]);
 
                         $newActivity->save();
+
                     }
                 }
             }
 
+
             //EINDE VUILIGHEID!!!
 
+            //Zet user in de leaderboards
+
+            $inLeaderboard = Leaderboard::where('user_id', $userId)->first();
+            $timesUpdated = $inLeaderboard['run_count'];
+            $countActs = Activity::where('athlete_id', $userId)->get();
+            $countAct = count($countActs);
+            if(!$inLeaderboard){
+                //enkel inserten wanneer je nog niet in database staat
+                LeaderboardController::insertInLeaderboard($userId);}
+            else if($countAct>$timesUpdated){
+                //enkel updaten wanneer er een nieuwe activity geupload werd
+                LeaderboardController::updateInLeaderboard($userId);
+            }
 
             $runDistance = 0;
 
@@ -92,11 +112,10 @@ class Controller extends BaseController
             $recomendedDistance = 2000;
 
         if(Activity::where('athlete_id', $userId) != Null) {
-            $allActivities = Activity::where('athlete_id', $userId)->where('start_date_local', '=' ,date("Y-m-d"))->get();
+            $allActivities = Activity::where('athlete_id', $userId)->get();
             $x = 1;
             foreach ($allActivities as $a) {
                 $runDistance = $runDistance + $a->distance;
-
             }
 
             $runDistance = round($runDistance/1000, 2);
@@ -107,13 +126,13 @@ class Controller extends BaseController
             $recomendedTotalDistance = max($endGoal/$numberOfDays, $endGoal/10);
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
             $goal = $recomendedDistance - $runDistance;
-            if($goal == 0){
+            if($runDistance >= $recomendedDistance){
                 $toRun = 0;
+                $goal = 0;
             }else{
-                $toRun = 100-($runDistance/$goal);
+                $toRun = 100-(($runDistance/$recomendedDistance)*100);
             }
             //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
-
 
             return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistance' => $recomendedDistance,'recomendedTotalDistance' => $recomendedTotalDistance, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
         }else{

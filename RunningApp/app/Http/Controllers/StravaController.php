@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Badge;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Laravel\Socialite\Facades\Socialite;
 use App\User;
 use Session;
@@ -78,10 +79,15 @@ class StravaController extends Controller
         $loginUser->avatar = $userAvatarMedium;
         $loginUser->save();
 
-        Auth::login(User::where('id', $userId)->first());
 
+
+        Auth::login(User::where('id', $userId)->first());
+        //getBadges on refresh
         $userId = Auth::user()->id;
-        BadgesController::getBadges($userId);
+        $hasBadges = DB::table('hasBadge')->where('user_id', $userId)->first();
+        if(!$hasBadges){
+            BadgesController::getBadges($userId);
+        }
 
         return redirect('/');
 

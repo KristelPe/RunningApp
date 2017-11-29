@@ -10,7 +10,7 @@ class Activity extends Model
     use Notifiable;
 
     protected $fillable = [
-        'id','start_date_local', 'athlete_id', 'name','distance','max_speed','average_speed', 'type', 'moving_time', 'elapsed_time', 'kudos_count', 'map_polyline'
+        'id','start_date_local', 'athlete_id', 'name','distance','max_speed','average_speed', 'type', 'moving_time', 'elapsed_time', 'kudos_count', 'map_polyline', 'elev_high', 'elev_low'
     ];
 
     public function getUser(){
