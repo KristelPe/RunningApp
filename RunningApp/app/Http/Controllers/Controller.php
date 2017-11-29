@@ -112,8 +112,12 @@ class Controller extends BaseController
             $numberOfDays = $numberOfWeeks->days;
             $recomendedDistance = 2000;
 
+            //dd(strtotime('today midnight'));
+
+
+
         if(Activity::where('athlete_id', $userId) != Null) {
-            $allActivities = Activity::where('athlete_id', $userId)->where('start_date_local', strtotime('today midnight'))->get();
+            $allActivities = Activity::where('athlete_id', $userId)->where('start_date_local', $today)->get();
             $x = 1;
             foreach ($allActivities as $a) {
                 $runDistance = $runDistance + $a->distance;
