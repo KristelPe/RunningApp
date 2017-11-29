@@ -38,6 +38,7 @@ class Controller extends BaseController
             $totalDistance = 0;
             $maxSpeed = 0;
             $longestDistance = 0;
+            //dd($acts);
             foreach ($acts as $actClass){
                 $act = (array)$actClass;
                 $totalDistance = $totalDistance + $act['distance'];
@@ -112,7 +113,7 @@ class Controller extends BaseController
             $recomendedDistance = 2000;
 
         if(Activity::where('athlete_id', $userId) != Null) {
-            $allActivities = Activity::where('athlete_id', $userId)->get();
+            $allActivities = Activity::where('athlete_id', $userId)->where('start_date_local', strtotime('today midnight'))->get();
             $x = 1;
             foreach ($allActivities as $a) {
                 $runDistance = $runDistance + $a->distance;
@@ -124,6 +125,8 @@ class Controller extends BaseController
         }
 
             $recomendedTotalDistance = max($endGoal/$numberOfDays, $endGoal/10);
+
+
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
             $goal = $recomendedDistance - $runDistance;
             if($runDistance >= $recomendedDistance){
