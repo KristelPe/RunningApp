@@ -112,6 +112,8 @@ class Controller extends BaseController
             $numberOfDays = $numberOfWeeks->days;
             $recomendedDistance = 2000;
 
+
+
             //dd(strtotime('today midnight'));
 
 
@@ -128,20 +130,20 @@ class Controller extends BaseController
 
         }
 
-            $recomendedTotalDistance = max($endGoal/$numberOfDays, $endGoal/10);
+            $recomendedDistanceToday = ScheduleController::CalculateGoalToday($numberOfDays, $endGoal);
 
 
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
-            $goal = $recomendedDistance - $runDistance;
-            if($runDistance >= $recomendedDistance){
+            $goal = $recomendedDistanceToday - $runDistance;
+            if($runDistance >= $recomendedDistanceToday){
                 $toRun = 0;
                 $goal = 0;
             }else{
-                $toRun = 100-(($runDistance/$recomendedDistance)*100);
+                $toRun = 100-(($runDistance/$recomendedDistanceToday)*100);
             }
             //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
 
-            return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistance' => $recomendedDistance,'recomendedTotalDistance' => $recomendedTotalDistance, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
+            return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistanceToday' => $recomendedDistanceToday, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
         }else{
             return view('home/index');
         };

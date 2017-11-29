@@ -25,7 +25,7 @@
                 <h3>Done</h3>
 
                     @else
-                    <h4>{{$recomendedDistance}}</h4>
+                    <h4>{{$recomendedDistanceToday}}</h4>
                     <h3>km</h3>
                 @endif
             </div>
