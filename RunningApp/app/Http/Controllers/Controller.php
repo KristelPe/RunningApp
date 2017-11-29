@@ -38,6 +38,7 @@ class Controller extends BaseController
             $totalDistance = 0;
             $maxSpeed = 0;
             $longestDistance = 0;
+            //dd($acts);
             foreach ($acts as $actClass){
                 $act = (array)$actClass;
                 $totalDistance = $totalDistance + $act['distance'];
@@ -111,30 +112,36 @@ class Controller extends BaseController
             $numberOfDays = $numberOfWeeks->days;
             $recomendedDistance = 2000;
 
+
+
+            //dd(strtotime('today midnight'));
+
+
+
         if(Activity::where('athlete_id', $userId) != Null) {
-            $allActivities = Activity::where('athlete_id', $userId)->get();
-            $x = 1;
+            $allActivities = Activity::where('athlete_id', $userId)->where('start_date_local', $today)->get();
             foreach ($allActivities as $a) {
                 $runDistance = $runDistance + $a->distance;
             }
 
             $runDistance = round($runDistance/1000, 2);
             $recomendedDistance = round($recomendedDistance/1000, 2);
-
         }
 
-            $recomendedTotalDistance = max($endGoal/$numberOfDays, $endGoal/10);
+            $recomendedDistanceToday = ScheduleController::CalculateGoalToday($numberOfDays, $endGoal);
+
+
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
-            $goal = $recomendedDistance - $runDistance;
-            if($runDistance >= $recomendedDistance){
+            $goal = $recomendedDistanceToday - $runDistance;
+            if($runDistance >= $recomendedDistanceToday){
                 $toRun = 0;
                 $goal = 0;
             }else{
-                $toRun = 100-(($runDistance/$recomendedDistance)*100);
+                $toRun = 100-(($runDistance/$recomendedDistanceToday)*100);
             }
             //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
 
-            return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistance' => $recomendedDistance,'recomendedTotalDistance' => $recomendedTotalDistance, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
+            return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistanceToday' => $recomendedDistanceToday, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
         }else{
             return view('home/index');
         };

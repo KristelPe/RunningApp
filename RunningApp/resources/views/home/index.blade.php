@@ -20,11 +20,29 @@
         <div class="home_main">
             <h2>Today's goal</h2>
             <br>
-            <div class="home_main_inner">
+            <div class="home_main_inner small">
+                @if($goal <= 0)
+                    <h3>Done</h3>
+
+                @else
+                    <h4>{{$recomendedDistance}} <h3>km</h3></h4>
+
+                @endif
+            </div>
+            <div class="home_main_inner large">
                 @if($goal <= 0)
                 <h3>Done</h3>
 
                     @else
+                    <h4>{{$recomendedDistanceToday}}</h4>
+                    <h3>km</h3>
+                @endif
+            </div>
+            <div class="home_main_inner small">
+                @if($goal <= 0)
+                    <h3>Done</h3>
+
+                @else
                     <h4>{{$recomendedDistance}}</h4>
                     <h3>km</h3>
                 @endif
@@ -36,7 +54,7 @@
 
             @else
                 <p>Run {{$goal}} more km to finish goal!!!</p>
-                @endif
+            @endif
                 <br>
             <div id="bar">
                 <div id="fill"></div>
