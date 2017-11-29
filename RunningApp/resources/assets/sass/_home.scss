@@ -5,13 +5,16 @@
   }
   h3{
     font-size: 5em;
-    line-height: 2.1em;
+    line-height: 2.25em;
     margin-left: 0.05em;
   }
   h4{
+    margin-top: 0.05em;
     font-size: 8em;
-    margin-right: 0.05em;
   }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .home_extra p:not(#days){
@@ -56,8 +59,21 @@
   position: relative;
   z-index: 9;
   overflow: hidden;
-  *{
-    margin-top: 0.125em;
+  justify-content: center;
+}
+
+.small{
+  margin-top:2.75em;
+  height: 8em;
+  width: 8em;
+  h3{
+    font-size: 4em;
+    line-height: 2.05em;
+    margin-left: 0.05em;
+  }
+  h4{
+    margin-top: 0.02em;
+    font-size: 6em;
   }
 }
 

@@ -120,14 +120,12 @@ class Controller extends BaseController
 
         if(Activity::where('athlete_id', $userId) != Null) {
             $allActivities = Activity::where('athlete_id', $userId)->where('start_date_local', $today)->get();
-            $x = 1;
             foreach ($allActivities as $a) {
                 $runDistance = $runDistance + $a->distance;
             }
 
             $runDistance = round($runDistance/1000, 2);
             $recomendedDistance = round($recomendedDistance/1000, 2);
-
         }
 
             $recomendedDistanceToday = ScheduleController::CalculateGoalToday($numberOfDays, $endGoal);
