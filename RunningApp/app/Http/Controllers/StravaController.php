@@ -88,6 +88,7 @@ class StravaController extends Controller
         $userId = Auth::user()->id;
         $token = Auth::user()->token;
         $acts = StravaController::getAllUserActivity($token);
+            //dd($acts);
         foreach ($acts as $actClass){
             $act = (array)$actClass;
 
@@ -95,11 +96,12 @@ class StravaController extends Controller
 
             if (Activity::where('id', '=', $act['id'])->exists()) {
             }else {
-                if ($act != null) {
+                if ($act != null && $act['distance'] < 25000 && $act['max_speed'] < 5.55 && $act['moving_time'] < 7200) {
                     $athlete = (array)$act['athlete'];
 
                     $act['start_date_local'] = preg_replace('/[^0-9.]+/', '', $act['start_date_local']);
                     $act['start_date_local'] = substr($act['start_date_local'], 0, 4) . "-" . substr($act['start_date_local'], 4, 2) . "-" . substr($act['start_date_local'], 6, 2);
+
 
 
 
