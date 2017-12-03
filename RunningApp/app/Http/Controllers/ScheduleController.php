@@ -114,7 +114,7 @@ class ScheduleController extends Controller
             $daysleft == 14 ||
             $daysleft == 9 ||
             $daysleft == 7 ||
-            $daysleft % 8888888 == 0){
+            $daysleft % 3 == 0){
 
             //rustdagen
             $recomendedDistance = 0;

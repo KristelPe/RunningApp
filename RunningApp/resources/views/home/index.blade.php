@@ -21,8 +21,8 @@
             <h2>Today's goal</h2>
             <br>
             <div class="home_main_inner small">
-                @if($goal <= 0)
-                    <h3>Done</h3>
+                @if($recomendedDistanceYesterday <= 0)
+                    <h3>Rest</h3>
 
                 @else
                     <h4>{{$recomendedDistanceYesterday}} <h3>km</h3></h4>
@@ -30,8 +30,8 @@
                 @endif
             </div>
             <div class="home_main_inner large">
-                @if($goal <= 0)
-                <h3>Done</h3>
+                @if($recomendedDistanceToday <= 0)
+                <h3>Rest</h3>
 
                     @else
                     <h4>{{$recomendedDistanceToday}}</h4>
@@ -39,8 +39,8 @@
                 @endif
             </div>
             <div class="home_main_inner small">
-                @if($goal <= 0)
-                    <h3>Done</h3>
+                @if($recomendedDistanceTomorrow <= 0)
+                    <h3>Rest</h3>
 
                 @else
                     <h4>{{$recomendedDistanceTomorrow}}</h4>

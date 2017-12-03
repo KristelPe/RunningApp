@@ -82,8 +82,52 @@ class StravaController extends Controller
 
 
         Auth::login(User::where('id', $userId)->first());
-        //getBadges on refresh
+
+
+        $acts = StravaController::getAllUserActivity($token);
         $userId = Auth::user()->id;
+        $token = Auth::user()->token;
+        $acts = StravaController::getAllUserActivity($token);
+        foreach ($acts as $actClass){
+            $act = (array)$actClass;
+
+
+
+            if (Activity::where('id', '=', $act['id'])->exists()) {
+            }else {
+                if ($act != null) {
+                    $athlete = (array)$act['athlete'];
+
+                    $act['start_date_local'] = preg_replace('/[^0-9.]+/', '', $act['start_date_local']);
+                    $act['start_date_local'] = substr($act['start_date_local'], 0, 4) . "-" . substr($act['start_date_local'], 4, 2) . "-" . substr($act['start_date_local'], 6, 2);
+
+
+
+                    $newActivity = Activity::create([
+                        'id' => $act['id'],
+                        'athlete_id' => $athlete['id'],
+                        'name' => $act['name'],
+                        'distance' => $act['distance'],
+                        'start_date_local' => $act['start_date_local'],
+                        'max_speed' => $act['max_speed'],
+                        'average_speed' => $act['average_speed'],
+                        'type' => $act['type'],
+                        'moving_time' => $act['moving_time'],
+                        'elapsed_time' => $act['elapsed_time'],
+                        'kudos_count' => $act['kudos_count'],
+                        'map_polyline' => $act['map']->summary_polyline,
+                        'elev_high' => $act['elev_high'],
+                        'elev_low' => $act['elev_low'],
+                    ]);
+
+                    $newActivity->save();
+
+                }
+            }
+        }
+
+        //getBadges on refresh
+
         $hasBadges = DB::table('hasBadge')->where('user_id', $userId)->first();
         if(!$hasBadges){
             BadgesController::getBadges($userId);
