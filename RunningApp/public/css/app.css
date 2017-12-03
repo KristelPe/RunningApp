@@ -397,6 +397,12 @@ a {
   max-height:50px;
   height:30px;
 }
+.small_avatar{
+  height:40px;
+  width:40px;
+  border-radius: 100%;
+
+}
 
 @media only screen and (min-width: 1000px) {
   .switch_button {

@@ -22,7 +22,7 @@
                         </ul>
                     <hr>
                     @endforeach
-                </div>
+
 
             @endforeach
         </div>
