@@ -119,9 +119,9 @@ class StravaController extends Controller
                         'moving_time' => $act['moving_time'],
                         'elapsed_time' => $act['elapsed_time'],
                         'kudos_count' => $act['kudos_count'],
-                        'map_polyline' => $act['map']->summary_polyline,
-                        'elev_high' => $act['elev_high'],
-                        'elev_low' => $act['elev_low'],
+/*                        'map_polyline' => $act['map']->summary_polyline,*/
+                        /*'elev_high' => $act['elev_high'],*/
+/*                        'elev_low' => $act['elev_low'],*/
                     ]);
 
                     $newActivity->save();

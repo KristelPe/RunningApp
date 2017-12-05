@@ -45,6 +45,7 @@ class Controller extends BaseController
             }
 
             $runDistance = 0;
+            $runDistanceThisWeek = 0;
 
             $today = new \DateTime(date("Y-m-d"));
 
@@ -57,7 +58,7 @@ class Controller extends BaseController
 
             $numberOfWeeks = $today->diff($endDateV);
             //dd($numberOfWeeks);
-            $numberOfDays = 100;
+            $numberOfDays = 100; /* $numberOfWeeks->days;*/
             $recomendedDistance = 2000;
 
 
@@ -80,18 +81,30 @@ class Controller extends BaseController
             $recomendedDistanceYesterday = round(ScheduleController::CalculateGoalToday(($numberOfDays+1), $endGoal), 1);
             $recomendedDistanceTomorrow = round(ScheduleController::CalculateGoalToday(($numberOfDays-1), $endGoal), 1);
 
+
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
             $goal = $recomendedDistanceToday - $runDistance;
             if($runDistance >= $recomendedDistanceToday){
                 $toRun = 0;
                 $goal = 0;
-                $current_time = Carbon::now()->toDateTimeString();
-                DB::table('halloffame')->where('userid', $userId)->update(['goal' => 1, 'updated_at' => $current_time]);
-            }else{
+                }else{
                 $toRun = 100-(($runDistance/$recomendedDistanceToday)*100);
             }
-            //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
+            $recommendDistanceThisWeek = $recomendedDistanceToday*7;
+            $oneweekago = new \DateTime(date("Y-m-d", strtotime("-1 week")));;
+             $allActivities2 = Activity::where('athlete_id', $userId)->where('start_date_local','>', $oneweekago)->get();
 
+            foreach ($allActivities2 as $a2) {
+                $runDistanceThisWeek  = $runDistanceThisWeek + $a2->distance;
+            }
+            $runDistanceThisWeek = round($runDistanceThisWeek /1000, 2);
+
+
+            if( $runDistanceThisWeek >= $recommendDistanceThisWeek){
+                $current_time = Carbon::now()->toDateTimeString();
+                DB::table('halloffame')->where('userid', $userId)->update(['goal' => 1, 'updated_at' => $current_time]);
+            }
+            //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
 
             $schedules = Schedule::all();
 
