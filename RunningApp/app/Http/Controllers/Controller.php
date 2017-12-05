@@ -83,6 +83,7 @@ class Controller extends BaseController
             if($runDistance >= $recomendedDistanceToday){
                 $toRun = 0;
                 $goal = 0;
+
             }else{
                 $toRun = 100-(($runDistance/$recomendedDistanceToday)*100);
             }
@@ -91,7 +92,7 @@ class Controller extends BaseController
 
             $schedules = Schedule::all();
 
-            return view('home/index', ['schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistanceToday' => $recomendedDistanceToday, 'recomendedDistanceTomorrow' => $recomendedDistanceTomorrow, 'recomendedDistanceYesterday' => $recomendedDistanceYesterday, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
+            return view('home/index', ['schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays ,'recomendedDistance' => $recomendedDistance, 'recomendedDistanceToday' => $recomendedDistanceToday, 'recomendedDistanceTomorrow' => $recomendedDistanceTomorrow, 'recomendedDistanceYesterday' => $recomendedDistanceYesterday, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
 
         }else{
             return view('home/index');
