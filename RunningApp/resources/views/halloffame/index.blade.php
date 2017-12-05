@@ -6,7 +6,7 @@
 @section('content')
     @parent
     <div class="halloffame_content">
-        <h5>These champions completed this weeks goal!</h5>
+        <h1>These champions completed this weeks goal!</h1>
             @foreach($halloffame as $hof)
                 @foreach($hof->user as $user)
                     <ul class="user_leaderboard">
