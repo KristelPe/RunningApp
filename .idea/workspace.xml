@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57f41adb-ff3f-4326-a6d8-ee6b7d62c1c8" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/RunningApp/database/migrations/2017_12_05_141716_create_halloffame_table.php" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/RunningApp/app/Halloffame.php" afterPath="$PROJECT_DIR$/RunningApp/app/Halloffames.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunningApp/app/Http/Controllers/Controller.php" afterPath="$PROJECT_DIR$/RunningApp/app/Http/Controllers/Controller.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunningApp/app/Http/Controllers/HallOfFameController.php" afterPath="$PROJECT_DIR$/RunningApp/app/Http/Controllers/HallOfFameController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunningApp/app/Http/Controllers/StravaController.php" afterPath="$PROJECT_DIR$/RunningApp/app/Http/Controllers/StravaController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunningApp/app/User.php" afterPath="$PROJECT_DIR$/RunningApp/app/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunningApp/composer.lock" afterPath="$PROJECT_DIR$/RunningApp/composer.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RunningApp/resources/views/halloffame/index.blade.php" afterPath="$PROJECT_DIR$/RunningApp/resources/views/halloffame/index.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -71,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RunningApp/resources/views/halloffame/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+            <state relative-caret-position="389">
+              <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -101,7 +93,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017_12_05_161254_create_halloffames_table.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2017_12_05_161254_create_halloffames_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RunningApp/database/migrations/2017_12_05_161254_create_halloffames_table.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="928">
@@ -202,7 +194,6 @@
         <option value="$PROJECT_DIR$/RunningApp/database/migrations/2017_12_05_141716_create_halloffame_table.php" />
         <option value="$PROJECT_DIR$/RunningApp/app/Http/Controllers/LeaderboardController.php" />
         <option value="$PROJECT_DIR$/RunningApp/resources/views/home/index.blade.php" />
-        <option value="$PROJECT_DIR$/RunningApp/resources/views/halloffame/index.blade.php" />
         <option value="$PROJECT_DIR$/RunningApp/app/Leaderboard.php" />
         <option value="$PROJECT_DIR$/RunningApp/app/User.php" />
         <option value="$PROJECT_DIR$/RunningApp/app/Halloffame.php" />
@@ -210,6 +201,7 @@
         <option value="$PROJECT_DIR$/RunningApp/app/Http/Controllers/HallOfFameController.php" />
         <option value="$PROJECT_DIR$/RunningApp/app/Http/Controllers/StravaController.php" />
         <option value="$PROJECT_DIR$/RunningApp/database/migrations/2017_12_05_161254_create_halloffames_table.php" />
+        <option value="$PROJECT_DIR$/RunningApp/resources/views/halloffame/index.blade.php" />
       </list>
     </option>
   </component>
@@ -333,7 +325,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/StravaController.php&#10;controll&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/Controller.php&#10;halloff&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/HallOfFameController.php&#10;halloffa&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/database/migrations/2017_12_05_161254_create_halloffames_table.php&#10;strava&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/StravaController.php&#10;controller&#9;null&#9;null&#10;halloffames&#9;null&#9;null&#10;halloffame/index&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/halloffame/index.blade.php&#10;hall&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/HallOfFameController.php&#10;hal&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Halloffame.php&#10;hallo&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Halloffame.php&#10;index&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/halloffame/index.blade.php&#10;leaderboardco&#9;null&#9;null&#10;stra&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/StravaController.php&#10;home\index&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/home/index.blade.php&#10;control&#9;null&#9;null&#10;sched&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/ScheduleController.php&#10;web&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/routes/web.php&#10;nav&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/nav.blade.php&#10;con&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/HallOfFameController.php&#10;leader&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/LeaderboardController.php&#10;halloffam&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/HallOfFameController.php&#10;hallof&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/database/migrations/2017_12_05_140158_hallofffame.php&#10;lea&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/LeaderboardController.php&#10;activi&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/ActivityController.php&#10;recommende&#9;null&#9;null&#10;home\in&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/home/index.blade.php&#10;css&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/public/css/app.css&#10;cs&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/public/css/app.css&#10;badges&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/resources/views/users/badges.blade.php&#10;badge&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/seeds/BadgeTableSeeder.php&#10;inde&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/resources/views/home/index.blade.php&#10;user&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/factories/UserFactory.php&#10;leaderb&#9;null&#9;null&#10;fac&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/factories/UserFactory.php&#10;seeder&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/seeds/UsersTableSeeder.php&#10;se&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/vendor/laravel/framework/src/Illuminate/Database/Seeder.php&#10;userfact&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/factories/UserFactory.php&#10;see&#9;null&#9;null&#10;leaderboard&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/halloffame/index.blade.php&#10;controll&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/Controller.php&#10;halloff&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/HallOfFameController.php&#10;halloffa&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/database/migrations/2017_12_05_161254_create_halloffames_table.php&#10;strava&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/StravaController.php&#10;controller&#9;null&#9;null&#10;halloffames&#9;null&#9;null&#10;halloffame/index&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/halloffame/index.blade.php&#10;hall&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/HallOfFameController.php&#10;hal&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Halloffame.php&#10;hallo&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Halloffame.php&#10;index&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/halloffame/index.blade.php&#10;leaderboardco&#9;null&#9;null&#10;stra&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/StravaController.php&#10;home\index&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/home/index.blade.php&#10;control&#9;null&#9;null&#10;sched&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/ScheduleController.php&#10;web&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/routes/web.php&#10;nav&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/nav.blade.php&#10;con&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/HallOfFameController.php&#10;leader&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/LeaderboardController.php&#10;halloffam&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/HallOfFameController.php&#10;hallof&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/database/migrations/2017_12_05_140158_hallofffame.php&#10;lea&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/LeaderboardController.php&#10;activi&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/app/Http/Controllers/ActivityController.php&#10;recommende&#9;null&#9;null&#10;home\in&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/resources/views/home/index.blade.php&#10;css&#9;FILE&#9;file://C:/Users/jolan/Documents/WeAreRunners/RunningApp/public/css/app.css&#10;cs&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/public/css/app.css&#10;badges&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/resources/views/users/badges.blade.php&#10;badge&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/seeds/BadgeTableSeeder.php&#10;inde&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/resources/views/home/index.blade.php&#10;user&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/factories/UserFactory.php&#10;leaderb&#9;null&#9;null&#10;fac&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/factories/UserFactory.php&#10;seeder&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/seeds/UsersTableSeeder.php&#10;se&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/vendor/laravel/framework/src/Illuminate/Database/Seeder.php&#10;userfact&#9;FILE&#9;file://C:/Users/jolan/Documents/RunningApp/RunningApp/database/factories/UserFactory.php&#10;see&#9;null&#9;null&#10;leaderboard&#9;null&#9;null" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
@@ -375,12 +367,12 @@
       <workItem from="1512308940610" duration="1205000" />
       <workItem from="1512313478679" duration="97000" />
       <workItem from="1512315242383" duration="3474000" />
-      <workItem from="1512475546955" duration="11416000" />
+      <workItem from="1512475546955" duration="11651000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21320000" />
+    <option name="totallyTimeSpent" value="21555000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="0" width="1622" height="1741" extended-state="0" />
@@ -721,14 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RunningApp/resources/views/halloffame/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RunningApp/app/Halloffames.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
@@ -783,6 +767,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="928">
           <caret line="18" column="33" lean-forward="false" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RunningApp/resources/views/halloffame/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
           <folding />
         </state>
       </provider>
