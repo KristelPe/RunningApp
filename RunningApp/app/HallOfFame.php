@@ -7,9 +7,14 @@
  */
 
 namespace App;
+use Illuminate\Database\Eloquent\Model;
 
 
-class HallOfFame
+class HallOfFame extends Model
 {
-    
+    protected $fillable = ['goal'];
+
+    public function user() {
+            return $this->hasMany(User::class, 'id', 'userid');
+    }
 }
