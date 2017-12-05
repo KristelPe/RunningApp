@@ -54,11 +54,9 @@ class Controller extends BaseController
                 $endDateV = new \DateTime($e->endDate);
                 $endGoal = $e->endGoal;
             }
-
-
             $numberOfWeeks = $today->diff($endDateV);
-            //dd($numberOfWeeks);
-            $numberOfDays = 100; /* $numberOfWeeks->days;*/
+            /*dd($numberOfWeeks);*/
+            $numberOfDays = $numberOfWeeks->days;
             $recomendedDistance = 2000;
 
 
@@ -90,8 +88,8 @@ class Controller extends BaseController
                 }else{
                 $toRun = 100-(($runDistance/$recomendedDistanceToday)*100);
             }
-            $recommendDistanceThisWeek = $recomendedDistanceToday*7;
-            $oneweekago = new \DateTime(date("Y-m-d", strtotime("-1 week")));;
+            $recommendDistanceThisWeek = $recomendedDistance*7-$recomendedDistance;
+            $oneweekago = new \DateTime(date("Y-m-d", strtotime("monday this week")));;
              $allActivities2 = Activity::where('athlete_id', $userId)->where('start_date_local','>', $oneweekago)->get();
 
             foreach ($allActivities2 as $a2) {
