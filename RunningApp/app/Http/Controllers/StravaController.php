@@ -136,6 +136,12 @@ class StravaController extends Controller
         if(!$hasBadges){
             BadgesController::getBadges($userId);
         }
+        $onHallOfFame = DB::table('halloffame')->where('userid', $userId)->first();
+        if(!$onHallOfFame){
+            HallOfFameController::insert($userId);
+        }
+
+
 
         return redirect('/');
 

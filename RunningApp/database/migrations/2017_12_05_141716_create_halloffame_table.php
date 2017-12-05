@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Hallofffame extends Migration
+class CreateHalloffameTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,7 @@ class Hallofffame extends Migration
     {
         Schema::create('halloffame', function (Blueprint $table) {
             $table->increments('userid');
-            $table->string('goal');
+            $table->smallInteger('goal');
             $table->timestamps();
         });
     }
@@ -27,7 +27,6 @@ class Hallofffame extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('leaderboards');
-
+        Schema::dropIfExists('halloffame');
     }
 }

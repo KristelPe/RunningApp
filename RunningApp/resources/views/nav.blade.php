@@ -7,7 +7,7 @@
     </div>
     <ul class="nav_menu_js">
         <li class="{{ (Request::is('/') ? 'current_page' : '') }}"><a href="/">Home</a></li>
-        <li class="{{ (Request::is('HallOfFame') ? 'current_page' : '') }}"><a href="/HallOfFame">Hall of Fame</a></li>
+        <li class="{{ (Request::is('Halloffame') ? 'current_page' : '') }}"><a href="/HallOfFame">Hall of Fame</a></li>
         @if( Auth::check())
         <li class="{{ (Request::is('profile*') ? 'current_page' : '') }}"><a href="/profile">Profile</a></li>
         <li class="{{ (Request::is('parcours') ? 'current_page' : '') }}"><a href="/parcours">Parcours</a></li>
