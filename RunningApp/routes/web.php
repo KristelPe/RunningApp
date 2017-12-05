@@ -35,7 +35,8 @@ Route::get('/parcours/{id}', 'ParkoursController@detail');
 Route::get('leaderboard', 'LeaderboardController@index');
 
 /*Hall Of Fame */
-Route::get('Halloffame', 'HallOfFameController@index');
+Route::get('halloffame', 'HallOfFameController@index');
+
 /* USER */
 Route::get('/profile', 'UsersController@index');
 Route::post('/updatefollowschedule', 'UsersController@updateFollowSchedule');

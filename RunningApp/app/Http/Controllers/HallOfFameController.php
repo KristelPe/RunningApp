@@ -6,6 +6,8 @@ use App\Halloffame;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use Carbon\Carbon;
+
 class HallOfFameController extends Controller
 {
     public function index()
@@ -14,6 +16,9 @@ class HallOfFameController extends Controller
     }
 
     public static function insert($userId){
-        return DB::table('halloffame')->insert(['userid' => $userId, 'goal' => 0]);
+        $current_time = Carbon::now()->toDateTimeString();
+        return DB::table('halloffame')->insert(['userid' => $userId, 'goal' => 0, 'created_at' => $current_time]);
     }
+
+
 }

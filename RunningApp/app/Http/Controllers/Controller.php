@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Leaderboard;
 use App\Schedule;
+use Carbon\Carbon;
 use Faker\Provider\DateTime;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Session;
 use App\Activity;
 
@@ -55,7 +57,7 @@ class Controller extends BaseController
 
             $numberOfWeeks = $today->diff($endDateV);
             //dd($numberOfWeeks);
-            $numberOfDays = $numberOfWeeks->days;
+            $numberOfDays = 100;
             $recomendedDistance = 2000;
 
 
@@ -83,7 +85,8 @@ class Controller extends BaseController
             if($runDistance >= $recomendedDistanceToday){
                 $toRun = 0;
                 $goal = 0;
-
+                $current_time = Carbon::now()->toDateTimeString();
+                DB::table('halloffame')->where('userid', $userId)->update(['goal' => 1, 'updated_at' => $current_time]);
             }else{
                 $toRun = 100-(($runDistance/$recomendedDistanceToday)*100);
             }
