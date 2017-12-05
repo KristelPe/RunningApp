@@ -36,6 +36,7 @@ Route::get('leaderboard', 'LeaderboardController@index');
 
 /* USER */
 Route::get('/profile', 'UsersController@index');
+Route::post('/updatefollowschedule', 'UsersController@updateFollowSchedule');
 
 /* ADMIN */
 Route::post('/makeadmin', 'AdminController@makeAdmin');

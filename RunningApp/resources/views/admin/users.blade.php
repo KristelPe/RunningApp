@@ -6,16 +6,7 @@
 @section('content')
     @parent
 
-    <form action="/addschedule" method="post">
-        {{ csrf_field() }}
-        <label for="name">Training schedule name</label>
-        <input name="name" type="text">
-        <label for="distGoal">I want to run this distance (in KM)</label>
-        <input name="distGoal" type="number">
-        <label for="dateGoal">By this date</label>
-        <input name="dateGoal" type="date">
-        <input type="submit">
-    </form>
+
 
 
 <h2>Admins</h2>
@@ -36,12 +27,15 @@
                         <input type="hidden" name="userToDelete" value="{{ $u->id }}">
                         <input type="submit" value="delete">
                     </form>
+
+                    @if($u->id != Auth::user()->id)
                     <form action="/removeadmin" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="userId" value="{{ $u->id }}">
 
                         <input type="submit" value="remove admin">
                     </form>
+                        @endif
 
 
 

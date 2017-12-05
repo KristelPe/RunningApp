@@ -60,6 +60,17 @@
                 <div id="fill"></div>
                 <p id="days"><b>{{ $daysLeft }}</b> days left!</p>
             </div>
+
+                <form action="/updatefollowschedule" method="post">
+                    {{ csrf_field() }}
+                    <select name="scheduleId">
+                        @foreach( $schedules as $s)
+                            <option value="{{ $s->id }}">{{$s->name}}</option>
+
+                            @endforeach
+                    </select>
+                    <input type="submit" value="confirm">
+                </form>
         </div>
 
 
