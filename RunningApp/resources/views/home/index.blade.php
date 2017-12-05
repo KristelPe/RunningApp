@@ -65,7 +65,7 @@
                     {{ csrf_field() }}
                     <select name="scheduleId">
                         @foreach( $schedules as $s)
-                            <option value="{{ $s->id }}">{{$s->name}}</option>
+                            <option @if(Auth::user()->followingSchedule == $s->id) selected="selected" @endif value="{{ $s->id }}">{{$s->name}}</option>
 
                             @endforeach
                     </select>

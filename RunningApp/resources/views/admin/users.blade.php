@@ -19,23 +19,25 @@
             <li>
 
                 <div class="recent_activity">
+                    <img src="{{ $u->avatar }}" alt="">
 
                     <h3>{{$u->firstName}} {{ $u->lastName }}</h3>
 
+                    @if($u->id != Auth::user()->id)
                     <form action="/deleteuser" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="userToDelete" value="{{ $u->id }}">
                         <input type="submit" value="delete">
                     </form>
 
-                    @if($u->id != Auth::user()->id)
+
                     <form action="/removeadmin" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="userId" value="{{ $u->id }}">
 
                         <input type="submit" value="remove admin">
                     </form>
-                        @endif
+                    @endif
 
 
 
@@ -57,6 +59,7 @@
             <li>
 
                 <div class="recent_activity">
+                    <img src="{{ $u->avatar }}" alt="">
 
                     <h3>{{$u->firstName}} {{ $u->lastName }}</h3>
 
