@@ -34,6 +34,8 @@ Route::get('/parcours/{id}', 'ParkoursController@detail');
 /* Leaderboard */
 Route::get('leaderboard', 'LeaderboardController@index');
 
+/*Hall Of Fame */
+Route::get('HallOfFame', 'HallOfFameController@index');
 /* USER */
 Route::get('/profile', 'UsersController@index');
 

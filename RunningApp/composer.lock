@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "74418d34ba127676dd902958d7fc9c35",
+    "content-hash": "96853ffc5e363cf59be13fcb499875a4",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -2912,23 +2912,23 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v6.5.0",
+            "version": "v7.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "a0fdd47d6f38e043ccfe454c560623ffc4ea0c7e"
+                "reference": "0d0082e8315fb4e9cbfe35bbdd7fe3113d41e1a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/a0fdd47d6f38e043ccfe454c560623ffc4ea0c7e",
-                "reference": "a0fdd47d6f38e043ccfe454c560623ffc4ea0c7e",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/0d0082e8315fb4e9cbfe35bbdd7fe3113d41e1a8",
+                "reference": "0d0082e8315fb4e9cbfe35bbdd7fe3113d41e1a8",
                 "shasum": ""
             },
             "require": {
                 "php": "^5.6 || ^7.0",
-                "symfony/console": "~2.3|~3.0",
-                "symfony/process": "~2.3|~3.0",
-                "symfony/yaml": "~2.3|~3.0"
+                "symfony/console": "~3.3|~4.0",
+                "symfony/process": "~3.3|~4.0",
+                "symfony/yaml": "~3.3|~4.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "^5.7 || ^6.0"
@@ -2958,7 +2958,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2017-10-17T12:37:01+00:00"
+            "time": "2017-12-03T15:18:55+00:00"
         },
         {
             "name": "mockery/mockery",
