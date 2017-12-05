@@ -21,6 +21,7 @@ class Controller extends BaseController
         if(Auth::check()){
 
             $userId = Auth::user()->id;
+            $followingSchedule = Auth::user()->followingSchedule;
 
 
             $createdAt = Auth::user()->created_at->toDateString();
@@ -45,7 +46,7 @@ class Controller extends BaseController
 
             $today = new \DateTime(date("Y-m-d"));
 
-            $endDate = Schedule::where('id', 1)->first()->get();
+            $endDate = Schedule::where('id', $followingSchedule)->get();
             foreach ($endDate as $e) {
                 $endDateV = new \DateTime($e->endDate);
                 $endGoal = $e->endGoal;

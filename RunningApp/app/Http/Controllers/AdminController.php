@@ -13,7 +13,7 @@ class AdminController extends Controller
     public function makeAdmin(){
 
         if($_POST['code'] == 'IAmRoot' && Auth::user()){
-            $newAdmin = User::where('id', Auth::user()->id)->first();
+            $newAdmin = User::where('id', $_POST['userId'])->first();
 
             $newAdmin->admin = true;
 
@@ -26,6 +26,22 @@ class AdminController extends Controller
         return redirect('/');
     }
 
+    public function removeAdmin(){
+
+        if(Auth::user()){
+            $newAdmin = User::where('id', $_POST['userId'])->first();
+
+            $newAdmin->admin = false;
+
+            $newAdmin->save();
+
+
+        }
+
+
+        return redirect('/users');
+    }
+
     public function schedules(){
 
         if(Auth::user()->admin){
@@ -36,6 +52,24 @@ class AdminController extends Controller
 
 
             return view('admin/schedules', ['schedules' => $schedules]);
+        }else{
+            return redirect('/');
+        }
+
+
+
+    }
+
+    public function users(){
+
+        if(Auth::user()->admin){
+
+            $users = User::all();
+
+
+
+
+            return view('admin/users', ['users' => $users]);
         }else{
             return redirect('/');
         }
@@ -70,6 +104,20 @@ class AdminController extends Controller
             Schedule::destroy($_POST['scheduleToDelete']);
 
             return redirect('/schedules');
+        }else{
+            return redirect('/');
+        }
+
+
+
+    }
+
+    public function deleteUser(){
+
+        if(Auth::user()->admin){
+            User::destroy($_POST['userToDelete']);
+
+            return redirect('/users');
         }else{
             return redirect('/');
         }

@@ -39,6 +39,9 @@ Route::get('/profile', 'UsersController@index');
 
 /* ADMIN */
 Route::post('/makeadmin', 'AdminController@makeAdmin');
+Route::post('/removeadmin', 'AdminController@removeAdmin');
 Route::get('/schedules', 'AdminController@schedules');
+Route::get('/users', 'AdminController@users');
 Route::post('/addschedule', 'AdminController@addSchedule');
 Route::post('/deleteschedule', 'AdminController@deleteSchedule');
+Route::post('/deleteuser', 'AdminController@deleteUser');

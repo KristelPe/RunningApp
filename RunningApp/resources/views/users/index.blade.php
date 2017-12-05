@@ -25,6 +25,7 @@
                     {{ csrf_field() }}
                     <label for="code">Want to become an admin?</label>
                     <input name="code" type="password">
+                    <input name="userId" type="hidden" value="{{Auth::user()->id}}">
                     <input type="submit">
                 </form>
             </div>
