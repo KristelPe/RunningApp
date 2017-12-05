@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('firstName');
             $table->string('lastName');
             $table->string('gender')->nullable();
-            $table->integer('followingSchedule')->nullable();
+            $table->integer('followingSchedule')->default('1');
             $table->string('role')->nullable();
             $table->string('avatar')->nullable();
             $table->string('avatar_original')->nullable();

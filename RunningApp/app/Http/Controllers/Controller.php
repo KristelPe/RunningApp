@@ -21,6 +21,7 @@ class Controller extends BaseController
         if(Auth::check()){
 
             $userId = Auth::user()->id;
+            $followingSchedule = Auth::user()->followingSchedule;
 
 
             $createdAt = Auth::user()->created_at->toDateString();
@@ -45,7 +46,7 @@ class Controller extends BaseController
 
             $today = new \DateTime(date("Y-m-d"));
 
-            $endDate = Schedule::where('id', 1)->first()->get();
+            $endDate = Schedule::where('id', $followingSchedule)->get();
             foreach ($endDate as $e) {
                 $endDateV = new \DateTime($e->endDate);
                 $endGoal = $e->endGoal;
@@ -73,9 +74,9 @@ class Controller extends BaseController
             $recomendedDistance = round($recomendedDistance/1000, 2);
         }
 
-            $recomendedDistanceToday = ScheduleController::CalculateGoalToday($numberOfDays, $endGoal);
-            $recomendedDistanceYesterday = ScheduleController::CalculateGoalToday(($numberOfDays+1), $endGoal);
-            $recomendedDistanceTomorrow = ScheduleController::CalculateGoalToday(($numberOfDays-1), $endGoal);
+            $recomendedDistanceToday = round(ScheduleController::CalculateGoalToday($numberOfDays, $endGoal), 1);
+            $recomendedDistanceYesterday = round(ScheduleController::CalculateGoalToday(($numberOfDays+1), $endGoal), 1);
+            $recomendedDistanceTomorrow = round(ScheduleController::CalculateGoalToday(($numberOfDays-1), $endGoal), 1);
 
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
             $goal = $recomendedDistanceToday - $runDistance;
@@ -88,7 +89,9 @@ class Controller extends BaseController
             //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
 
 
-            return view('home/index', ['runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistanceToday' => $recomendedDistanceToday, 'recomendedDistanceTomorrow' => $recomendedDistanceTomorrow, 'recomendedDistanceYesterday' => $recomendedDistanceYesterday, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
+            $schedules = Schedule::all();
+
+            return view('home/index', ['schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays , 'recomendedDistanceToday' => $recomendedDistanceToday, 'recomendedDistanceTomorrow' => $recomendedDistanceTomorrow, 'recomendedDistanceYesterday' => $recomendedDistanceYesterday, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
 
         }else{
             return view('home/index');

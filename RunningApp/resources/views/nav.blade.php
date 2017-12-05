@@ -13,16 +13,21 @@
         <li class="{{ (Request::is('parcours') ? 'current_page' : '') }}"><a href="/parcours">Parcours</a></li>
 {{--
         <li class="{{ (Request::is('leaderboards') ? 'current_page' : '') }}"><a href="/leaderboard">Leaderboard</a></li>
+<<<<<<< HEAD
 --}}
 
+=======
+            @if(Auth::User()->admin)
+                <li class="{{ (Request::is('/schedules') ? 'current_page' : '') }}"><a href="/schedules">Schedules</a></li>
+                <li class="{{ (Request::is('/users') ? 'current_page' : '') }}"><a href="/users">Users</a></li>
+            @endif
+>>>>>>> b0d6a57a2ac5e0ff9e261a9c44fe0274c15de76d
             <li>
                 <a href="/logout" class="login">
                     Log out
                 </a>
             </li>
-            @if(Auth::User()->admin)
-                <li class="{{ (Request::is('/schedules') ? 'current_page' : '') }}"><a href="/schedules">Schedules</a></li>
-            @endif
+
         @else
             <li>
                 <a href="/login" class="login">

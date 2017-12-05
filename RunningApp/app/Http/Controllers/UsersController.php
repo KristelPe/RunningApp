@@ -53,6 +53,19 @@ class UsersController extends Controller
         return view('users.settings');
     }
 
+    public function updateFollowSchedule(){
+        if(Auth::check()){
+
+            $userToUpdate = User::where('id', Auth::user()->id)->first();
+
+            $userToUpdate->followingSchedule = $_POST['scheduleId'];
+
+            $userToUpdate->save();
 
 
-}
+            return redirect('/');
+        }else{
+            return redirect('/login');
+        }
+
+}}
