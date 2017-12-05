@@ -11,7 +11,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Halloffame extends Model
+class Halloffames extends Model
 {
     protected $fillable = ['goal'];
 

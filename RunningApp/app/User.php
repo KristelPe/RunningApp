@@ -35,7 +35,7 @@ class User extends Authenticatable
         return $this->belongsTo(Leaderboard::class);
     }
     public function halloffame() {
-        return $this->belongsTo(Halloffame::class);
+        return $this->belongsTo(Halloffames::class);
     }
 
     public function badges(){

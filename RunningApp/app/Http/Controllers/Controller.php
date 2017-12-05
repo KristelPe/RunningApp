@@ -100,7 +100,7 @@ class Controller extends BaseController
 
             if( $runDistanceThisWeek >= $recommendDistanceThisWeek){
                 $current_time = Carbon::now()->toDateTimeString();
-                DB::table('halloffame')->where('userid', $userId)->update(['goal' => 1, 'updated_at' => $current_time]);
+                DB::table('halloffames')->where('userid', $userId)->update(['goal' => 1, 'updated_at' => $current_time]);
             }
             //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
 

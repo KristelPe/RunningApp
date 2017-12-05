@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHalloffameTable extends Migration
+class CreateHalloffamesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateHalloffameTable extends Migration
      */
     public function up()
     {
-        Schema::create('halloffame', function (Blueprint $table) {
+        Schema::create('halloffames', function (Blueprint $table) {
             $table->increments('userid');
             $table->smallInteger('goal');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateHalloffameTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('halloffame');
+        Schema::dropIfExists('halloffames');
     }
 }
