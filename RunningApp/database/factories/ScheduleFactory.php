@@ -15,6 +15,7 @@ $factory->define(App\Schedule::class, function (Faker $faker) {
 
     return [
         'id' => 1,
+        'name' => '10 miles 2018',
         'endGoal' => $endGoal,
         'endDate' => $endDate,
 

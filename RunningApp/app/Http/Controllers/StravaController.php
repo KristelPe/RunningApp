@@ -90,13 +90,15 @@ class StravaController extends Controller
         $acts = StravaController::getAllUserActivity($token);
             //dd($acts);
         foreach ($acts as $actClass){
+            $act['elev_high'] = 0;
+            $act['elev_low'] = 0 ;
             $act = (array)$actClass;
 
 
 
             if (Activity::where('id', '=', $act['id'])->exists()) {
             }else {
-                if ($act != null && $act['distance'] < 25000 && $act['max_speed'] < 5.55 && $act['moving_time'] < 7200) {
+                if ($act != null && $act['distance'] < 25000 && $act['max_speed'] < 25 && $act['moving_time'] < 9000) {
                     $athlete = (array)$act['athlete'];
 
                     $act['start_date_local'] = preg_replace('/[^0-9.]+/', '', $act['start_date_local']);

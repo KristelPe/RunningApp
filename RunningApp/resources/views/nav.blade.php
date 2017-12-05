@@ -17,6 +17,9 @@
                     Log out
                 </a>
             </li>
+            @if(Auth::User()->admin)
+                <li class="{{ (Request::is('/schedules') ? 'current_page' : '') }}"><a href="/schedules">Schedules</a></li>
+            @endif
         @else
             <li>
                 <a href="/login" class="login">
