@@ -17,10 +17,18 @@
                 }
             </style>
         </head>
+        <form class="schedule" action="/updatefollowschedule" method="post">
+            {{ csrf_field() }}
+            <select name="scheduleId">
+                @foreach( $schedules as $s)
+                    <option @if(Auth::user()->followingSchedule == $s->id) selected="selected" @endif value="{{ $s->id }}">{{$s->name}}</option>
+
+                @endforeach
+            </select>
+            <input type="submit" value="confirm">
+        </form>
         <div class="home_main">
-            <h2>Today's goal</h2>
-            <br>
-            <div class="home_main_inner small">
+            <div class="home_main_inner small one">
                 @if($recomendedDistanceYesterday <= 0)
                     <h3>Rest</h3>
 
@@ -29,16 +37,16 @@
 
                 @endif
             </div>
-            <div class="home_main_inner large">
+            <div class="home_main_inner large two">
                 @if($recomendedDistanceToday <= 0)
-                <h3>Rest</h3>
+                <h2>Rest</h2>
 
                     @else
                     <h4>{{$recomendedDistanceToday}}</h4>
                     <h3>km</h3>
                 @endif
             </div>
-            <div class="home_main_inner small">
+            <div class="home_main_inner small tree">
                 @if($recomendedDistanceTomorrow <= 0)
                     <h3>Rest</h3>
 
@@ -60,17 +68,6 @@
                 <div id="fill"></div>
                 <p id="days"><b>{{ $daysLeft }}</b> days left!</p>
             </div>
-
-                <form action="/updatefollowschedule" method="post">
-                    {{ csrf_field() }}
-                    <select name="scheduleId">
-                        @foreach( $schedules as $s)
-                            <option @if(Auth::user()->followingSchedule == $s->id) selected="selected" @endif value="{{ $s->id }}">{{$s->name}}</option>
-
-                            @endforeach
-                    </select>
-                    <input type="submit" value="confirm">
-                </form>
         </div>
 
 

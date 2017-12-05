@@ -108,10 +108,12 @@
   margin-bottom: 10px; }
 
 .home_main {
+  margin-top: 3em;
   text-align: left;
   display: flex;
   flex-direction: row;
-  justify-content: space-around; }
+  justify-content: space-around;
+  flex-wrap: wrap; }
   .home_main h2 {
     margin-left: 1.5em; }
   .home_main h3 {
@@ -121,6 +123,11 @@
   .home_main h4 {
     margin-top: 0.05em;
     font-size: 8em; }
+  @media only screen and (max-width: 800px) {
+    .home_main h3 {
+      font-size: 3.5em; }
+    .home_main h4 {
+      font-size: 6.5em; } }
 
 .home_extra p:not(#days) {
   margin-left: 2.5em;
@@ -160,18 +167,38 @@
   z-index: 9;
   overflow: hidden;
   justify-content: center; }
+  .home_main_inner h2 {
+    margin-left: 0;
+    margin-top: 1em;
+    font-size: 5em; }
+  @media only screen and (max-width: 800px) {
+    .home_main_inner {
+      width: 9em;
+      height: 9em; }
+      .home_main_inner h2 {
+        margin-left: 0;
+        margin-top: 0.95em;
+        font-size: 4em; } }
 
 .small {
-  margin-top: 2.75em;
+  margin-top: 2.25em;
   height: 8em;
   width: 8em; }
   .small h3 {
-    font-size: 4em;
-    line-height: 2.05em;
+    font-size: 3em;
+    line-height: 2.4em;
     margin-left: 0.05em; }
   .small h4 {
-    margin-top: 0.02em;
-    font-size: 6em; }
+    margin-top: 0.1em;
+    font-size: 5em; }
+  @media only screen and (max-width: 800px) {
+    .small {
+      height: 4em;
+      width: 4em; }
+      .small h3 {
+        font-size: 2em; }
+      .small h4 {
+        font-size: 3em; } }
 
 .home_main_inner:before {
   content: "";
@@ -200,7 +227,7 @@
   text-align: center;
   flex-direction: column; }
   .strava_login h1 {
-    margin-top: 0.5em;
+    margin-top: -0.25em;
     color: white;
     font-size: 1.75em; }
     .strava_login h1 b {
@@ -210,6 +237,41 @@
     width: inherit;
     height: inherit;
     position: absolute; }
+
+@media only screen and (max-width: 544px) {
+  .one {
+    order: 2;
+    flex-basis: 15vw;
+    height: 15vw; }
+
+  .two {
+    order: 1;
+    flex-basis: 30vw;
+    height: 30vw;
+    margin-left: 3.5em;
+    margin-right: 3.5em;
+    margin-bottom: -1em; }
+
+  .tree {
+    order: 3;
+    flex-basis: 15vw;
+    height: 15vw; } }
+.schedule {
+  position: absolute;
+  margin-top: -5em;
+  text-align: right;
+  width: 90vw; }
+  .schedule select {
+    border: none;
+    border-radius: 5px;
+    padding: 0.35em 0.7em;
+    height: 1.9em; }
+  .schedule input {
+    background-color: #E63257;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 0.35em 0.7em; }
 
 nav {
   height: 100px;
@@ -342,67 +404,6 @@ a {
 .switch_button_1 {
   background-color: #E63257;
   color: white; }
-
-
-.badge_container{
-  margin-top: 10px;
-  text-align: center;
-  color: white;
-  float: left;
-  margin-left:1%;
-  margin-right:1%;
-  padding:5px;
-  width:90px;
-
-}
-.badge_img{
-  height:90px;
-  width:90px;
-  float: left;
-
-}
-.badge_title{
-  color: grey;
-  text-shadow: white 2px 2px 2px;
-  text-align: center;
-  max-width: 100px;
-  font-size: 0.7em;
-}
-.badge_description{
-  position:absolute;
-  background-color: #E63257;
-  color: white;
-  padding: 10px 5px 10px 5px;
-  z-index: 20;
-  right:0;
-  left:0;
-  width:80%;
-  margin-left:10%;
-  margin-right:10%;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 0 0 200px #E63257;
-}
-.badge_list{
-  float:left;
-  width:100%;
-  position: static;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-}
-.level{
-  color: #E63257;
-  font-size: 0.8em;
-  max-height:50px;
-  height:30px;
-}
-.small_avatar{
-  height:40px;
-  width:40px;
-  border-radius: 100%;
-
-}
 
 @media only screen and (min-width: 1000px) {
   .switch_button {
