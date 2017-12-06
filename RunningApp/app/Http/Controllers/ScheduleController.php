@@ -128,4 +128,113 @@ class ScheduleController extends Controller
         return $recomendedDistance;
     }
 
+    public static function calculateGoalWeek($daysleft, $goal)
+    {
+        if ($daysleft == 70 ||
+            $daysleft == 69 ||
+            $daysleft == 68 ||
+            $daysleft == 67 ||
+            $daysleft == 66 ||
+            $daysleft == 65 ||
+            $daysleft == 64){
+
+            $recomendedDistance = $goal/0.48;
+
+        }elseif($daysleft == 63 ||
+            $daysleft == 62 ||
+            $daysleft == 61 ||
+            $daysleft == 60 ||
+            $daysleft == 59 ||
+            $daysleft == 58 ||
+            $daysleft == 57){
+
+            $recomendedDistance = $goal/0.4;
+
+        }elseif($daysleft == 56 ||
+            $daysleft == 55 ||
+            $daysleft == 54 ||
+            $daysleft == 53 ||
+            $daysleft == 52 ||
+            $daysleft == 51 ||
+            $daysleft == 50){
+
+            $recomendedDistance = $goal/0.37;
+
+        }elseif($daysleft == 49 ||
+            $daysleft == 48 ||
+            $daysleft == 47 ||
+            $daysleft == 46 ||
+            $daysleft == 45 ||
+            $daysleft == 44 ||
+            $daysleft == 43){
+
+            $recomendedDistance = $goal/0.33;
+
+        }elseif($daysleft == 42 ||
+            $daysleft == 41 ||
+            $daysleft == 40 ||
+            $daysleft == 39 ||
+            $daysleft == 38 ||
+            $daysleft == 37 ||
+            $daysleft == 36){
+
+            $recomendedDistance = $goal/0.3;
+
+        }elseif($daysleft == 35 ||
+            $daysleft == 34 ||
+            $daysleft == 33 ||
+            $daysleft == 32 ||
+            $daysleft == 31 ||
+            $daysleft == 30 ||
+            $daysleft == 29){
+
+            $recomendedDistance = $goal/0.27;
+
+        }elseif($daysleft == 28 ||
+            $daysleft == 27 ||
+            $daysleft == 26 ||
+            $daysleft == 25 ||
+            $daysleft == 24 ||
+            $daysleft == 23 ||
+            $daysleft == 22){
+
+            $recomendedDistance = $goal/0.27;
+
+        }elseif($daysleft == 21 ||
+            $daysleft == 20 ||
+            $daysleft == 19 ||
+            $daysleft == 18 ||
+            $daysleft == 17 ||
+            $daysleft == 16 ||
+            $daysleft == 15){
+
+            $recomendedDistance = $goal/0.33;
+
+        }elseif($daysleft == 14 ||
+            $daysleft == 13 ||
+            $daysleft == 12 ||
+            $daysleft == 11 ||
+            $daysleft == 10 ||
+            $daysleft == 9 ||
+            $daysleft == 8){
+
+            $recomendedDistance = $goal/0.37;
+
+        }elseif($daysleft == 7 ||
+            $daysleft == 6 ||
+            $daysleft == 5 ||
+            $daysleft == 4 ||
+            $daysleft == 3 ||
+            $daysleft == 2 ||
+            $daysleft == 1){
+
+            $recomendedDistance = $goal/0.36;
+
+        }else{
+            $recomendedDistance = $goal/0.6;
+        }
+
+        return $recomendedDistance;
+    }
+
 }
