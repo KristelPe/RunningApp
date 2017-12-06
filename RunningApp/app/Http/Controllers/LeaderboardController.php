@@ -22,7 +22,9 @@ class LeaderboardController extends Controller
     }
     public static function insertInLeaderboard($userId){
             $acts = Activity::where('athlete_id','=',$userId)->get();
-            $totalDistance = 0;
+        $countActs = Activity::where('athlete_id','=',$userId)->count();
+
+        $totalDistance = 0;
             $avgSpeed = 0;
             $longestDistance = 0;
             $movingTime = 0;
@@ -32,9 +34,9 @@ class LeaderboardController extends Controller
                 $count = $count + 1;
                 $totalDistance = $totalDistance + $actClass['distance'];
                 $movingTime = $movingTime + $actClass['moving_time'];
-                $avgSpeed = ($actClass['average_speed'] + $avgSpeed) / count($actClass);
+                $avgSpeed = ($actClass['average_speed'] + $avgSpeed) / $countActs;
                 $longestDistance = max($actClass['distance'], $longestDistance);
-                $avgDistance = ($actClass['distance'] + $avgDistance) / count($actClass);
+                $avgDistance = ($actClass['distance'] + $avgDistance) / $countActs;
             }
             $get = Activity::where('athlete_id', '=', $userId)->OrderBy('max_speed', 'desc')->first();
             $maxSpeed = $get['max_speed'];
@@ -44,6 +46,7 @@ class LeaderboardController extends Controller
     }
         public static function updateInLeaderboard($userId){
             $acts = Activity::where('athlete_id','=',$userId)->get();
+            $countActs = Activity::where('athlete_id','=',$userId)->count();
             $boards = Leaderboard::where('user_id', '=' , $userId)->first();
             $latestAct = Activity::where('athlete_id','=',$userId)->orderBy('start_date_local', 'desc')->first();
             $avgDistance = 0;
@@ -55,8 +58,8 @@ class LeaderboardController extends Controller
             $maxSpeed = $get['max_speed'];
 
             foreach ($acts as $actClass) {
-                $avgSpeed = ($actClass['average_speed'] + $avgSpeed) / count($actClass);
-                $avgDistance = ($actClass['distance'] + $avgDistance) / count($actClass);
+                $avgSpeed = ($actClass['average_speed'] + $avgSpeed) / $countActs;
+                $avgDistance = ($actClass['distance'] + $avgDistance) / $countActs;
             }
             return Leaderboard::where('user_id', "=" , $userId)->update(['max_speed' => $maxSpeed, 'total_distance' => $totalDistance, 'total_time' => $movingTime, 'run_count' => $count, 'avg_speed' => $avgSpeed, 'avg_distance' => $avgDistance]);
         }

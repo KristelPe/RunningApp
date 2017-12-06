@@ -34,5 +34,18 @@ Route::get('/parcours/{id}', 'ParkoursController@detail');
 /* Leaderboard */
 Route::get('leaderboard', 'LeaderboardController@index');
 
+/*Hall Of Fame */
+Route::get('halloffame', 'HallOfFameController@index');
+
 /* USER */
 Route::get('/profile', 'UsersController@index');
+Route::post('/updatefollowschedule', 'UsersController@updateFollowSchedule');
+
+/* ADMIN */
+Route::post('/makeadmin', 'AdminController@makeAdmin');
+Route::post('/removeadmin', 'AdminController@removeAdmin');
+Route::get('/schedules', 'AdminController@schedules');
+Route::get('/users', 'AdminController@users');
+Route::post('/addschedule', 'AdminController@addSchedule');
+Route::post('/deleteschedule', 'AdminController@deleteSchedule');
+Route::post('/deleteuser', 'AdminController@deleteUser');

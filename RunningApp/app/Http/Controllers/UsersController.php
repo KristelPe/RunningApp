@@ -26,60 +26,46 @@ class UsersController extends Controller
             return redirect('/login');
         };
 
-        $acts = StravaController::getAllUserActivity($token);
+
+
+
 
         //uncomment volgende lijn om de json in uw browser te zien
         //dd($acts);
         $totalDistance = 0;
         $avgSpeed = 0;
         $longestDistance = 0;
-        foreach ($acts as $actClass){
-            $act = (array)$actClass;
-            $totalDistance = $totalDistance + $act['distance'];
-            $avgSpeed = ($act['average_speed'] + $avgSpeed)/count($actClass);
-            $longestDistance = max($act['distance'], $longestDistance);
 
-
-            if (Activity::where('id', '=', $act['id'])->exists()) {
-            }else {
-                if ($act != null) {
-                    $athlete = (array)$act['athlete'];
-/*
-                    $act['start_date_local'] = preg_replace('/[^0-9.]+/', '', $act['start_date_local']);
-                    $act['start_date_local'] = substr($act['start_date_local'], 0, 8);*/
-
-
-                    $newActivity = Activity::create([
-                        'id' => $act['id'],
-                        'athlete_id' => $athlete['id'],
-                        'name' => $act['name'],
-                        'distance' => $act['distance'],
-                        'start_date_local' => $act['start_date_local'],
-                        'max_speed' => $act['max_speed'],
-                        'average_speed' => $act['average_speed'],
-                        'type' => $act['type'],
-                        'moving_time' => $act['moving_time'],
-                        'elapsed_time' => $act['elapsed_time'],
-                        'kudos_count' => $act['kudos_count'],
-                    ]);
-
-                    $newActivity->save();
-
-                }
-            }
-        }
 
         $totalDistance = round($totalDistance/1000, 2);
         $longestDistance = round($longestDistance/1000, 2);
 
         //dd($acts);
         $userId = Auth::user()->id;
+        $acts = Activity::where('athlete_id', $userId)->get();
         BadgesController::updateBadges($userId);
 
         return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badge'));
 
     }
+
     public function detail(){
         return view('users.settings');
     }
-}
+
+    public function updateFollowSchedule(){
+        if(Auth::check()){
+
+            $userToUpdate = User::where('id', Auth::user()->id)->first();
+
+            $userToUpdate->followingSchedule = $_POST['scheduleId'];
+
+            $userToUpdate->save();
+
+
+            return redirect('/');
+        }else{
+            return redirect('/login');
+        }
+
+}}

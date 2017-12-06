@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+-
+use App\Activity;
 use App\Schedule;
 use App\User;
 use Illuminate\Http\Request;
@@ -13,7 +15,9 @@ class AdminController extends Controller
     public function makeAdmin(){
 
         if($_POST['code'] == 'IAmRoot' && Auth::user()){
+
             $newAdmin = User::where('id', Auth::user()->id)->first();
+
 
             $newAdmin->admin = true;
 
@@ -26,12 +30,50 @@ class AdminController extends Controller
         return redirect('/');
     }
 
+    public function removeAdmin(){
+
+        if(Auth::user()){
+            $newAdmin = User::where('id', $_POST['userId'])->first();
+
+            $newAdmin->admin = false;
+
+            $newAdmin->save();
+
+        }
+
+
+        return redirect('/users');
+    }
+
     public function schedules(){
 
         if(Auth::user()->admin){
 
             $schedules = Schedule::all();
+
+
+
+
+
             return view('admin/schedules', ['schedules' => $schedules]);
+        }else{
+            return redirect('/');
+        }
+
+
+
+    }
+
+    public function users(){
+
+        if(Auth::user()->admin){
+
+            $users = User::all();
+
+
+
+
+            return view('admin/users', ['users' => $users]);
         }else{
             return redirect('/');
         }
@@ -65,6 +107,14 @@ class AdminController extends Controller
         if(Auth::user()->admin){
             Schedule::destroy($_POST['scheduleToDelete']);
 
+            $updateFollow = User::where('followingSchedule', $_POST['scheduleToDelete'])->get();
+
+            foreach ($updateFollow as $u){
+
+                $u->followingSchedule = Schedule::all()->first;
+
+            }
+
             return redirect('/schedules');
         }else{
             return redirect('/');
@@ -73,5 +123,21 @@ class AdminController extends Controller
 
 
     }
-    //
+
+
+    public function deleteUser(){
+
+        if(Auth::user()->admin){
+            User::destroy($_POST['userToDelete']);
+            Activity::where('athlete_id', $_POST['userToDelete'])->delete();
+
+
+            return redirect('/users');
+        }else{
+            return redirect('/');
+        }
+
+
+
+    }
 }
