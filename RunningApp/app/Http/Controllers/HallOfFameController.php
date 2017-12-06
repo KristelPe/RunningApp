@@ -12,7 +12,15 @@ class HallOfFameController extends Controller
 {
     public function index()
     {
-        $halloffame = Halloffames::with('user')->get();
+
+        $halloffame = Halloffames::first(); // model or null
+        if (!$halloffame) {
+            $halloffame = [];
+        }else{
+            $halloffame = Halloffames::all();
+        }
+
+
         return view('halloffame.index', compact('halloffame'));
     }
 
