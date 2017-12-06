@@ -1,40 +1,47 @@
 <nav>
 
-    <div class="hamburger_icon">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </div>
+    <div id="menuToggle">
+
+        <input type="checkbox" />
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+
     <ul class="nav_menu_js">
-        <li class="{{ (Request::is('/') ? 'current_page' : '') }}"><a href="/">Home</a></li>
-        <li class="{{ (Request::is('halloffame') ? 'current_page' : '') }}"><a href="/halloffame">Hall of Fame</a></li>
+        <a href="/"><img src="img/favicon.png" class="nav_logo" alt="img"></a>
+        <li class="nav_home_text"><a href="/" class="nav_item {{ (Request::is('/') ? 'current_page' : '') }}">Home</a></li>
+        <li><a href="/halloffame" class="nav_item {{ (Request::is('halloffame') ? 'current_page' : '') }}">Hall of Fame</a></li>
         @if( Auth::check())
-        <li class="{{ (Request::is('profile*') ? 'current_page' : '') }}"><a href="/profile">Profile</a></li>
-        <li class="{{ (Request::is('parcours') ? 'current_page' : '') }}"><a href="/parcours">Parcours</a></li>
+        <li><a href="/profile" class="nav_item {{ (Request::is('profile*') ? 'current_page' : '') }}">Profile</a></li>
+        <li><a href="/parcours" class="nav_item {{ (Request::is('parcours') ? 'current_page' : '') }}">Parcours</a></li>
 {{--
         <li class="{{ (Request::is('leaderboards') ? 'current_page' : '') }}"><a href="/leaderboard">Leaderboard</a></li>
 --}}
 
 
             @if(Auth::User()->admin)
-                <li class="{{ (Request::is('/schedules') ? 'current_page' : '') }}"><a href="/schedules">Schedules</a></li>
-                <li class="{{ (Request::is('/users') ? 'current_page' : '') }}"><a href="/users">Users</a></li>
+                <li><a href="/schedules" class="nav_item {{ (Request::is('/schedules') ? 'current_page' : '') }}">Schedules</a></li>
+                <li><a href="/users" class="nav_item {{ (Request::is('/users') ? 'current_page' : '') }}">Users</a></li>
             @endif
 
             <li>
-                <a href="/logout" class="login">
+                <a href="/logout" class="login nav_item">
                     Log out
                 </a>
             </li>
 
         @else
             <li>
-                <a href="/login" class="login">
+                <a href="/login" class="login nav_item">
                     Log in
                 </a>
             </li>
         @endif
     </ul>
+
+    </div>
 </nav>
 
 <div class="title_center">
