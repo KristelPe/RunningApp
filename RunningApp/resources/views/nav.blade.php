@@ -12,10 +12,10 @@
     <ul class="nav_menu_js">
         <a href="/"><img src="img/favicon.png" class="nav_logo" alt="img"></a>
         <li class="nav_home_text"><a href="/" class="nav_item {{ (Request::is('/') ? 'current_page' : '') }}">Home</a></li>
-        <li><a href="/halloffame" class="nav_item {{ (Request::is('halloffame') ? 'current_page' : '') }}">Hall of Fame</a></li>
         @if( Auth::check())
         <li><a href="/profile" class="nav_item {{ (Request::is('profile*') ? 'current_page' : '') }}">Profile</a></li>
         <li><a href="/parcours" class="nav_item {{ (Request::is('parcours') ? 'current_page' : '') }}">Parcours</a></li>
+        <li><a href="/halloffame" class="nav_item {{ (Request::is('halloffame') ? 'current_page' : '') }}">Hall of Fame</a></li>
 {{--
         <li class="{{ (Request::is('leaderboards') ? 'current_page' : '') }}"><a href="/leaderboard">Leaderboard</a></li>
 --}}
