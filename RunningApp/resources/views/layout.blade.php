@@ -13,8 +13,6 @@
 
 @include('nav')
     <div class="container">
-
-
         @yield('content')
     </div>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>

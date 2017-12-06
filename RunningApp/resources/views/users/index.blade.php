@@ -11,10 +11,7 @@
 
         <div class="profile_header">
 
-            <div class="profile_picture_layout">
-
-                <img class="profile_picture" alt="img not found" src={{ Auth::user()->avatar_original }} >
-
+            <div class="profile_picture_layout" style="background-image:url('{{ Auth::user()->avatar_original }}')">
             </div>
 
             <div class="profile_details">

@@ -80,15 +80,9 @@
   margin: auto;
   overflow: hidden;
   position: relative;
-  border-radius: 10px; }
-
-.profile_picture {
-  width: 200px !important;
-  position: absolute;
-  top: 90%;
-  left: 75%;
-  margin-top: -150px;
-  margin-left: -150px; }
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover; }
 
 .profile_stat_layout {
   display: flex;
@@ -106,6 +100,35 @@
 
 .profile_stat_layout_h2 {
   margin-bottom: 10px; }
+
+.badge_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90vw;
+  margin-bottom: 4em; }
+  .badge_list .badge_list_item {
+    width: 125px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    font-size: 1em; }
+    .badge_list .badge_list_item .badge_container {
+      height: 100%;
+      margin-bottom: 0.25em; }
+    .badge_list .badge_list_item .badge_title {
+      margin-top: -0.5em;
+      font-weight: bold;
+      font-size: 1.25em; }
+    .badge_list .badge_list_item .badge_description {
+      border-top: 2px solid gainsboro;
+      margin-top: 0.5em;
+      padding-top: 0.5em;
+      color: #c55763; }
+      .badge_list .badge_list_item .badge_description .bottom {
+        margin-top: 0.5em; }
 
 .home_main {
   margin-top: 3em;
@@ -229,14 +252,23 @@
   .strava_login h1 {
     margin-top: -0.25em;
     color: white;
-    font-size: 1.75em; }
+    font-size: 1.6em; }
     .strava_login h1 b {
-      font-size: 1.75em; }
+      font-size: 1.6em;
+      margin-left: -0.1em; }
   .strava_login img {
     opacity: 0.15;
     width: inherit;
     height: inherit;
     position: absolute; }
+  @media only screen and (min-width: 800px) {
+    .strava_login h1 {
+      margin-top: -0.25em;
+      color: white;
+      font-size: 1.7em; }
+      .strava_login h1 b {
+        font-size: 1.7em;
+        margin-left: 0; } }
 
 @media only screen and (max-width: 544px) {
   .one {
@@ -262,12 +294,12 @@
   text-align: right;
   width: 90vw; }
   .schedule select {
-    border: none;
+    border: 2px solid rgba(230, 50, 87, 0.14);
     border-radius: 5px;
     padding: 0.35em 0.7em;
     height: 1.9em; }
   .schedule input {
-    background-color: #E63257;
+    background-color: #e63257;
     color: white;
     border: none;
     border-radius: 5px;
@@ -323,7 +355,7 @@ nav ul li a {
   margin: 6px 0; }
 
 .current_page {
-  border-bottom: 5px solid #E63257; }
+  border-bottom: 5px solid #e63257; }
 
 @media only screen and (min-width: 740px) {
   .hamburger_icon {
@@ -350,11 +382,11 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  color: #E63257;
+  color: #e63257;
   min-height: 100vh; }
 
 h1, h2 {
-  color: #E63257;
+  color: #e63257;
   text-transform: uppercase; }
 
 h1 {
@@ -366,7 +398,7 @@ h2 {
 
 a {
   text-decoration: none;
-  color: #E63257; }
+  color: #e63257; }
 
 .container {
   width: 90%;
@@ -378,13 +410,13 @@ a {
 .bar {
   border: none;
   height: 5px;
-  background-color: #E63257; }
+  background-color: #e63257; }
 
 .red_bar_width {
   margin: auto;
   line-height: 50px;
   margin-top: 10px;
-  border-bottom: 5px solid #E63257; }
+  border-bottom: 5px solid #e63257; }
 
 .switch_button {
   margin: auto;
@@ -399,10 +431,10 @@ a {
 .switch_button ul li {
   text-align: center;
   width: 50%;
-  border: 5px solid #E63257; }
+  border: 5px solid #e63257; }
 
 .switch_button_1 {
-  background-color: #E63257;
+  background-color: #e63257;
   color: white; }
 
 @media only screen and (min-width: 1000px) {
