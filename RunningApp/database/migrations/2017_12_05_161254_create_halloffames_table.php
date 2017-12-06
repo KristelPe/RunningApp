@@ -14,7 +14,8 @@ class CreateHalloffamesTable extends Migration
     public function up()
     {
         Schema::create('halloffames', function (Blueprint $table) {
-            $table->increments('userid');
+            $table->increments('id');
+            $table->integer('userid');
             $table->smallInteger('goal');
             $table->timestamps();
         });

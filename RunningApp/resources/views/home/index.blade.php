@@ -29,11 +29,11 @@
         </form>
         <div class="home_main">
             <div class="home_main_inner small one">
-                @if($recomendedDistanceYesterday <= 0)
+                @if($recomendedDistanceToday <= 0)
                     <h3>Rest</h3>
 
                 @else
-                    <h4>{{$recomendedDistanceYesterday}} <h3>km</h3></h4>
+                    <h4>{{$recomendedDistanceToday}} <h3>km</h3></h4>
 
                 @endif
             </div>
@@ -42,26 +42,18 @@
                 <h2>Rest</h2>
 
                     @else
-                    <h4>{{$recomendedDistanceToday}}</h4>
-                    <h3>km</h3>
-                @endif
-            </div>
-            <div class="home_main_inner small tree">
-                @if($recomendedDistanceTomorrow <= 0)
-                    <h3>Rest</h3>
-
-                @else
-                    <h4>{{$recomendedDistanceTomorrow}}</h4>
+                    <h4>{{$goalThisWeek}}</h4>
                     <h3>km</h3>
                 @endif
             </div>
         </div>
         <div class="home_extra">
-            @if($goal == 0)
+            <p>Run {{$goalWeek}} more km this week to finish your weekly goal!</p>
+            @if($goalToday == 0)
                 <p>Nothing else to do today!</p>
-
             @else
-                <p>Run {{$goal}} more km to finish goal!!!</p>
+
+                <p>Run {{$goalToday}} more km to finish your goal today!</p>
             @endif
                 <br>
             <div id="bar">
