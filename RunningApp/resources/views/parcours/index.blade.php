@@ -25,6 +25,8 @@
 
                     <div class="parcour_segment_layout">
 
+                        <a href="parcours/{{$parcour->id}}">
+
                         <div class="parcour_segment">
                             <div id="{{$index}}" class="parcour_img"></div>
                             <input name="poly[]" type="hidden" value="{{$parcour->map_polyline}}">
@@ -38,7 +40,9 @@
                                 </div>
                         </div>
 
-                        <!--<hr class="bar">-->
+                        </a>
+
+                        <hr class="bar">
 
                     </div>
 
@@ -60,6 +64,8 @@
 
                     <div class="parcour_segment_layout">
 
+                        <a href="parcours/{{$parcour->id}}">
+
                         <div class="parcour_segment">
                             <div id="{{$index}}" class="parcour_img"></div>
                             <input name="poly[]" type="hidden" value="{{$parcour->map_polyline}}">
@@ -73,7 +79,9 @@
                             </div>
                         </div>
 
-                        <!--<hr class="bar">-->
+                        </a>
+
+                        <hr class="bar">
 
                     </div>
 

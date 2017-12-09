@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Halloffames;
 use App\Leaderboard;
 use App\Schedule;
 use Carbon\Carbon;
@@ -45,7 +46,7 @@ class Controller extends BaseController
             }
 
             $runDistance = 0;
-            $runDistanceThisWeek = 0;
+            $runDistanceWeek = 0;
 
             $today = new \DateTime(date("Y-m-d"));
 
@@ -58,10 +59,10 @@ class Controller extends BaseController
             /*dd($numberOfWeeks);*/
             $numberOfDays = $numberOfWeeks->days;
             $recomendedDistance = 2000;
+            $recomendedDistanceWeek = 0;
 
 
 
-            //dd(strtotime('today midnight'));
 
 
 
@@ -75,38 +76,61 @@ class Controller extends BaseController
             $recomendedDistance = round($recomendedDistance/1000, 2);
         }
 
+
+
+            if(Activity::where('athlete_id', $userId) != Null) {
+                $allActivitiesWeek = Activity::where('athlete_id', $userId)->where('start_date_local', '>' , date("Y-m-d",strtotime( "previous monday" )))->get();
+                foreach ($allActivitiesWeek as $aW) {
+                    $runDistanceWeek = $runDistanceWeek + $aW->distance;
+                }
+
+                $runDistanceWeek = round($runDistanceWeek/1000, 2);
+                $recomendedDistanceWeek = round($recomendedDistanceWeek/1000, 2);
+            }
+
             $recomendedDistanceToday = round(ScheduleController::CalculateGoalToday($numberOfDays, $endGoal), 1);
-            $recomendedDistanceYesterday = round(ScheduleController::CalculateGoalToday(($numberOfDays+1), $endGoal), 1);
-            $recomendedDistanceTomorrow = round(ScheduleController::CalculateGoalToday(($numberOfDays-1), $endGoal), 1);
+            $recomendedDistanceThisWeek = round(ScheduleController::CalculateGoalWeek($numberOfDays, $endGoal), 1);
 
 
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
-            $goal = $recomendedDistanceToday - $runDistance;
+            $goalToday = $recomendedDistanceToday - $runDistance;
+            $goalWeek = $recomendedDistanceThisWeek - $runDistanceWeek;
             if($runDistance >= $recomendedDistanceToday){
                 $toRun = 0;
-                $goal = 0;
+                $goalToday = 0;
                 }else{
                 $toRun = 100-(($runDistance/$recomendedDistanceToday)*100);
             }
-            $recommendDistanceThisWeek = $recomendedDistance*7-$recomendedDistance;
-            $oneweekago = new \DateTime(date("Y-m-d", strtotime("monday this week")));;
-             $allActivities2 = Activity::where('athlete_id', $userId)->where('start_date_local','>', $oneweekago)->get();
 
-            foreach ($allActivities2 as $a2) {
-                $runDistanceThisWeek  = $runDistanceThisWeek + $a2->distance;
-            }
-            $runDistanceThisWeek = round($runDistanceThisWeek /1000, 2);
-
-
-            if( $runDistanceThisWeek >= $recommendDistanceThisWeek){
+            if($goalWeek <= 0){
                 $current_time = Carbon::now()->toDateTimeString();
-                DB::table('halloffames')->where('userid', $userId)->update(['goal' => 1, 'updated_at' => $current_time]);
+                $newHOF = Halloffames::firstOrNew(['userId' => $userId]);
+                $newHOF->goal = 1;
+                $newHOF->userId = $userId;
+                $newHOF->updated_at = $current_time;
+                $newHOF->save();
+                $goalWeek = 0;
+            }else{
+                Halloffames::where('userId', $userId)->delete();
+
+
             }
+
+
+
+            //hall of fame insert
+
+
+
+
+
+
+
             //htmlspecialchars() expects parameter 1 to be string, object given (View: /home/vagrant/Code/resources/views/home/index.blade.php)
 
             $schedules = Schedule::all();
 
-            return view('home/index', ['schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays ,'recomendedDistance' => $recomendedDistance, 'recomendedDistanceToday' => $recomendedDistanceToday, 'recomendedDistanceTomorrow' => $recomendedDistanceTomorrow, 'recomendedDistanceYesterday' => $recomendedDistanceYesterday, 'goal' => $goal, 'days'=>$days, 'toRun'=>$toRun] );
+            return view('home/index', ['goalWeek'=>$goalWeek,'goalThisWeek'=>$recomendedDistanceThisWeek,'schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays ,'recomendedDistance' => $recomendedDistance, 'recomendedDistanceToday' => $recomendedDistanceToday, 'goalToday' => $goalToday, 'days'=>$days, 'toRun'=>$toRun] );
 
         }else{
             return view('home/index');
