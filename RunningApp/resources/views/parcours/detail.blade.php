@@ -8,21 +8,18 @@
     <div class="parcour_content">
 
     @foreach($activity as $a)
-            <h1>{{$a->name}}</h1>
-            <br>
 
-            <div class="parcour_segment_layout">
+            <div class="parcour_segment_detail">
 
-                <div class="parcour_segment">
-
-                <div id="map" style="width:370px;height:300px;"></div>
+                <div id="map" class="detail_map"></div>
+                <input id="poly" type="hidden" value="{{$a->map_polyline}}">
                 <div class="detail_info">
+                    <h1>{{$a->name}}</h1>
                     <p><b>Distance:</b> {{$a->distance}}m</p>
                     <p><b>Elevation:</b> <b>+ </b>{{$a->elev_high}}m, <b>- </b>{{$a->elev_low}}m</p>
                 </div>
-                <input id="poly" type="hidden" value="{{$a->map_polyline}}">
             </div>
-            </div>
+
         @endforeach
 
     </div>

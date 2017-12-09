@@ -10,7 +10,7 @@
 
 
     <ul class="nav_menu_js">
-        <a href="/"><img src="img/favicon.png" class="nav_logo" alt="img"></a>
+        <a href="/"><img src="{{ asset('img/favicon.png') }}" class="nav_logo" alt="img"></a>
         <li class="nav_home_text"><a href="/" class="nav_item {{ (Request::is('/') ? 'current_page' : '') }}">Home</a></li>
         @if( Auth::check())
         <li><a href="/profile" class="nav_item {{ (Request::is('profile*') ? 'current_page' : '') }}">Profile</a></li>
