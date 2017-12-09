@@ -26,6 +26,8 @@ $dis: 30px;
 
 @import 'schedule';
 
+@import 'users';
+
 body{
  font-family: $font-family-sans-serif;
  background-image: url("/img/pattern.svg");
@@ -59,6 +61,7 @@ a{
 .container{
  width: 90%;
  margin: auto;
+ margin-top: -3em;
 }
 
 .page_title{
