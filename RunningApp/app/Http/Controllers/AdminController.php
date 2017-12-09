@@ -7,13 +7,16 @@ use App\Schedule;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class AdminController extends Controller
 {
 
     public function makeAdmin(){
 
-        if($_POST['code'] == 'IAmRoot' && Auth::user()){
+
+        //middleware + input klasse
+        if(Input::get('code') == 'IAmRoot' && Auth::user()){
             $newAdmin = User::where('id', $_POST['userId'])->first();
 
             $newAdmin->admin = true;
