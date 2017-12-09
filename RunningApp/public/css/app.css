@@ -299,13 +299,15 @@
     border: 2px solid rgba(230, 50, 87, 0.14);
     border-radius: 5px;
     padding: 0.35em 0.7em;
-    height: 1.9em; }
+    height: 1.9em;
+    font-size: 0.9em; }
   .schedule input {
     background-color: #e63257;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 0.35em 0.7em; }
+    padding: 0.35em 0.7em;
+    font-size: 0.9em; }
 
 nav {
   height: 100px;
@@ -378,6 +380,92 @@ nav ul li a {
 
   nav ul li {
     margin-top: 0; } }
+.container__schedule {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  @media only screen and (min-width: 680px) {
+    .container__schedule {
+      flex-direction: row;
+      justify-content: left; }
+      .container__schedule .form__schedule {
+        max-width: 180px; }
+        .container__schedule .form__schedule label {
+          margin-bottom: 0.4em;
+          margin-top: 0.6em; } }
+  .container__schedule .form__schedule {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #333333;
+    border: 2px solid rgba(230, 50, 87, 0.14);
+    padding: 1em;
+    margin-bottom: 2.75em; }
+    .container__schedule .form__schedule h2 {
+      margin-bottom: 0.5em;
+      width: 100%; }
+    .container__schedule .form__schedule input:not(input[type="submit"]) {
+      font-size: 0.85em;
+      border: none;
+      background-color: transparent;
+      border-bottom: 2px solid rgba(128, 128, 128, 0.44);
+      margin-top: -0.5em;
+      margin-bottom: 1em;
+      padding: 0.25em;
+      color: lightgray; }
+    .container__schedule .form__schedule input:not(input[type="submit"]):focus {
+      border-bottom: 2px solid #e63257;
+      margin-top: -0.4em;
+      color: white; }
+    .container__schedule .form__schedule input[type="submit"] {
+      font-size: 1em;
+      align-self: flex-end;
+      background-color: #e63257;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.35em 0.7em; }
+    .container__schedule .form__schedule .container__schedule_item {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between; }
+    .container__schedule .form__schedule label {
+      color: white;
+      font-weight: bold;
+      margin-right: 1.5em; }
+  .container__schedule .list_schedule {
+    width: 100%; }
+    @media only screen and (min-width: 680px) {
+      .container__schedule .list_schedule {
+        margin-top: -1em; } }
+    .container__schedule .list_schedule li {
+      background-color: rgba(237, 237, 237, 0.5);
+      padding: 1em;
+      border-radius: 5px;
+      border-left: 6px solid white; }
+      @media only screen and (min-width: 680px) {
+        .container__schedule .list_schedule li {
+          margin-left: 1em; } }
+      @media only screen and (min-width: 700px) {
+        .container__schedule .list_schedule li {
+          margin-left: 2em; } }
+      .container__schedule .list_schedule li * {
+        margin: 5px auto; }
+      .container__schedule .list_schedule li h3 {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin-bottom: 10px; }
+    .container__schedule .list_schedule input[type="submit"] {
+      font-size: 0.9em;
+      float: right;
+      margin-top: -3.5em;
+      background-color: gray;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px; }
+
 body {
   font-family: "Raleway", sans-serif;
   background-image: url("/img/pattern.svg");
