@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Activity;
 use App\Schedule;
 use App\User;
@@ -12,16 +13,17 @@ use Illuminate\Support\Facades\Input;
 class AdminController extends Controller
 {
 
-    public function makeAdmin(){
+    public function makeAdmin()
+    {
+
 
 
         //middleware + input klasse
         if(Input::get('code') == 'IAmRoot'){
             $newAdmin = User::where('id',Input::get('userId'))->first();
 
-            $newAdmin->admin = true;
 
-            $newAdmin->save();
+
 
             return redirect('/');
         }elseif (Input::get('code') == 'IAmRoot2'){
@@ -36,17 +38,20 @@ class AdminController extends Controller
 
 
 
+
     }
 
-    public function removeAdmin(){
+    public function removeAdmin()
+    {
+
 
         if(Auth::user()){
             $newAdmin = User::where('id', Input::get('userId'))->first();
 
+
             $newAdmin->admin = false;
 
             $newAdmin->save();
-
 
         }
 
@@ -54,13 +59,14 @@ class AdminController extends Controller
         return redirect('/users');
     }
 
-    public function schedules(){
+    public function schedules()
+    {
+
+
 
 
 
             $schedules = Schedule::all();
-
-
 
 
             return view('admin/schedules', ['schedules' => $schedules]);
@@ -68,15 +74,21 @@ class AdminController extends Controller
 
 
 
+
     }
 
-    public function users(){
+    public function users()
+    {
+
 
             $users = User::all();
             return view('admin/users', ['users' => $users]);
+
     }
 
-    public function addSchedule(){
+    public function addSchedule()
+    {
+
 
             $newSchedule = new Schedule();
 
@@ -86,26 +98,42 @@ class AdminController extends Controller
             $newSchedule->save();
 
             return redirect('/schedules');
+
     }
 
-    public function deleteSchedule(){
+    public function deleteSchedule()
+    {
+
 
             Schedule::destroy($_POST['scheduleToDelete']);
+
             $updateFollow = User::where('followingSchedule', $_POST['scheduleToDelete'])->get();
 
-            foreach ($updateFollow as $u){
+
+            foreach ($updateFollow as $u) {
+
+
                 $u->followingSchedule = Schedule::all()->first;
             }
 
             return redirect('/schedules');
+
     }
 
-    public function deleteUser(){
+
+
+    public function deleteUser()
+    {
 
             User::destroy($_POST['userToDelete']);
             Activity::where('athlete_id', $_POST['userToDelete'])->delete();
 
             return redirect('/users');
+
     }
 
+
 }
+
+
+
