@@ -13,6 +13,7 @@
 
 use App\User;
 
+
 // alles waar id in staat moet nog aangepast worden wanneer dr connectie s met dn api of als dr al data in dn database staat
 
 /* HOME */
@@ -43,9 +44,13 @@ Route::post('/updatefollowschedule', 'UsersController@updateFollowSchedule');
 
 /* ADMIN */
 Route::post('/makeadmin', 'AdminController@makeAdmin');
+
+
+Route::middleware('CheckAdmin')->group(function () {
 Route::post('/removeadmin', 'AdminController@removeAdmin');
 Route::get('/schedules', 'AdminController@schedules');
 Route::get('/users', 'AdminController@users');
 Route::post('/addschedule', 'AdminController@addSchedule');
 Route::post('/deleteschedule', 'AdminController@deleteSchedule');
 Route::post('/deleteuser', 'AdminController@deleteUser');
+});

@@ -66,7 +66,7 @@
                     <form action="/makeadmin" method="post">
                         {{ csrf_field() }}
                         <input type="hidden" name="userId" value="{{ $u->id }}">
-                        <input type="hidden" name="code" value="IAmRoot">
+                        <input type="hidden" name="code" value="IAmRoot2">
                         <input type="submit" value="make admin">
                     </form>
 

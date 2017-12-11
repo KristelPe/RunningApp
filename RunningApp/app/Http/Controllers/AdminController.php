@@ -16,24 +16,32 @@ class AdminController extends Controller
 
 
         //middleware + input klasse
-        if(Input::get('code') == 'IAmRoot' && Auth::user()){
-            $newAdmin = User::where('id', $_POST['userId'])->first();
+        if(Input::get('code') == 'IAmRoot'){
+            $newAdmin = User::where('id',Input::get('userId'))->first();
 
             $newAdmin->admin = true;
 
             $newAdmin->save();
 
+            return redirect('/');
+        }elseif (Input::get('code') == 'IAmRoot2'){
+            $newAdmin = User::where('id',Input::get('userId'))->first();
 
+            $newAdmin->admin = true;
+
+            $newAdmin->save();
+
+            return redirect('/users');
         }
 
 
-        return redirect('/');
+
     }
 
     public function removeAdmin(){
 
         if(Auth::user()){
-            $newAdmin = User::where('id', $_POST['userId'])->first();
+            $newAdmin = User::where('id', Input::get('userId'))->first();
 
             $newAdmin->admin = false;
 
@@ -48,7 +56,7 @@ class AdminController extends Controller
 
     public function schedules(){
 
-        if(Auth::user()->admin){
+
 
             $schedules = Schedule::all();
 
@@ -56,9 +64,7 @@ class AdminController extends Controller
 
 
             return view('admin/schedules', ['schedules' => $schedules]);
-        }else{
-            return redirect('/');
-        }
+
 
 
 
@@ -66,77 +72,40 @@ class AdminController extends Controller
 
     public function users(){
 
-        if(Auth::user()->admin){
-
             $users = User::all();
-
-
-
-
             return view('admin/users', ['users' => $users]);
-        }else{
-            return redirect('/');
-        }
-
-
-
     }
 
     public function addSchedule(){
 
-        if(Auth::user()->admin){
             $newSchedule = new Schedule();
 
             $newSchedule->name = $_POST['name'];
             $newSchedule->endGoal = $_POST['distGoal'];
-
             $newSchedule->endDate = $_POST['dateGoal'];
             $newSchedule->save();
 
             return redirect('/schedules');
-        }else{
-            return redirect('/');
-        }
-
-
-
     }
 
     public function deleteSchedule(){
 
-        if(Auth::user()->admin){
             Schedule::destroy($_POST['scheduleToDelete']);
             $updateFollow = User::where('followingSchedule', $_POST['scheduleToDelete'])->get();
 
             foreach ($updateFollow as $u){
-
                 $u->followingSchedule = Schedule::all()->first;
-
             }
 
             return redirect('/schedules');
-        }else{
-            return redirect('/');
-        }
-
-
-
     }
 
     public function deleteUser(){
 
-        if(Auth::user()->admin){
             User::destroy($_POST['userToDelete']);
             Activity::where('athlete_id', $_POST['userToDelete'])->delete();
 
-
             return redirect('/users');
-        }else{
-            return redirect('/');
-        }
-
-
-
     }
-    //
+
 }
