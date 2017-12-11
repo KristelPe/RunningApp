@@ -170,8 +170,10 @@
         margin-top: 0.5em; }
 
 .home_main {
+  margin: auto;
   margin-top: 3em;
   text-align: left;
+  max-width: 675px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -193,7 +195,11 @@
 
 .home_extra p:not(#days) {
   margin-left: 2.5em;
-  color: rgba(38, 38, 38, 0.67); }
+  color: rgba(38, 38, 38, 0.67);
+  margin-bottom: 0.5em; }
+
+b {
+  font-weight: bold; }
 
 #bar {
   margin: auto;
@@ -201,7 +207,8 @@
   height: 2.3em;
   text-align: center;
   border: 2pt solid white;
-  box-shadow: 0px 0px 20px lightgray; }
+  box-shadow: 0px 0px 20px lightgray;
+  margin-top: -0.35em; }
 
 #fill {
   background-color: #F18948;

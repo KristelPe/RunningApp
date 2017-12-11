@@ -48,12 +48,12 @@
             </div>
         </div>
         <div class="home_extra">
-            <p>Run {{$goalWeek}} more km this week to finish your weekly goal!</p>
+            <p>Run <b>{{$goalWeek}}</b> more km this week to finish your <b>weekly goal</b>!</p>
             @if($goalToday == 0)
-                <p>Nothing else to do today!</p>
+                <p><b>Nothing</b> else to do <b>today</b>!</p>
             @else
 
-                <p>Run {{$goalToday}} more km to finish your goal today!</p>
+                <p>Run <b>{{$goalToday}}</b> more km to finish your goal <b>today</b>!</p>
             @endif
                 <br>
             <div id="bar">
