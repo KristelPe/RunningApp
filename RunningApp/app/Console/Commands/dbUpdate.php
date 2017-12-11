@@ -52,7 +52,7 @@ class dbUpdate extends Command
 
                 if (Activity::where('id', '=', $act['id'])->exists()) {
                 }else {
-                    if ($act != null && $act['distance'] < 25000 && $act['max_speed'] < 25 && $act['moving_time'] < 9000) {
+                    if (!$act['manual'] && $act != null && $act['distance'] < 25000 && $act['max_speed'] < 25 && $act['moving_time'] < 9000) {
                         $athlete = (array)$act['athlete'];
 
                         $act['start_date_local'] = preg_replace('/[^0-9.]+/', '', $act['start_date_local']);

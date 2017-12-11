@@ -28,6 +28,14 @@
             <input type="submit" value="confirm">
         </form>
         <div class="home_main">
+            @if($numberOfWeeksStart <= 0)
+            <p>Training started this week!</p>
+            @elseif($numberOfWeeksStart == 1)
+                <p>Training started one week ago!</p>
+            @else
+                <p>Training started {{$numberOfWeeksStart}} weeks ago!</p>
+            @endif
+
             <div class="home_main_inner small one">
                 @if($recomendedDistanceToday <= 0)
                     <h3>Rest</h3>
@@ -58,7 +66,15 @@
                 <br>
             <div id="bar">
                 <div id="fill"></div>
-                <p id="days"><b>{{ $daysLeft }}</b> days left!</p>
+                @if($weeksLeft == 1)
+                <p id="days"><b>{{$weeksLeft}} week and {{ $fewDaysLeft }}</b> days left!</p>
+                    @elseif($weeksLeft == 0 && $fewDaysLeft > 1)
+                    <p id="days"><b>{{ $fewDaysLeft }}</b> days left!</p>
+                    @elseif($fewDaysleft == 1)
+                    <p id="days"><b>{{ $fewDaysLeft }}</b> day left!</p>
+                @elseif($fewDaysleft == 0)
+                    <p id="days"><b>Today is the BIG day!</b></p>
+                @endif
             </div>
         </div>
 

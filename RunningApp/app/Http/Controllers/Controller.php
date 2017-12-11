@@ -51,15 +51,25 @@ class Controller extends BaseController
             $today = new \DateTime(date("Y-m-d"));
 
             $endDate = Schedule::where('id', $followingSchedule)->get();
+
             foreach ($endDate as $e) {
                 $endDateV = new \DateTime($e->endDate);
                 $endGoal = $e->endGoal;
+                $startDate = $e->created_at;
+
             }
             $numberOfWeeks = $today->diff($endDateV);
             /*dd($numberOfWeeks);*/
             $numberOfDays = $numberOfWeeks->days;
             $recomendedDistance = 2000;
             $recomendedDistanceWeek = 0;
+
+            $weeksLeft = (int) ($numberOfDays / 7);
+            $fewDaysLeft = $numberOfDays % 7;
+
+            $numberOfWeeksStart = $today->diff($startDate);
+            $numberOfWeeksStart = $numberOfWeeksStart->days;
+            $numberOfWeeksStart = (int) ($numberOfWeeksStart / 7);
 
 
 
@@ -130,7 +140,7 @@ class Controller extends BaseController
 
             $schedules = Schedule::all();
 
-            return view('home/index', ['goalWeek'=>$goalWeek,'goalThisWeek'=>$recomendedDistanceThisWeek,'schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays ,'recomendedDistance' => $recomendedDistance, 'recomendedDistanceToday' => $recomendedDistanceToday, 'goalToday' => $goalToday, 'days'=>$days, 'toRun'=>$toRun] );
+            return view('home/index', ['numberOfWeeksStart'=>$numberOfWeeksStart,'fewDaysLeft'=>$fewDaysLeft,'weeksLeft'=>$weeksLeft,'goalWeek'=>$goalWeek,'goalThisWeek'=>$recomendedDistanceThisWeek,'schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays ,'recomendedDistance' => $recomendedDistance, 'recomendedDistanceToday' => $recomendedDistanceToday, 'goalToday' => $goalToday, 'days'=>$days, 'toRun'=>$toRun] );
 
         }else{
             return view('home/index');
