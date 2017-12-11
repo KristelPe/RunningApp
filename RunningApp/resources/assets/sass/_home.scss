@@ -190,7 +190,7 @@
 
 .schedule{
   position: absolute;
-  margin-top: -5em;
+  margin-top: -4em;
   text-align: right;
   width: 90vw;
   select{
@@ -198,6 +198,7 @@
     border-radius: 5px;
     padding: 0.35em 0.7em;
     height: 1.9em;
+    font-size: 0.9em;
   }
   input{
     background-color: $red-1-color;
@@ -205,6 +206,7 @@
     border: none;
     border-radius: 5px;
     padding: 0.35em 0.7em;
+    font-size: 0.9em;
   }
 }
 

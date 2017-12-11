@@ -5,51 +5,59 @@
 
 @section('content')
     @parent
-
-    <form action="/addschedule" method="post">
-        {{ csrf_field() }}
-        <label for="name">Training schedule name</label>
-        <input name="name" type="text">
-        <label for="distGoal">I want to run this distance (in KM)</label>
-        <input name="distGoal" type="number">
-        <label for="dateGoal">By this date</label>
-        <input name="dateGoal" type="date">
-        <input type="submit">
-    </form>
-
-
-
-    <ul>
-
-        @foreach($schedules as $s)
-
-            <br>
-
-                <li>
-
-                    <div class="recent_activity">
-
-                        <h3>{{ $s->name }}</h3>
+    <div class="container__schedule">
+        <form class="form__schedule" action="/addschedule" method="post">
+            {{ csrf_field() }}
+            <div class="container__schedule_item">
+                <h2>New</h2>
+                <label for="name">Schedule name: </label>
+                <input name="name" type="text">
+            </div>
+            <div class="container__schedule_item">
+                <label for="distGoal">Distance (in km): </label>
+                <input name="distGoal" type="number">
+            </div>
+            <div class="container__schedule_item">
+                <label for="dateGoal">End date: </label>
+                <input name="dateGoal" type="date">
+            </div>
+            <input type="submit">
+        </form>
 
 
 
-                        <p>Distance: {{ $s->endGoal }} KM</p>
+        <ul class="list_schedule">
 
-                        <p>Target date: {{ $s->endDate }} </p>
-                        <form action="/deleteschedule" method="post">
-                            {{ csrf_field() }}
-                            <input type="hidden" name="scheduleToDelete" value="{{ $s->id }}">
-                            <input type="submit" value="delete">
-                        </form>
+            @foreach($schedules as $s)
+
+                <br>
+
+                    <li>
+
+                        <div class="recent_activity">
+
+                            <h3>{{ $s->name }}</h3>
 
 
 
-                    </div>
+                            <p>Distance: {{ $s->endGoal }} KM</p>
 
-                </li>
+                            <p>Target date: {{ $s->endDate }} </p>
+                            <form action="/deleteschedule" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="scheduleToDelete" value="{{ $s->id }}">
+                                <input type="submit" value="delete">
+                            </form>
 
-        @endforeach
-    </ul>
+
+
+                        </div>
+
+                    </li>
+
+            @endforeach
+        </ul>
+    </div>
 
 
 

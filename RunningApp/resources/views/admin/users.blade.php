@@ -10,15 +10,14 @@
 
 
 <h2>Admins</h2>
-    <ul>
+    <ul class="container__users">
 
         @foreach($users as $u)
 @if($u->admin)
             <br>
 
-            <li>
+            <li class="admin">
 
-                <div class="recent_activity">
                     <img src="{{ $u->avatar }}" alt="">
 
                     <h3>{{$u->firstName}} {{ $u->lastName }}</h3>
@@ -39,27 +38,23 @@
                     </form>
                     @endif
 
-
-
-                </div>
-
             </li>
 @endif
         @endforeach
     </ul>
 
+    <hr id="hr">
+
     <h2>users</h2>
-    <ul>
+    <ul class="container__users">
 
         @foreach($users as $u)
             @if(!$u->admin)
 
             <br>
 
-            <li>
-
-                <div class="recent_activity">
-                    <img src="{{ $u->avatar }}" alt="">
+            <li class="non-admin">
+                 <img src="{{ $u->avatar }}" alt="">
 
                     <h3>{{$u->firstName}} {{ $u->lastName }}</h3>
 
@@ -74,10 +69,6 @@
                         <input type="hidden" name="code" value="IAmRoot">
                         <input type="submit" value="make admin">
                     </form>
-
-
-
-                </div>
 
             </li>
             @endif
