@@ -96,7 +96,7 @@
     width: 25%; } }
 .profile_content {
   display: table;
-  width: 100%; }
+  width: 90%; }
 
 .profile_header {
   margin-top: 20px;
@@ -751,7 +751,8 @@ a {
 
 .container {
   width: 90%;
-  margin: auto;
+  margin-left: 5%;
+  margin-right: 5%;
   margin-top: -3em; }
 
 .page_title {
