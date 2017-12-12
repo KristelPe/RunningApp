@@ -105,49 +105,47 @@ public static function updateBadges($userId){
             $totalDistance = $dist['distance'] + $totalDistance;
         }
 
-        $currentUserLevel = DB::table('users')->where('id' ,'=',$userId)->value('level');
-
-        $level = $currentUserLevel;
+        $currentUser = User::find($userId);
 
         if ($totalDistance<500) {
             $lvl="500 m";
             $unlock = 1000;
-            ++$level;
+            $currentUser->level = $currentUser->level + 1;
         }else if($totalDistance<=1000){
             $lvl="1000 m";
             $unlock = 5000;
-            ++$level;
+            $currentUser->level = $currentUser->level + 1;
         }else if($totalDistance<=5000){
             $lvl="5000 m";
             $unlock =10000 ;
-            ++$level;
+            $currentUser->level = $currentUser->level + 1;
         }else if($totalDistance<=10000){
             $lvl="10 000 m" ;
             $unlock = 20000;
-            ++$level;
+            $currentUser->level = $currentUser->level + 1;
         }else if($totalDistance<=20000){
             $lvl="20 000 m";
             $unlock = 30000;
-            ++$level;
+            $currentUser->level = $currentUser->level + 1;
         }else if($totalDistance<=30000){
             $lvl="30 000 m";
             $unlock = 40000;
-            ++$level;
+            $currentUser->level = $currentUser->level + 1;
         }else if($totalDistance<=40000){
             $lvl="40 000 m";
             $unlock =40000 ;
-            ++$level;
+            $currentUser->level = $currentUser->level + 1;
         }else if($totalDistance<=50000){
             $lvl="50 000 m";
             $unlock = 50000;
-            ++$level;
+            $currentUser->level = $currentUser->level + 1;
         }else{
             $lvl="60 000 m";
             $unlock = 60000;
-            ++$level;
+            $currentUser->level = $currentUser->level + 1;
         }
 
-        //DB::table('users')->where('id' ,'=',$userId)->update(['level' => $level]);
+        $currentUser->save();
 
         return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 1)->update(['rank' => $lvl, 'unlock' =>$unlock, 'relevant_data' => $totalDistance]);}
 
