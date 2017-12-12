@@ -110,39 +110,39 @@ public static function updateBadges($userId){
         $level = $currentUserLevel;
 
         if ($totalDistance<500) {
-            $lvl=500;
+            $lvl="500 m";
             $unlock = 1000;
             ++$level;
         }else if($totalDistance<=1000){
-            $lvl=1000;
+            $lvl="1000 m";
             $unlock = 5000;
             ++$level;
         }else if($totalDistance<=5000){
-            $lvl=5000;
+            $lvl="5000 m";
             $unlock =10000 ;
             ++$level;
         }else if($totalDistance<=10000){
-            $lvl=10000;
+            $lvl="10 000 m" ;
             $unlock = 20000;
             ++$level;
         }else if($totalDistance<=20000){
-            $lvl=20000;
+            $lvl="20 000 m";
             $unlock = 30000;
             ++$level;
         }else if($totalDistance<=30000){
-            $lvl=30000;
+            $lvl="30 000 m";
             $unlock = 40000;
             ++$level;
         }else if($totalDistance<=40000){
-            $lvl=40000;
+            $lvl="40 000 m";
             $unlock =40000 ;
             ++$level;
         }else if($totalDistance<=50000){
-            $lvl=50000;
+            $lvl="50 000 m";
             $unlock = 50000;
             ++$level;
         }else{
-            $lvl=60000;
+            $lvl="60 000 m";
             $unlock = 60000;
             ++$level;
         }

@@ -11,8 +11,8 @@
             </div>
 
             <div class="badge_description" style="display: none">
-                <p>{{$b->description}}</p>
-                <p class="bottom"><b>{{$b->unlockText}}:</b><br> {{$b->pivot->unlock}} {{$b->unit}}</p>
+                <p class="badge_text">{{$b->description}}</p>
+                <p class="bottom badge_text"><b>{{$b->unlockText}}:</b><br> {{$b->pivot->unlock}} {{$b->unit}}</p>
             </div>
 </li>@endif
     @endforeach

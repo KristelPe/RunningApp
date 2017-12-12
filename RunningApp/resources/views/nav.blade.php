@@ -20,7 +20,6 @@
         <li class="{{ (Request::is('leaderboards') ? 'current_page' : '') }}"><a href="/leaderboard">Leaderboard</a></li>
 --}}
 
-
             @if(Auth::User()->admin)
                 <li><a href="/schedules" class="nav_item {{ (Request::is('/schedules') ? 'current_page' : '') }}">Schedules</a></li>
                 <li><a href="/users" class="nav_item {{ (Request::is('/users') ? 'current_page' : '') }}">Users</a></li>
@@ -32,6 +31,9 @@
                 </a>
             </li>
 
+        <a href="/settings"><img src="{{ asset('img/cogwheel.svg') }}" class="nav_logo" alt="img"></a>
+        <li class="nav_img_text"><a href="/settings" class="nav_item {{ (Request::is('settings') ? 'current_page' : '') }}">Settings</a></li>
+
         @else
             <li>
                 <a href="/login" class="login nav_item">
@@ -39,9 +41,6 @@
                 </a>
             </li>
         @endif
-
-        <a href="/settings"><img src="{{ asset('img/cogwheel.svg') }}" class="nav_logo" alt="img"></a>
-        <li class="nav_img_text"><a href="/settings" class="nav_item {{ (Request::is('settings') ? 'current_page' : '') }}">Settings</a></li>
     </ul>
 
     </div>

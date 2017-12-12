@@ -63,8 +63,6 @@
         </div>
 
         <div class="activities switched_item_2">
-
-            <h2 class="profile_stat_layout_h2">Recent Activities</h2>
             <ul>
 
                 @foreach($allActivity as $activity)
@@ -76,17 +74,17 @@
 
                                 <h3>{{ $activity->name }}</h3>
 
-                                <p>Type: {{ $activity->type }}</p>
+                                <p class="data_activity">Type: {{ $activity->type }}</p>
 
-                                <p>Distance: {{ $activity->distance }}m</p>
+                                <p class="data_activity">Distance: {{ $activity->distance }}m</p>
 
-                                <p>Duration: {{ $activity->moving_time }} seconds</p>
+                                <p class="data_activity">Duration: {{ $activity->moving_time }} seconds</p>
 
-                                <p>Likes: {{ $activity->kudos_count }}</p>
+                                <p class="data_activity">Likes: {{ $activity->kudos_count }}</p>
 
-                                <p>Average speed: {{ $activity->average_speed }} km/h</p>
+                                <p class="data_activity">Average speed: {{ $activity->average_speed }} km/h</p>
 
-                                <p>Max speed: {{ $activity->max_speed }} km/h</p>
+                                <p class="data_activity">Max speed: {{ $activity->max_speed }} km/h</p>
 
                                 <div class="image"><img src="" alt=""></div>
 
