@@ -100,7 +100,7 @@ class Controller extends BaseController
 
             $recomendedDistanceToday = round(ScheduleController::CalculateGoalToday($numberOfDays, $endGoal), 1);
             $recomendedDistanceThisWeek = round(ScheduleController::CalculateGoalWeek($numberOfDays, $endGoal), 1);
-            
+
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
             $goalToday = $recomendedDistanceToday - $runDistance;
             $goalWeek = $recomendedDistanceThisWeek - $runDistanceWeek;
