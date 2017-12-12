@@ -12,8 +12,12 @@
                     width: {{$days}}%;
                 }
 
-                .home_main_inner:before {
+                .small:before {
                     top: {{$toRun}}%;
+                }
+
+                .large:before {
+                    top: {{$toRun2}}%;
                 }
             </style>
         </head>
@@ -36,7 +40,7 @@
         @endif
         <div class="home_main">
             <div class="circle__container">
-                <div class="home_main_inner small one">
+                <div class="home_main_inner small">
                     @if($recomendedDistanceToday <= 0)
                         <h3>Rest</h3>
 
@@ -48,7 +52,7 @@
                 <h2>Daily Goal</h2>
             </div>
             <div class="circle__container">
-                <div class="home_main_inner large two">
+                <div class="home_main_inner large">
                     @if($recomendedDistanceToday <= 0)
                         <h2>Rest</h2>
 
