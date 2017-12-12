@@ -24,31 +24,32 @@ Route::get('/login', 'StravaController@login');
 
 Route::get('/login/callback', 'StravaController@callback');
 
-/* LOG OUT */
-Route::get('/logout', 'StravaController@logout');
-
-/* PARKOUR */
-route::get('parcours', 'ParkoursController@index');
-
-Route::get('/parcours/{id}', 'ParkoursController@detail');
-
-/* Leaderboard */
-Route::get('leaderboard', 'LeaderboardController@index');
-
 /*Hall Of Fame */
 Route::get('halloffame', 'HallOfFameController@index');
 
-/* USER */
-Route::get('/profile', 'UsersController@index');
-Route::post('/updatefollowschedule', 'UsersController@updateFollowSchedule');
+Route::middleware('isAuthenticated')->group(function () {
+    /* PARKOUR */
+    route::get('parcours', 'ParkoursController@index');
+    Route::get('/parcours/{id}', 'ParkoursController@detail');
 
-/* SETTINGS */
-Route::get('/settings', 'UsersController@settings');
+    /* USER */
+    Route::get('/profile', 'UsersController@index');
+    Route::post('/updatefollowschedule', 'UsersController@updateFollowSchedule');
+
+    /* SETTINGS */
+    Route::get('/settings', 'UsersController@settings');
+
+    /*ADMIN*/
+    Route::post('/makeadmin', 'AdminController@makeAdmin');
+
+    /* LOG OUT */
+    Route::get('/logout', 'StravaController@logout');
+
+    /* Leaderboard */
+    Route::get('leaderboard', 'LeaderboardController@index');
+});
 
 /* ADMIN */
-Route::post('/makeadmin', 'AdminController@makeAdmin');
-
-
 Route::middleware('CheckAdmin')->group(function () {
 Route::post('/removeadmin', 'AdminController@removeAdmin');
 Route::get('/schedules', 'AdminController@schedules');

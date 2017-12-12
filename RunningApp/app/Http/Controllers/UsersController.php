@@ -21,21 +21,11 @@ class UsersController extends Controller
 
         $token = Auth::user()->token;
 
-        if(Auth::check()){
-        }else{
-            return redirect('/login');
-        };
-
-
-
-
-
         //uncomment volgende lijn om de json in uw browser te zien
         //dd($acts);
         $totalDistance = 0;
         $avgSpeed = 0;
         $longestDistance = 0;
-
 
         $totalDistance = round($totalDistance/1000, 2);
         $longestDistance = round($longestDistance/1000, 2);
@@ -44,8 +34,6 @@ class UsersController extends Controller
         $userId = Auth::user()->id;
         $acts = Activity::where('athlete_id', $userId)->get();
         BadgesController::updateBadges($userId);
-
-
 
         return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badge'));
 
@@ -56,7 +44,7 @@ class UsersController extends Controller
     }
 
     public function updateFollowSchedule(){
-        if(Auth::check()){
+
 
             $userToUpdate = User::where('id', Auth::user()->id)->first();
 
@@ -66,8 +54,6 @@ class UsersController extends Controller
 
 
             return redirect('/');
-        }else{
-            return redirect('/login');
-        }
+
 
 }}

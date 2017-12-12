@@ -15,7 +15,7 @@
         @if( Auth::check())
         <li><a href="/profile" class="nav_item {{ (Request::is('profile*') ? 'current_page' : '') }}">Profile</a></li>
         <li><a href="/parcours" class="nav_item {{ (Request::is('parcours') ? 'current_page' : '') }}">Parcours</a></li>
-        <li><a href="/halloffame" class="nav_item {{ (Request::is('halloffame') ? 'current_page' : '') }}">Hall of Fame</a></li>
+            <li><a href="/halloffame" class="nav_item {{ (Request::is('halloffame') ? 'current_page' : '') }}">Hall of Fame</a></li>
 {{--
         <li class="{{ (Request::is('leaderboards') ? 'current_page' : '') }}"><a href="/leaderboard">Leaderboard</a></li>
 --}}
@@ -40,6 +40,7 @@
                     Log in
                 </a>
             </li>
+            <li><a href="/halloffame" class="nav_item {{ (Request::is('halloffame') ? 'current_page' : '') }}">Hall of Fame</a></li>
         @endif
     </ul>
 

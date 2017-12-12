@@ -94,9 +94,9 @@ class AdminController extends Controller
 
             $newSchedule = new Schedule();
 
-            $newSchedule->name = $_POST['name'];
-            $newSchedule->endGoal = $_POST['distGoal'];
-            $newSchedule->endDate = $_POST['dateGoal'];
+            $newSchedule->name = Input::get('name');
+            $newSchedule->endGoal = Input::get('distGoal');
+            $newSchedule->endDate = Input::get('dateGoal');
             $newSchedule->save();
 
             return redirect('/schedules');
@@ -109,7 +109,7 @@ class AdminController extends Controller
 
             Schedule::destroy($_POST['scheduleToDelete']);
 
-            $updateFollow = User::where('followingSchedule', $_POST['scheduleToDelete'])->get();
+            $updateFollow = User::where('followingSchedule', Input::get('scheduleToDelete'));
 
 
             foreach ($updateFollow as $u) {
@@ -127,8 +127,8 @@ class AdminController extends Controller
     public function deleteUser()
     {
 
-            User::destroy($_POST['userToDelete']);
-            Activity::where('athlete_id', $_POST['userToDelete'])->delete();
+            User::destroy(Input::get('userToDelete'));
+            Activity::where('athlete_id', Input::get('userToDelete'))->delete();
 
             return redirect('/users');
 
