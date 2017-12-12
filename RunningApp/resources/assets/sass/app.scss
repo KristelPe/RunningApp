@@ -92,13 +92,17 @@ a{
 .switch_button ul{
  display: flex;
  flex-direction: row;
- line-height: 28px;
+ line-height: 24px;
+ margin:auto;
+ max-width:300px;
 }
 
 .switch_button ul li{
  text-align: center;
  width: 50%;
- border: 5px solid $red-1-color;
+ border: 2px solid $red-1-color;
+
+
 }
 
 .switch_button_1{
@@ -108,6 +112,6 @@ a{
 
 @media only screen and (min-width: 1000px) {
  .switch_button{
-  width: 35%;
+  width: 30%;
  }
 }

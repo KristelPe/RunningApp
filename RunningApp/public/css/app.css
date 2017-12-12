@@ -158,15 +158,16 @@
     margin: auto;
     float: left; }
     .badge_list .badge_list_item .badge_container {
-      height: 150px;
-      margin-bottom: 0.5em; }
+      height: 130px;
+      margin-bottom: 0.1em; }
     .badge_list .badge_list_item .badge_text {
       opacity: 1; }
     .badge_list .badge_list_item .badge_title {
       margin-top: -0.5em;
       font-weight: bold;
-      font-size: 1em;
       margin-bottom: 0.2em; }
+    .badge_list .badge_list_item .badge_detail {
+      font-size: 0.8em; }
     .badge_list .badge_list_item .badge_description {
       color: white;
       position: absolute;
@@ -175,17 +176,31 @@
       left: 0;
       right: 0;
       padding: 1em;
-      background-color: #c55763;
+      background-color: #e63257;
+      opacity: 0.9;
       border-radius: 5px; }
       .badge_list .badge_list_item .badge_description .bottom {
-        margin-top: 0.5em; }
+        margin-top: 0.2em; }
 
-@media only screen and (max-width: 300px) {
+.recent_activity {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px; }
+  .recent_activity p {
+    font-size: 0.8em;
+    margin: 3px; }
+  .recent_activity h3 {
+    font-size: 1em;
+    border-bottom: 1px solid;
+    margin-bottom: 5px; }
+
+@media only screen and (min-width: 768px) {
   .profile_picture_layout {
-    max-width: 250px;
-    max-height: 250px;
-    min-width: 250px;
-    min-height: 250px;
+    max-width: 230px;
+    max-height: 230px;
+    min-width: 230px;
+    min-height: 230px;
     overflow: hidden;
     position: relative;
     border-radius: 10px;
@@ -195,10 +210,19 @@
     margin-bottom: 20px; }
 
   .profile_picture {
-    width: 250px; }
+    width: 230px; }
 
-  .badge_list .badge_list_item .badge_description .bottom {
-    margin-top: 0.2em; } }
+  .badge_list .badge_list_item {
+    width: 120px;
+    height: auto; }
+    .badge_list .badge_list_item .badge_container {
+      height: 200px; }
+    .badge_list .badge_list_item .badge_title {
+      font-size: 1.5em; }
+    .badge_list .badge_list_item .badge_description {
+      max-width: 500px; }
+      .badge_list .badge_list_item .badge_description .bottom {
+        margin-top: 0.2em; } }
 .home_main {
   margin: auto;
   margin-top: 3em;
@@ -738,12 +762,14 @@ a {
 .switch_button ul {
   display: flex;
   flex-direction: row;
-  line-height: 28px; }
+  line-height: 24px;
+  margin: auto;
+  max-width: 300px; }
 
 .switch_button ul li {
   text-align: center;
   width: 50%;
-  border: 5px solid #e63257; }
+  border: 2px solid #e63257; }
 
 .switch_button_1 {
   background-color: #e63257;
@@ -751,6 +777,6 @@ a {
 
 @media only screen and (min-width: 1000px) {
   .switch_button {
-    width: 35%; } }
+    width: 30%; } }
 
 /*# sourceMappingURL=app.css.map */

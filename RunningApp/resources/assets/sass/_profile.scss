@@ -62,6 +62,7 @@
   flex-wrap: wrap;
   width: 90vw;
   margin: auto;
+
   .badge_list_item{
     width: 90px;
     height: auto;
@@ -73,8 +74,8 @@
 margin:auto;
     float: left;
     .badge_container{
-      height: 150px;
-      margin-bottom: 0.5em;
+      height: 130px;
+      margin-bottom: 0.1em;
     }
     .badge_text{
       opacity:1;
@@ -82,8 +83,10 @@ margin:auto;
     .badge_title{
       margin-top: -0.5em;
       font-weight: bold;
-      font-size:1em;
       margin-bottom:0.2em;
+    }
+    .badge_detail{
+      font-size:0.8em;
     }
     .badge_description{
       color: white;
@@ -93,21 +96,37 @@ margin:auto;
       left:0;
       right:0;
       padding: 1em;
-      background-color: rgb(197, 87, 99);
+      background-color: $red-1-color;
+      opacity:0.9;
       border-radius: 5px;
 
       .bottom{
-        margin-top: 0.5em;
+        margin-top: 0.2em;
       }
     }
   }
 }
-@media only screen and (max-width: 300px) {
+.recent_activity{
+  background-color: rgba(255,255,255,0.8);
+  padding:5px;
+  margin-bottom:20px;
+  border-radius:5px;
+  p{
+  font-size:0.8em;
+    margin:3px;
+}
+h3{
+  font-size:1em;
+  border-bottom:1px solid;
+  margin-bottom:5px;
+}}
+
+@media only screen and (min-width: 768px) {
   .profile_picture_layout{
-    max-width: 250px;
-    max-height: 250px;
-    min-width: 250px;
-    min-height: 250px;
+    max-width: 230px;
+    max-height: 230px;
+    min-width: 230px;
+    min-height: 230px;
     overflow: hidden;
     position: relative;
     border-radius: 10px;
@@ -117,24 +136,27 @@ margin:auto;
     margin-bottom: 20px;
   }
   .profile_picture{
-    width:250px;
+    width:230px;
   }
   .badge_list{
-
     .badge_list_item{
+      width: 120px;
+      height: auto;
 
       .badge_container{
-
+        height:200px;
       }
-      .badge_title{
 
+      .badge_title{
+        font-size:1.5em;
       }
       .badge_description{
-
+        max-width:500px;
         .bottom{
           margin-top: 0.2em;
         }
       }
     }
-  }
+
+}
 }
