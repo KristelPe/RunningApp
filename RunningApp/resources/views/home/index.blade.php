@@ -27,32 +27,37 @@
             </select>
             <input type="submit" value="confirm">
         </form>
+        @if($numberOfWeeksStart <= 0)
+            <p class="float_left">Training started this week!</p>
+        @elseif($numberOfWeeksStart == 1)
+            <p class="float_left">Training started one week ago!</p>
+        @else
+            <p class="float_left">Training started {{$numberOfWeeksStart}} weeks ago!</p>
+        @endif
         <div class="home_main">
-            @if($numberOfWeeksStart <= 0)
-            <p>Training started this week!</p>
-            @elseif($numberOfWeeksStart == 1)
-                <p>Training started one week ago!</p>
-            @else
-                <p>Training started {{$numberOfWeeksStart}} weeks ago!</p>
-            @endif
-
-            <div class="home_main_inner small one">
-                @if($recomendedDistanceToday <= 0)
-                    <h3>Rest</h3>
-
-                @else
-                    <h4>{{$recomendedDistanceToday}} <h3>km</h3></h4>
-
-                @endif
-            </div>
-            <div class="home_main_inner large two">
-                @if($recomendedDistanceToday <= 0)
-                <h2>Rest</h2>
+            <div class="circle__container">
+                <div class="home_main_inner small one">
+                    @if($recomendedDistanceToday <= 0)
+                        <h3>Rest</h3>
 
                     @else
-                    <h4>{{$goalThisWeek}}</h4>
-                    <h3>km</h3>
-                @endif
+                        <h4>{{$recomendedDistanceToday}} <h3>km</h3></h4>
+
+                    @endif
+                </div>
+                <h2>Daily Goal</h2>
+            </div>
+            <div class="circle__container">
+                <div class="home_main_inner large two">
+                    @if($recomendedDistanceToday <= 0)
+                        <h2>Rest</h2>
+
+                    @else
+                        <h4>{{$goalThisWeek}}</h4>
+                        <h3>km</h3>
+                    @endif
+                </div>
+                <h2>Weekly Goal</h2>
             </div>
         </div>
         <div class="home_extra">
@@ -80,18 +85,18 @@
             </div>
         </div>
 
-        <div>
+        <div class="recent_events">
             <h1>What is everyone doing?</h1>
-            @foreach($recentActs as $act)
-
-
-
+            <ul>
+                @foreach($recentActs as $act)
                 <a href="/parcours/{{$act->id}}">
-                    <h2>{{$act->name}}</h2>
-                    <h3>by {{$act->getUser->firstName}}</h3>
+                    <li>
+                        <h3>{{$act->name}}</h3>
+                        <h4>by {{$act->getUser->firstName}}</h4>
+                    </li>
                 </a>
-
                 @endforeach
+            </ul>
         </div>
 
 

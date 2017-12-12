@@ -3,17 +3,18 @@
   margin-top:3em;
   text-align: left;
   max-width: 675px;
+  margin-bottom: 2em;
   h2{
     margin-left: 1.5em;
   }
   h3{
-    font-size: 5em;
-    line-height: 2.25em;
+    font-size: 3.5em;
+    line-height: 3em;
     margin-left: 0.05em;
   }
   h4{
-    margin-top: 0.05em;
-    font-size: 8em;
+    margin-top: 0.35em;
+    font-size: 6em;
   }
   display: flex;
   flex-direction: row;
@@ -21,10 +22,11 @@
   flex-wrap: wrap;
   @media only screen and (max-width: 800px) {
     h3{
-      font-size: 3.5em;
+      font-size: 2.75em;
     }
     h4{
-      font-size: 6.5em;
+      margin-top: 0.4em;
+      font-size: 4.75em;
     }
   }
 }
@@ -53,6 +55,7 @@ b{
   border: 2pt solid white;
   box-shadow: 0px 0px 20px lightgray;
   margin-top: -0.35em;
+  margin-bottom: 2em;
 }
 
 #fill{
@@ -84,7 +87,6 @@ b{
   overflow: hidden;
   justify-content: center;
   h2{
-    margin-left: 0;
     margin-top: 1em;
     font-size: 5em;
   }
@@ -109,11 +111,12 @@ b{
     margin-left: 0.05em;
   }
   h4{
-    margin-top: 0.1em;
+    margin-top: 0.2em;
     font-size: 5em;
   }
   @media only screen and (max-width: 800px) {
     h3{
+      margin-top: -0.2em;
       font-size: 2em;
     }
     h4{
@@ -177,27 +180,11 @@ b{
         margin-left: 0;
       }
     }
-    }
   }
-
+}
 @media only screen and (max-width: 544px) {
-  .one{
-    order:2;
-    flex-basis: 15vw;
-    height: 15vw;
-  }
-  .two{
-    order: 1;
-    flex-basis: 30vw;
-    height: 30vw;
-    margin-left: 3.5em;
-    margin-right: 3.5em;
-    margin-bottom: -1em;
-  }
-  .tree{
-    order: 3;
-    flex-basis: 15vw;
-    height: 15vw;
+  .home_main{
+    flex-direction: column-reverse;
   }
 }
 
@@ -220,6 +207,42 @@ b{
     border-radius: 5px;
     padding: 0.35em 0.7em;
     font-size: 0.9em;
+  }
+}
+
+.circle__container{
+  text-align: center;
+  h2{
+    margin: auto;
+    margin-left: 0.25em;
+    margin-top: -2em;
+  }
+}
+
+.float_left{
+  position: absolute;
+  float: left;
+  margin-top: -3.5em;
+}
+
+.recent_events{
+  margin-left: 2em;
+  ul li{
+    background-color: rgba(237, 237, 237, 0.5);
+    padding: 1em;
+    border-radius: 5px;
+    border-left: 6px solid white;
+    margin: 1em auto;
+    margin-right: 2em;
+  }
+  a h3{
+    margin-left: 1.5em;
+    font-size: 1.25em;
+  }
+  a h4{
+    margin-top: 0.35em;
+    margin-left: 2em;
+    color: dimgray;
   }
 }
 
