@@ -15,5 +15,6 @@
 
     cd RunningApp/
     composer update
-    php artisan migrate:refresh
+    php artisan migrate
 @endtask
+
