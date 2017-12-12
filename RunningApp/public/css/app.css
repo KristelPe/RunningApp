@@ -212,17 +212,31 @@
   .profile_picture {
     width: 230px; }
 
-  .badge_list .badge_list_item {
-    width: 120px;
-    height: auto; }
-    .badge_list .badge_list_item .badge_container {
-      height: 200px; }
-    .badge_list .badge_list_item .badge_title {
-      font-size: 1.5em; }
-    .badge_list .badge_list_item .badge_description {
-      max-width: 500px; }
-      .badge_list .badge_list_item .badge_description .bottom {
-        margin-top: 0.2em; } }
+  .badge_list {
+    width: 750px; }
+    .badge_list .badge_list_item {
+      width: 120px;
+      height: auto; }
+      .badge_list .badge_list_item .badge_container {
+        height: 200px; }
+      .badge_list .badge_list_item .badge_title {
+        font-size: 1.5em; }
+      .badge_list .badge_list_item .badge_description {
+        max-width: 500px; }
+        .badge_list .badge_list_item .badge_description .bottom {
+          margin-top: 0.2em; }
+    .badge_list .recent_activity {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 5px;
+      margin-bottom: 20px;
+      border-radius: 5px; }
+      .badge_list .recent_activity p {
+        font-size: 1em;
+        margin: 3px; }
+      .badge_list .recent_activity h3 {
+        font-size: 2em;
+        border-bottom: 1px solid;
+        margin-bottom: 5px; } }
 .home_main {
   margin: auto;
   margin-top: 3em;
