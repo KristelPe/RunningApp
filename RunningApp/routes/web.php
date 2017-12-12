@@ -42,6 +42,9 @@ Route::get('halloffame', 'HallOfFameController@index');
 Route::get('/profile', 'UsersController@index');
 Route::post('/updatefollowschedule', 'UsersController@updateFollowSchedule');
 
+/* SETTINGS */
+Route::get('/settings', 'UsersController@settings');
+
 /* ADMIN */
 Route::post('/makeadmin', 'AdminController@makeAdmin');
 

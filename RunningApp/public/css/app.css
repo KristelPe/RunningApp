@@ -453,7 +453,7 @@ nav ul li a {
 .nav_logo {
   display: none; }
 
-.nav_home_text {
+.nav_img_text {
   display: block; }
 
 @media only screen and (min-width: 800px) {
@@ -466,7 +466,7 @@ nav ul li a {
     position: relative;
     top: -13px; }
 
-  .nav_home_text {
+  .nav_img_text {
     display: none; }
 
   .current_page {
@@ -631,6 +631,32 @@ nav ul li a {
   border: none;
   margin-bottom: 0.5em; }
 
+.admin_form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px; }
+
+.button {
+  padding: 20px;
+  background-color: #e63257;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  margin-top: 20px; }
+
+.button:hover, .button:active {
+  background-color: #C73F6B; }
+
+.form_input {
+  padding: 5px;
+  margin-top: 20px;
+  border-radius: 10px;
+  outline: none; }
+
+@media only screen and (min-width: 1000px) {
+  .admin_form {
+    width: 25%; } }
 body {
   font-family: "Raleway", sans-serif;
   background-image: url("/img/pattern.svg");

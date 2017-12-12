@@ -18,13 +18,6 @@
                 <h1 class="usernameIndex">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</h1>
                 <p class="level">Rookie Runner</p>
                 <p class="progress">lvl 3</p>
-                <form action="/makeadmin" method="post">
-                    {{ csrf_field() }}
-                    <label for="code">Want to become an admin?</label>
-                    <input name="code" type="password">
-                    <input name="userId" type="hidden" value="{{Auth::user()->id}}">
-                    <input type="submit">
-                </form>
             </div>
             <div class="recent_badges">
                 {{--@foreach(Auth::user()->getLatestBadge($userId) as $b)

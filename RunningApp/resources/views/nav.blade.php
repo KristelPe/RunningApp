@@ -11,7 +11,7 @@
 
     <ul class="nav_menu_js">
         <a href="/"><img src="{{ asset('img/favicon.png') }}" class="nav_logo" alt="img"></a>
-        <li class="nav_home_text"><a href="/" class="nav_item {{ (Request::is('/') ? 'current_page' : '') }}">Home</a></li>
+        <li class="nav_img_text"><a href="/" class="nav_item {{ (Request::is('/') ? 'current_page' : '') }}">Home</a></li>
         @if( Auth::check())
         <li><a href="/profile" class="nav_item {{ (Request::is('profile*') ? 'current_page' : '') }}">Profile</a></li>
         <li><a href="/parcours" class="nav_item {{ (Request::is('parcours') ? 'current_page' : '') }}">Parcours</a></li>
@@ -39,6 +39,9 @@
                 </a>
             </li>
         @endif
+
+        <a href="/settings"><img src="{{ asset('img/cogwheel.svg') }}" class="nav_logo" alt="img"></a>
+        <li class="nav_img_text"><a href="/settings" class="nav_item {{ (Request::is('settings') ? 'current_page' : '') }}">Settings</a></li>
     </ul>
 
     </div>

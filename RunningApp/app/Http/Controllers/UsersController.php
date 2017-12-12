@@ -49,8 +49,8 @@ class UsersController extends Controller
 
     }
 
-    public function detail(){
-        return view('users.settings');
+    public function settings(){
+        return view('settings.index');
     }
 
     public function updateFollowSchedule(){
