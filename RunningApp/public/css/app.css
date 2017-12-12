@@ -146,31 +146,41 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 90vw;
-  margin-bottom: 4em; }
+  margin: auto; }
   .badge_list .badge_list_item {
-    width: 125px;
+    width: 90px;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
-    font-size: 1em; }
+    font-size: 1em;
+    margin: auto;
+    float: left; }
     .badge_list .badge_list_item .badge_container {
-      height: 100%;
-      margin-bottom: 0.25em; }
+      height: 150px;
+      margin-bottom: 0.5em; }
+    .badge_list .badge_list_item .badge_text {
+      opacity: 1; }
     .badge_list .badge_list_item .badge_title {
       margin-top: -0.5em;
       font-weight: bold;
-      font-size: 1.25em; }
+      font-size: 1em;
+      margin-bottom: 0.2em; }
     .badge_list .badge_list_item .badge_description {
-      border-top: 2px solid gainsboro;
-      margin-top: 0.5em;
-      padding-top: 0.5em;
-      color: #c55763; }
+      color: white;
+      position: absolute;
+      width: 80%;
+      margin: auto;
+      left: 0;
+      right: 0;
+      padding: 1em;
+      background-color: #c55763;
+      border-radius: 5px; }
       .badge_list .badge_list_item .badge_description .bottom {
         margin-top: 0.5em; }
 
-@media only screen and (m-width: 300px) {
+@media only screen and (max-width: 300px) {
   .profile_picture_layout {
     max-width: 250px;
     max-height: 250px;
@@ -185,7 +195,10 @@
     margin-bottom: 20px; }
 
   .profile_picture {
-    width: 250px; } }
+    width: 250px; }
+
+  .badge_list .badge_list_item .badge_description .bottom {
+    margin-top: 0.2em; } }
 .home_main {
   margin: auto;
   margin-top: 3em;

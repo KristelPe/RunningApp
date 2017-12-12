@@ -61,29 +61,41 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 90vw;
-  margin-bottom: 4em;
+  margin: auto;
   .badge_list_item{
-    width: 125px;
+    width: 90px;
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
     font-size:1em;
+margin:auto;
+    float: left;
     .badge_container{
-      height: 100%;
-      margin-bottom: 0.25em;
+      height: 150px;
+      margin-bottom: 0.5em;
+    }
+    .badge_text{
+      opacity:1;
     }
     .badge_title{
       margin-top: -0.5em;
       font-weight: bold;
-      font-size:1.25em;
+      font-size:1em;
+      margin-bottom:0.2em;
     }
     .badge_description{
-      border-top: 2px solid gainsboro;
-      margin-top: 0.5em;
-      padding-top: 0.5em;
-      color: rgb(197, 87, 99);
+      color: white;
+      position: absolute;
+      width:80%;
+ margin:auto;
+      left:0;
+      right:0;
+      padding: 1em;
+      background-color: rgb(197, 87, 99);
+      border-radius: 5px;
+
       .bottom{
         margin-top: 0.5em;
       }
@@ -106,5 +118,23 @@
   }
   .profile_picture{
     width:250px;
+  }
+  .badge_list{
+
+    .badge_list_item{
+
+      .badge_container{
+
+      }
+      .badge_title{
+
+      }
+      .badge_description{
+
+        .bottom{
+          margin-top: 0.2em;
+        }
+      }
+    }
   }
 }
