@@ -147,7 +147,7 @@ public static function updateBadges($userId){
             ++$level;
         }
 
-        DB::table('users')->where('id' ,'=',$userId)->update(['level' => $level]);
+        //DB::table('users')->where('id' ,'=',$userId)->update(['level' => $level]);
 
         return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 1)->update(['rank' => $lvl, 'unlock' =>$unlock, 'relevant_data' => $totalDistance]);}
 
