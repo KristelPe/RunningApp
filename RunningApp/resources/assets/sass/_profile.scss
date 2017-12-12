@@ -1,6 +1,7 @@
 .profile_content{
   display: table;
-  width: 90%;
+  width: 100%;
+  margin:auto;
 
 }
 
@@ -108,11 +109,19 @@ margin:auto;
     }
   }
 }
+.activities{
+  ul {
+    width:80%;
+    margin:auto;
+  }
+}
 .recent_activity{
   background-color: rgba(255,255,255,0.8);
   padding:5px;
-  margin-bottom:20px;
+width:80%;
+  margin-left:10%;
   border-radius:5px;
+
   p{
   font-size:0.8em;
     margin:3px;
@@ -161,9 +170,15 @@ h3{
         }
       }
     }
+    .activities{width:70%;
+      margin:auto;
+      ul {
+        width:200px;
+      }
+    }
     .recent_activity{
       background-color: rgba(255,255,255,0.8);
-      padding:5px;
+
       margin-bottom:20px;
       border-radius:5px;
       p{

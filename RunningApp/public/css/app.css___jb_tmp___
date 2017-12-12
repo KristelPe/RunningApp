@@ -96,8 +96,7 @@
     width: 25%; } }
 .profile_content {
   display: table;
-  width: 100%;
-  margin: auto; }
+  width: 100%; }
 
 .profile_header {
   margin-top: 20px;
@@ -183,15 +182,10 @@
       .badge_list .badge_list_item .badge_description .bottom {
         margin-top: 0.2em; }
 
-.activities ul {
-  width: 80%;
-  margin: auto; }
-
 .recent_activity {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 5px;
-  width: 80%;
-  margin-left: 10%;
+  margin-bottom: 20px;
   border-radius: 5px; }
   .recent_activity p {
     font-size: 0.8em;
@@ -231,13 +225,9 @@
         max-width: 500px; }
         .badge_list .badge_list_item .badge_description .bottom {
           margin-top: 0.2em; }
-    .badge_list .activities {
-      width: 70%;
-      margin: auto; }
-      .badge_list .activities ul {
-        width: 200px; }
     .badge_list .recent_activity {
       background-color: rgba(255, 255, 255, 0.8);
+      padding: 5px;
       margin-bottom: 20px;
       border-radius: 5px; }
       .badge_list .recent_activity p {
