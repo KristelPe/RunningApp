@@ -15,11 +15,12 @@
   line-height: 28px;
 }
 
+
 .profile_picture_layout{
-  max-width: 250px;
-  max-height: 250px;
-  min-width: 250px;
-  min-height: 250px;
+  max-width: 100px;
+  max-height: 100px;
+  min-width: 100px;
+  min-height: 100px;
   overflow: hidden;
   position: relative;
   border-radius: 10px;
@@ -30,7 +31,7 @@
 }
 
 .profile_picture{
-  width: 300px;
+  width: 100px;
 }
 
 .profile_stat_layout{
@@ -87,5 +88,23 @@
         margin-top: 0.5em;
       }
     }
+  }
+}
+@media only screen and (max-width: 300px) {
+  .profile_picture_layout{
+    max-width: 250px;
+    max-height: 250px;
+    min-width: 250px;
+    min-height: 250px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    background-position: center;
+    background-size:cover;
+    background-color: green;
+    margin-bottom: 20px;
+  }
+  .profile_picture{
+    width:250px;
   }
 }
