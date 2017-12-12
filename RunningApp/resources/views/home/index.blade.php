@@ -74,6 +74,8 @@
                     <p id="days"><b>{{ $fewDaysLeft }}</b> day left!</p>
                 @elseif($fewDaysLeft == 0)
                     <p id="days"><b>Today is the BIG day!</b></p>
+                    @else
+                    <p id="days"><b>{{$weeksLeft}}</b> weeks and <b>{{ $fewDaysLeft }}</b> days left!</p>
                 @endif
             </div>
         </div>
