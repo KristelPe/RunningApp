@@ -131,6 +131,9 @@ class Controller extends BaseController
             //hall of fame insert
 
 
+            $recentActs = Activity::latest('created_at')
+                ->take(5)
+                ->get();
 
 
 
@@ -140,7 +143,7 @@ class Controller extends BaseController
 
             $schedules = Schedule::all();
 
-            return view('home/index', ['numberOfWeeksStart'=>$numberOfWeeksStart,'fewDaysLeft'=>$fewDaysLeft,'weeksLeft'=>$weeksLeft,'goalWeek'=>$goalWeek,'goalThisWeek'=>$recomendedDistanceThisWeek,'schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays ,'recomendedDistance' => $recomendedDistance, 'recomendedDistanceToday' => $recomendedDistanceToday, 'goalToday' => $goalToday, 'days'=>$days, 'toRun'=>$toRun] );
+            return view('home/index', ['recentActs'=>$recentActs,'numberOfWeeksStart'=>$numberOfWeeksStart,'fewDaysLeft'=>$fewDaysLeft,'weeksLeft'=>$weeksLeft,'goalWeek'=>$goalWeek,'goalThisWeek'=>$recomendedDistanceThisWeek,'schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays ,'recomendedDistance' => $recomendedDistance, 'recomendedDistanceToday' => $recomendedDistanceToday, 'goalToday' => $goalToday, 'days'=>$days, 'toRun'=>$toRun] );
 
         }else{
             return view('home/index');

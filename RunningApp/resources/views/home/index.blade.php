@@ -80,6 +80,20 @@
             </div>
         </div>
 
+        <div>
+            <h1>What is everyone doing?</h1>
+            @foreach($recentActs as $act)
+
+
+
+                <a href="/parcours/{{$act->id}}">
+                    <h2>{{$act->name}}</h2>
+                    <h3>by {{$act->getUser->firstName}}</h3>
+                </a>
+
+                @endforeach
+        </div>
+
 
 
     @else
