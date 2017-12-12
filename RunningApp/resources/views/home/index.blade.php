@@ -84,11 +84,13 @@
 
     @else
         <div class="home_content">
-            <a href="/login">
+            <a href="/login" class="callToAction">
                 <div class="home_main_inner strava_login">
                     <h1><b>Login</b> met <b>Strava</b></h1>
                     <img src="https://assets.ifttt.com/images/channels/1055884022/icons/monochrome_large.png" alt="strava logo">
                 </div>
+                <h1>Bereid je voor op de 10 miles!</h1>
+                <h2>#WeAreRunners</h2>
             </a>
         </div>
     @endif
