@@ -45,6 +45,8 @@ class UsersController extends Controller
         $acts = Activity::where('athlete_id', $userId)->get();
         BadgesController::updateBadges($userId);
 
+
+
         return View::make('users/index', ['totalDistance' => $totalDistance, 'avgSpeed' => $avgSpeed, 'longestDistance' => $longestDistance, 'allActivity' => $acts], compact('badge'));
 
     }

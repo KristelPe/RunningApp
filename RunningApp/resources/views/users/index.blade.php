@@ -17,7 +17,7 @@
             <div class="profile_details">
                 <h1 class="usernameIndex">{{ Auth::user()->firstName }} {{ Auth::user()->lastName }}</h1>
                 <p class="level">Rookie Runner</p>
-                <p class="progress">lvl 3</p>
+                <p class="progress">Level: {{ Auth::user()->level }}</p>
             </div>
             <div class="recent_badges">
                 {{--@foreach(Auth::user()->getLatestBadge($userId) as $b)

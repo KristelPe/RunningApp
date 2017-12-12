@@ -25,7 +25,6 @@ public static function updateBadges($userId){
         BadgesController::flashBadge();
         BadgesController::supermanBadge();
         BadgesController::cyborgBadge();
-
     }
 
 
@@ -99,39 +98,56 @@ public static function updateBadges($userId){
     }
     public static function totalDistance($userId){
         $array = DB::table('activities')->where('athlete_id', $userId)->OrderBy('max_speed', 'desc')->get();
+
         $totalDistance=0;
         $decode = json_decode(json_encode($array), true);
         foreach ($decode as $dist){
             $totalDistance = $dist['distance'] + $totalDistance;
         }
+
+        $currentUserLevel = DB::table('users')->where('id' ,'=',$userId)->value('level');
+
+        $level = $currentUserLevel;
+
         if ($totalDistance<500) {
             $lvl=500;
             $unlock = 1000;
+            ++$level;
         }else if($totalDistance<=1000){
             $lvl=1000;
             $unlock = 5000;
+            ++$level;
         }else if($totalDistance<=5000){
             $lvl=5000;
             $unlock =10000 ;
+            ++$level;
         }else if($totalDistance<=10000){
             $lvl=10000;
             $unlock = 20000;
+            ++$level;
         }else if($totalDistance<=20000){
             $lvl=20000;
             $unlock = 30000;
+            ++$level;
         }else if($totalDistance<=30000){
             $lvl=30000;
             $unlock = 40000;
+            ++$level;
         }else if($totalDistance<=40000){
             $lvl=40000;
             $unlock =40000 ;
+            ++$level;
         }else if($totalDistance<=50000){
             $lvl=50000;
             $unlock = 50000;
+            ++$level;
         }else{
             $lvl=60000;
             $unlock = 60000;
+            ++$level;
         }
+
+        DB::table('users')->where('id' ,'=',$userId)->update(['level' => $level]);
 
         return DB::table('hasBadge')->where('user_id','=', $userId)->where('badge_id', '=', 1)->update(['rank' => $lvl, 'unlock' =>$unlock, 'relevant_data' => $totalDistance]);}
 
