@@ -22,7 +22,9 @@ class AdminController extends Controller
         if(Input::get('code') == 'IAmRoot'){
             $newAdmin = User::where('id',Input::get('userId'))->first();
 
+            $newAdmin->admin = true;
 
+            $newAdmin->save();
 
 
             return redirect('/');
