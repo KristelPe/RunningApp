@@ -70,9 +70,9 @@
                 <p id="days"><b>{{$weeksLeft}} week and {{ $fewDaysLeft }}</b> days left!</p>
                     @elseif($weeksLeft == 0 && $fewDaysLeft > 1)
                     <p id="days"><b>{{ $fewDaysLeft }}</b> days left!</p>
-                    @elseif($fewDaysleft == 1)
+                    @elseif($fewDaysLeft == 1)
                     <p id="days"><b>{{ $fewDaysLeft }}</b> day left!</p>
-                @elseif($fewDaysleft == 0)
+                @elseif($fewDaysLeft == 0)
                     <p id="days"><b>Today is the BIG day!</b></p>
                 @endif
             </div>
