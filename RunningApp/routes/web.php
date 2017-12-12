@@ -24,12 +24,6 @@ Route::get('/login', 'StravaController@login');
 
 Route::get('/login/callback', 'StravaController@callback');
 
-/* LOG OUT */
-Route::get('/logout', 'StravaController@logout');
-
-/* Leaderboard */
-Route::get('leaderboard', 'LeaderboardController@index');
-
 /*Hall Of Fame */
 Route::get('halloffame', 'HallOfFameController@index');
 
@@ -47,6 +41,12 @@ Route::middleware('isAuthenticated')->group(function () {
 
     /*ADMIN*/
     Route::post('/makeadmin', 'AdminController@makeAdmin');
+
+    /* LOG OUT */
+    Route::get('/logout', 'StravaController@logout');
+
+    /* Leaderboard */
+    Route::get('leaderboard', 'LeaderboardController@index');
 });
 
 /* ADMIN */
