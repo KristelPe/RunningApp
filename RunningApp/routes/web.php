@@ -33,7 +33,7 @@ Route::get('leaderboard', 'LeaderboardController@index');
 /*Hall Of Fame */
 Route::get('halloffame', 'HallOfFameController@index');
 
-Route::middleware('RedirectIfNotAuthenticated')->group(function () {
+Route::middleware('isAuthenticated')->group(function () {
     /* PARKOUR */
     route::get('parcours', 'ParkoursController@index');
     Route::get('/parcours/{id}', 'ParkoursController@detail');
