@@ -15,13 +15,13 @@ class CreateLeaderboardsTable extends Migration
     {
         Schema::create('leaderboards', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('max_speed');
-            $table->integer('run_count');
-            $table->integer('total_distance');
-            $table->integer('total_time');
-            $table->integer('avg_speed');
-            $table->integer('avg_distance');
+            $table->integer('user_id')->nullable();
+            $table->integer('max_speed')->nullable();
+            $table->integer('run_count')->nullable();
+            $table->integer('total_distance')->nullable();
+            $table->integer('total_time')->nullable();
+            $table->integer('avg_speed')->nullable();
+            $table->integer('avg_distance')->nullable();
             $table->timestamps();
         });
     }
