@@ -95,7 +95,7 @@
     </div>
 
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-    <script type="text/javascript" src="https://maps.google.com/maps/api/js?libraries=geometry&amp;sensor=false"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAG9eNi9XWvuWL24MXNUEaQXIPOv6muLMk&amp;libraries=geometry&amp;sensor=false"></script>
     <script src="/js/mapAll.js"></script>
     <script src="/js/switch_effect.js" type="text/javascript" charset="utf-8"></script>
 
