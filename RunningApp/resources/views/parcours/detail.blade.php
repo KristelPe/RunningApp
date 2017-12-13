@@ -17,6 +17,7 @@
                     <h1>{{$a->name}}</h1>
                     <p><b>Distance:</b> {{$a->distance}}m</p>
                     <p><b>Elevation:</b> <b>+ </b>{{$a->elev_high}}m, <b>- </b>{{$a->elev_low}}m</p>
+                    <p><b>Runner:</b> {{$a->getUser->firstName}} {{$a->getUser->lastName}} </p>
                 </div>
             </div>
 

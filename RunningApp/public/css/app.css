@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+.detail_info {
+  line-height: 28px; }
+
 .parcour_segment {
   display: flex;
   flex-direction: row; }
