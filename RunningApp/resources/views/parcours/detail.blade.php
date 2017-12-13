@@ -24,7 +24,7 @@
 
     </div>
 
-
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=geometry&amp;sensor=false"></script>
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyAG9eNi9XWvuWL24MXNUEaQXIPOv6muLMk&amp;libraries=geometry&amp;sensor=false"></script>
     <script type="text/javascript" src="/js/map.js"></script>
+
 @endsection

@@ -15,12 +15,13 @@ function initialize() {
         bounds.extend(latlng);
     }
 
+
     var center = bounds.getCenter();
 
     var myOptions = {
         zoom: 14,
         center: new google.maps.LatLng(center.lat(), center.lng()),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
     };
 
     var map = new google.maps.Map(document.getElementById("map"), myOptions);

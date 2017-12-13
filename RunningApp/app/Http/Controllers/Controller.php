@@ -101,7 +101,6 @@ class Controller extends BaseController
             $recomendedDistanceToday = round(ScheduleController::CalculateGoalToday($numberOfDays, $endGoal), 1);
             $recomendedDistanceThisWeek = round(ScheduleController::CalculateGoalWeek($numberOfDays, $endGoal), 1);
 
-
             $days = (($created->diff($endDateV))->days)-$numberOfDays;
             $goalToday = $recomendedDistanceToday - $runDistance;
             $goalWeek = $recomendedDistanceThisWeek - $runDistanceWeek;
@@ -110,6 +109,13 @@ class Controller extends BaseController
                 $goalToday = 0;
                 }else{
                 $toRun = 100-(($runDistance/$recomendedDistanceToday)*100);
+            }
+
+            if($runDistance >= $recomendedDistanceThisWeek){
+                $toRun2 = 0;
+                $goalWeek = 0;
+            }else{
+                $toRun2 = 100-(($runDistance/$goalWeek)*100);
             }
 
             if($goalWeek <= 0){
@@ -122,8 +128,6 @@ class Controller extends BaseController
                 $goalWeek = 0;
             }else{
                 Halloffames::where('userId', $userId)->delete();
-
-
             }
 
 
@@ -143,7 +147,7 @@ class Controller extends BaseController
 
             $schedules = Schedule::all();
 
-            return view('home/index', ['recentActs'=>$recentActs,'numberOfWeeksStart'=>$numberOfWeeksStart,'fewDaysLeft'=>$fewDaysLeft,'weeksLeft'=>$weeksLeft,'goalWeek'=>$goalWeek,'goalThisWeek'=>$recomendedDistanceThisWeek,'schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays ,'recomendedDistance' => $recomendedDistance, 'recomendedDistanceToday' => $recomendedDistanceToday, 'goalToday' => $goalToday, 'days'=>$days, 'toRun'=>$toRun] );
+            return view('home/index', ['recentActs'=>$recentActs,'numberOfWeeksStart'=>$numberOfWeeksStart,'fewDaysLeft'=>$fewDaysLeft,'weeksLeft'=>$weeksLeft,'goalWeek'=>$goalWeek,'goalThisWeek'=>$recomendedDistanceThisWeek,'schedules' => $schedules, 'runDistance'=>$runDistance, 'daysLeft' => $numberOfDays ,'recomendedDistance' => $recomendedDistance, 'recomendedDistanceToday' => $recomendedDistanceToday, 'goalToday' => $goalToday, 'days'=>$days, 'toRun'=>$toRun, 'toRun2'=>$toRun2] );
 
         }else{
             return view('home/index');
