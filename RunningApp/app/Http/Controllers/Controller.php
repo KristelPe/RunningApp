@@ -33,7 +33,7 @@ class Controller extends BaseController
 
             //Zet user in de leaderboards
 
-            $inLeaderboard = Leaderboard::where('user_id', $userId)->first();
+            /*$inLeaderboard = Leaderboard::where('user_id', $userId)->first();
             $timesUpdated = $inLeaderboard['run_count'];
             $countActs = Activity::where('athlete_id', $userId)->get();
             $countAct = count($countActs);
@@ -43,7 +43,7 @@ class Controller extends BaseController
             else if($countAct>$timesUpdated){
                 //enkel updaten wanneer er een nieuwe activity geupload werd
                 LeaderboardController::updateInLeaderboard($userId);
-            }
+            }*/
 
             $runDistance = 0;
             $runDistanceWeek = 0;

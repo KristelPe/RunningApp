@@ -7,6 +7,7 @@
     cd RunningApp/
     composer update
     php artisan migrate:fresh --seed
+
 @endtask
 
 @task('deploy-production', ['on' => 'web'])
