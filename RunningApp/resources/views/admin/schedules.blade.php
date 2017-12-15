@@ -34,7 +34,7 @@
 
                     <li>
 
-                        <div class="recent_activity">
+                        <div>
 
                             <h3>{{ $s->name }}</h3>
 

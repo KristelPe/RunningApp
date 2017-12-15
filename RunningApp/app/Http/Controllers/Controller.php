@@ -111,12 +111,16 @@ class Controller extends BaseController
                 $toRun = 100-(($runDistance/$recomendedDistanceToday)*100);
             }
 
-            if($runDistance >= $recomendedDistanceThisWeek){
+            if($runDistanceWeek >= $recomendedDistanceThisWeek){
                 $toRun2 = 0;
                 $goalWeek = 0;
             }else{
-                $toRun2 = 100-(($runDistance/$goalWeek)*100);
+                $toRun2 = 100-(($runDistanceWeek/$recomendedDistanceThisWeek)*100);
             }
+
+            //$run = [$runDistanceWeek, $recomendedDistanceThisWeek, $toRun2];
+
+            //dd($run);
 
             if($goalWeek <= 0){
                 $current_time = Carbon::now()->toDateTimeString();
