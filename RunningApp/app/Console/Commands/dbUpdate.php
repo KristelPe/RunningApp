@@ -52,14 +52,30 @@ class dbUpdate extends Command
 
                 if (Activity::where('id', '=', $act['id'])->exists()) {
                 }else {
-                    if (strpos($_SERVER['REQUEST_URI'], 'beta') || !$act['manual'] && $act != null && $act['distance'] < 25000 && $act['max_speed'] < 25 && $act['moving_time'] < 9000) {
+                    if (env("BETA", 0) == 1 || !$act['manual'] && $act != null && $act['distance'] < 25000 && $act['max_speed'] < 25 && $act['moving_time'] < 9000) {
                         $athlete = (array)$act['athlete'];
 
                         $act['start_date_local'] = preg_replace('/[^0-9.]+/', '', $act['start_date_local']);
                         $act['start_date_local'] = substr($act['start_date_local'], 0, 4) . "-" . substr($act['start_date_local'], 4, 2) . "-" . substr($act['start_date_local'], 6, 2);
 
 
+                        if($act['manual']){
+                            $elevHigh = 0;
+                        }else{
+                            $elevHigh = $act['elev_high'];
+                        }
 
+                        if($act['manual']){
+                            $elevLow = 0;
+                        }else{
+                            $elevLow = $act['elev_low'];
+                        }
+
+                        if($act['manual']){
+                            $poly = 0;
+                        }else{
+                            $poly = $act['map']->summary_polyline;
+                        }
 
                         $newActivity = Activity::create([
                             'id' => $act['id'],
@@ -73,9 +89,9 @@ class dbUpdate extends Command
                             'moving_time' => $act['moving_time'],
                             'elapsed_time' => $act['elapsed_time'],
                             'kudos_count' => $act['kudos_count'],
-                            'map_polyline' => $act['map']->summary_polyline,
-                            'elev_high' => $act['elev_high'],
-                            'elev_low' => $act['elev_low'],
+                            'map_polyline' => $poly,
+                            'elev_high' => $elevHigh,
+                            'elev_low' => $elevLow,
                         ]);
 
                         $newActivity->save();
