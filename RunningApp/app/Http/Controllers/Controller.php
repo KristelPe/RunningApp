@@ -52,6 +52,9 @@ class Controller extends BaseController
 
             $endDate = Schedule::where('id', $followingSchedule)->get();
 
+            $endDateV = new \DateTime(date("Y-m-d"));
+            $startDate = new \DateTime(date("Y-m-d"));
+            $endGoal = 0;
             foreach ($endDate as $e) {
                 $endDateV = new \DateTime($e->endDate);
                 $endGoal = $e->endGoal;
