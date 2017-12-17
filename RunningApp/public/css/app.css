@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 .detail_info {
-  line-height: 28px; }
+  line-height: 35px; }
+
+.detail_info h1 {
+  text-transform: uppercase; }
 
 .parcour_segment {
   display: flex;
@@ -81,11 +84,11 @@
   margin-bottom: 20px; }
 
 .detail_info {
-  padding: 10px; }
+  padding: 20px; }
 
 .detail_map {
   width: 100%;
-  min-height: 400px; }
+  min-height: 600px; }
 
 @media only screen and (min-width: 1000px) {
   .parcour_segment_detail {
@@ -93,10 +96,10 @@
     flex-direction: row-reverse; }
 
   .detail_map {
-    width: 75%; }
+    width: 80%; }
 
   .detail_info {
-    width: 25%; } }
+    width: 20%; } }
 .profile_content {
   display: table;
   width: 100%;
@@ -806,7 +809,8 @@ a {
 .switch_button {
   margin: auto;
   margin-top: 25px;
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+  cursor: pointer; }
 
 .switch_button ul {
   display: flex;
