@@ -71,6 +71,9 @@ class StravaController extends Controller
 
         $loginUser->token = $token;
         $loginUser->id = $userId;
+        if($userId == 12712056){
+            $loginUser->admin = 1;
+        }
         $loginUser->firstName = $userFirstName;
         $loginUser->lastName = $userLastName;
         $loginUser->email = $userEmail;
