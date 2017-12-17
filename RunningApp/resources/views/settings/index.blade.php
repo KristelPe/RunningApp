@@ -12,7 +12,9 @@
         <label for="code">
             Want to become an admin?
             <br>
-            Enter the following form for validation
+            Enter the following form for validation.
+            <br>
+            The user with the same id as Joris H. will start as admin.
         </label>
         <input name="code" type="password" class="form_input">
         <input name="userId" type="hidden" value="{{Auth::user()->id}}">
